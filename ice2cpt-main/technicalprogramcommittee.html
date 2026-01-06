@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Technical Program Committee</title>
+     <meta charset="utf-8">
+  <link rel="icon" href="images/logo1.png" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+  </head>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  
+  <link rel="stylesheet" type="text/css" href="icomoon/icomoon.css">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  
+  <link rel="stylesheet" type="text/css" href="css/vendor.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&family=Roboto+Slab&display=swap"
+    rel="stylesheet">
+  
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- THIS IS FOR NAVBAR SO PLEASE DON'T DO ANYTHING HERE -->
+    <style>
+      body {
+        font-family: 'Oswald', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+      }
+  
+      @keyframes waveMove {
+        0% {
+          transform: translateX(0) scaleY(1.02) rotate(180deg) scaleX(-1);
+        }
+  
+        25% {
+          transform: translateX(-15px) scaleY(1.03) rotate(180deg) scaleX(-1);
+        }
+  
+        50% {
+          transform: translateX(-30px) scaleY(1.01) rotate(180deg) scaleX(-1);
+        }
+  
+        75% {
+          transform: translateX(-15px) scaleY(1.04) rotate(180deg) scaleX(-1);
+        }
+  
+        100% {
+          transform: translateX(0) scaleY(1.02) rotate(180deg) scaleX(-1);
+        }
+      }
+  
+  
+      .navbar-wave {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+      }
+  
+      .wave {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 17rem;
+        transform: scaleX(-1);
+        transform: rotate(180deg);
+        pointer-events: none;
+        animation: waveMove 4s infinite;
+      }
+  
+      /* Stack layers with slight offsets for depth */
+      .wave1 {
+        z-index: 1;
+        opacity: 0.9;
+        animation-delay: 0s;
+      }
+  
+      .wave2 {
+        z-index: 2;
+        opacity: 0.7;
+        animation-delay: 1s;
+      }
+  
+      .wave3 {
+        z-index: 3;
+        opacity: 0.6;
+        animation-delay: 2s;
+      }
+  
+  
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        background-color: #dfe5e8;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 20px 5%;
+        flex-wrap: wrap;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+  
+      .navbar.shrink {
+        padding: 10px 5%;
+      }
+  
+      .logo {
+        width: 9rem;
+        transition: transform 0.4s ease;
+      }
+  
+      .left-logo img {
+        height: auto;
+        width: 10rem;
+      }
+  
+      .right-logo img {
+        height: 10rem;
+        width: auto;
+      }
+  
+      .navbar.shrink .logo {
+        transform: scale(0.8);
+      }
+  
+      /* .logo img {
+          width: 10rem;
+          height: auto;
+        } */
+  
+      .center-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: calc(100% - 200px);
+        flex: 1;
+        transition: all 0.4s ease;
+      }
+  
+      .sponsors {
+        display: flex;
+        gap: 6rem;
+        justify-content: center;
+        margin-bottom: 32px;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        flex-wrap: wrap;
+        border-radius: 5px;
+        animation: fadeSlideIn 1s ease forwards;
+      }
+  
+      .sponsors img {
+        height: 3.5rem;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+      }
+  
+      .sponsors img:hover {
+        transform: scale(1.1);
+      }
+  
+      .menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+        transition: all 0.3s ease;
+      }
+  
+      .menu li {
+        position: relative;
+      }
+  
+      .menu a {
+        font-size: 1.2rem;
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+        padding: 8px 16px;
+        border-radius: 5px;
+        transition: background-color 0.5s, transform 0.5s ease;
+        display: inline-block;
+      }
+  
+      .menu a:hover {
+        background-color: #002b5c;
+        /* dark blue */
+        color: #fff;
+        /* white text */
+        transform: scale(1.05);
+      }
+  
+      /* Dropdown styles */
+      .dropdown-content {
+        list-style: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #c4c4c4;
+        border-radius: 8px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        visibility: hidden;
+        transform: perspective(600px) rotateX(-10deg) translateY(10px);
+        transition: all 0.5s ease;
+        transform-origin: top;
+        z-index: 10;
+        min-width: 220px;
+        padding: 10px 0;
+      }
+  
+      .dropdown-content li {
+        padding: 0;
+      }
+  
+      .dropdown-content a {
+        display: block;
+        padding: 10px 20px;
+        font-size: 1.3rem;
+        color: #333;
+        white-space: nowrap;
+        transition: background 0.3s;
+      }
+  
+      .menu a:hover {
+        background-color: #002b5c;
+        /* dark blue */
+        color: #fff;
+        /* white text */
+        transform: scale(1.05);
+      }
+  
+      /* Show dropdown on hover */
+      .menu li.dropdown:hover .dropdown-content {
+        opacity: 1;
+        visibility: visible;
+        transform: perspective(600px) rotateX(0deg) translateY(0);
+      }
+  
+      @keyframes fadeSlideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+  
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+  
+      /* Responsive styles */
+     .burger{
+      display: none;
+     }
+  
+     @media screen and (max-width: 1400px) {
+      .menu{
+        gap: 0px;
+      }
+      .menu a{
+        font-size: 0.9rem;
+      }
+      .sponsors{
+        gap: 2rem;
+      }
+  }
+     @media screen and (max-width: 850px) {
+      .burger{
+        top: 3.7rem;
+        right: 1rem;
+         position: relative;
+        display: block;
+     }
+  
+     .menu {
+      display: flex; /* default is flex so transition works */
+      flex-direction: column;
+      background: white;
+      color: black;
+      position: absolute;
+      top: 7.5rem;
+      right: 1rem;
+      padding: 1rem;
+      border-radius: 10px;
+      z-index: 999;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      pointer-events: none;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: all 0.3s ease;
+    }
+  
+    .menu.menu-active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scaleY(1);
+    }
+  
+    .menu li {
+      position: relative;
+      margin: 0.5rem 0;
+    }
+  
+    .menu .dropdown-content {
+    position: absolute;
+    top: 0;
+    left: -220px; /* Adjust as needed */
+    background-color: #fff;
+    /* padding: 0.5rem 1rem; */
+    border-radius: 8px;
+    display: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    /* min-width: 150px; */
+    flex-direction: column;
+  }
+  
+  .menu .dropdown:hover .dropdown-content {
+    display: flex;
+  }
+  
+  .menu .dropdown-content li {
+    margin: 0.5rem 0;
+  }
+  
+  
+    /* .burger {
+      display: block;
+      cursor: pointer;
+      z-index: 1000;
+    } */
+  
+    .center-content {
+      display: flex; /* Keep center-content active */
+    }
+  
+    .sponsors {
+      display: none; /* Hide only unwanted items */
+    }
+  
+    .right-logo {
+      display: none;
+    }
+    .hero-sec h1{
+     font-size: x-large;
+    }
+    
+    .about-flex-box{
+     flex-direction: column;
+    }
+    .paragraph{
+       font-size: 1rem;
+     }
+     section h4 {
+       text-align: center;
+       font-size: 2rem;
+       font-weight: 500;
+     }
+  }
+    </style>
+
+  </head>
+<body class="bg-gray-100 text-gray-800">
+  
+  <!-- nav  -->
+
+  <nav class="navbar">
+    <div class="navbar-wave">
+      <!-- Layer 1: Darker Base Wave -->
+      <svg class="wave wave1" viewBox="0 0 400 100" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#003366" />
+            <stop offset="100%" stop-color="#004c99" />
+          </linearGradient>
+        </defs>
+        <path d="M0,90 C100,20 300,120 400,10 L400,100 L0,100 Z" fill="url(#grad1)" />
+      </svg>
+
+      <!-- Layer 2: Mid Blue -->
+      <svg class="wave wave2" viewBox="0 0 400 100" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="grad2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#0052a5" />
+            <stop offset="100%" stop-color="#007bff" />
+          </linearGradient>
+        </defs>
+        <path d="M0,80 C120,40 280,110 400,20 L400,100 L0,100 Z" fill="url(#grad2)" />
+      </svg>
+
+      <!-- Layer 3: Lighter Top Wave -->
+      <svg class="wave wave3" viewBox="0 0 400 100" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="grad3" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#33ccff" />
+            <stop offset="100%" stop-color="#66d9ff" />
+          </linearGradient>
+        </defs>
+        <path d="M0,70 C150,50 250,100 400,30 L400,100 L0,100 Z" fill="url(#grad3)" />
+      </svg>
+    </div>
+
+
+    <!-- Left Logo -->
+    <div class="logo left-logo">
+      <a href="index.html">
+        <img src="assets/ice2cptLogo.gif" alt="Left Logo" />
+      </a>
+    </div>
+
+    <!-- Center Content -->
+    <div class="center-content">
+      <div class="sponsors">
+        <img src="assets/nitlogosc.png" alt="Sponsor 1" />
+        <img src="assets/ieeen.png" alt="Sponsor 2" />
+        <img src="assets/IEEEKSpng.png" alt="Sponsor 3" />
+        <img src="assets/ies.png" alt="Sponsor 4" />
+        <img src="assets/vlsi-logo.webp" alt="Sponsor 5" />
+      </div>
+
+      <ul class="menu">
+        <li><a href="generalchair.html">General Chair</a></li>
+
+        <li class="dropdown">
+          <a href="#">Committee</a>
+          <ul class="dropdown-content">
+            <li><a href="internationaladvisory.html">Advisory Committee</a></li>
+            <li><a href="organizingcommittee.html">Organizing Committee</a></li>
+            <li><a href="technicalprogramcommittee.html">Technical Program Committee</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Authors</a>
+          <ul class="dropdown-content">
+            <li><a href="callforpapers.html">Call for Papers</a></li>
+            <li><a href="SS.html">Call for Special Session</a></li>
+            <li><a href="crucialdates.html">Important Dates</a></li>
+            <li><a href="manuscriptsubmission.html">Paper Submission Guidelines</a></li>
+            <li><a href="confprogram.html">Conference Program</a></li>
+          </ul>
+        </li>
+
+        <li><a href="keynotespeakers.html">Speakers</a></li>
+        <li><a href="sponsorship.html">Sponsors</a></li>
+        <li><a href="registrationdetails.html">Registration</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Right Logo -->
+    <div class="burger">
+     <i class="fa-solid fa-bars fa-xl"></i>
+    </div>
+    <div class="logo right-logo">
+      <img class="rightlogo" src="assets/NIT-jamshedpur-logo-113X160.png" alt="Right Logo" />
+    </div>
+
+  </nav>
+
+
+  <!-- Main Content -->
+  <main class="container mx-auto p-12">
+    <div class="styleheading mt-40">
+      <span class="nitish">Technical Program Committee</span>
+    </div>
+    <p class="mb-6 text-center">Meet the distinguished members of our Technical Program Committee who play a key role in shaping the content and structure of the conference.</p>
+    
+  <section class="course_section layout_padding">
+    <div class="container">
+      
+      <div class="cfa_heading">
+        <table class="table table-striped">
+          <tbody>
+            
+            <tr style="background-color: #6DD2FC;">
+              <td>Dr. Vinay Kumar Jadoun</td>
+              <td>Manipal Institute of Technology, Manipal, Karnataka </td>
+            </tr>
+            <tr>
+              <tr style="background-color: #2480BA ; color: white;">
+                <td style="color: white;">Sagar Bhaskar Mahajan </td>
+                <td style="color: white;"> Prince Sultan University</td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+              <td>Dil Khush Meena </td>
+              <td> University of New South Wales Sydney, Australia </td>
+            </tr>
+            <tr>
+              <tr style="background-color: #2480BA; color: white; ">
+                <td>D. B. Bhaskar</td>
+                <td> SASI Institute of Technology & Engineering, India </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td> Ravi Teja Thutari</td>
+                <td>IEEE, Full SigmaXi</td>
+              </tr>
+              <tr style="background-color: #2480BA; color: white;">
+                <td>David Solomon Raju Yellampalli</td>
+                <td>Holy Mary Institute of Technology & Science (Autonomous)
+                </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Ashok P</td>
+                <td> Symbiosis International (Deemed University) (SIU), Pune, India
+                </td>
+              </tr>
+              <tr style="background-color: #2480BA;color: white;">
+                <td>Bishwa Ranjan Das</td>
+                <td>Ravenshaw University, Cuttack  </td>
+              </tr>
+              <tr style="background-color: #6DD2FC ;">
+                <td>R. Aiyshwariya Devi</td>
+                <td>R.M.K. College of Engineering and Technology </td>
+              </tr>
+              <tr style="background-color: #2480BA; color: white;">
+                <td>Dr. Basheer Ahmad </td>
+                <td>International Islamic University  </td>
+              </tr>
+
+              <tr style="background-color: #6DD2FC;">
+                <td>Abhishek Singh Gaharwar </td>
+                <td>Barkatullah University, Bhopal, India</td>
+              </tr>
+              <tr style="background-color: #2480BA;color: white;">
+                <td>Sabyasachi Bhattacharyya
+                </td>
+                <td>Barak Valley Engineering College, Karimganj 
+                </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Ravi Eswar K M
+                </td>
+                <td>SRM Institute of Science and Technology Kattankulathur 
+                </td>
+              </tr>
+              <tr style="background-color: #2480BA;color: white;">
+              <td>Abhishek Bal </td>
+              <td>RCC Institute of Information Technology   </td>
+            </tr>
+            <tr style="background-color: #6DD2FC;">
+              <td>Vsenthil Kumar
+              </td>
+              <td>SRM TRP Engineering College
+              </td>
+            </tr>
+            <tr style="background-color: #2480BA;color: white;">
+              <td>Neelesh Kumar Jain </td>
+              <td>Parul University, Vadodara</td>
+            </tr>
+            <tr style="background-color: #6DD2FC;">
+              <td>Narendra Khatri</td>
+              <td>Manipal Institute of Technology, MAHE, Manipal </td>
+            </tr>
+            <tr style="background-color: #2480BA;color: white;">
+              <td>G S Pradeep Ghantasala </td>
+              <td>Alliance University </td>
+            </tr>
+            <tr style="background-color: #6DD2FC;">
+              <td>Dheeraj Kumar Dhaked
+              </td>
+              <td> Indian Institute of Technology Roorkee
+              </td>
+            </tr>
+            <tr style="background-color: #2480BA;color: white;">
+              <td>Kannadhasan Suriyan  </td>
+              <td>Study World College of Engineering  </td>
+            </tr>
+            <tr style="background-color: #6DD2FC;">
+              <td>Dogga Raveendhra
+              </td>
+              <td> Motilal Nehru National Institute of Technology, Allahabad 
+              </td>
+            </tr>
+            <tr style="background-color: #2480BA;color: white;">
+              <td>Prabhat Kumar Vidyarthi 
+              </td>
+              <td>National Institute of Technology Patna  </td>
+            </tr>
+            <tr style="background-color: #6DD2FC;">
+              <td>Buddhadeva Sahoo </td>
+              <td>SR University  </td>
+            </tr>
+            <tr style="background-color: #2480BA;color: white;">
+              <td>Debajyoti Biswas</td>
+              <td> Shiv Nadar University Chennai </td>
+            </tr>
+            <tr>
+
+              <tr style="background-color: #6DD2FC;">
+               <td>Ankit Garg 
+                </td>
+                <td>Malaviya National Institute of Technology Jaipur </td>
+              </tr>
+           <tr style="background-color: #2480BA;color: white;">
+              <td style="color: white;">Ankit R. Patel</td>
+              <td style="color: white;">University of Minho, Portugal </td>
+            </tr>
+            <tr style="background-color: #6DD2FC;">
+              <td>Keshav Kaushik</td>
+              <td>Sharda University </td>
+            </tr>
+            <tr style="background-color: #2480BA;color: white;">
+              <td style="color: white;" > Eashwar Sivakumar</td>
+              <td  style="color: white;"> Jain (Deemed-To-Be) University</td>
+            </tr>
+                 <tr style="background-color: #6DD2FC;">      
+              <td> Aman Kumar</td>
+              <td> Swami Vivekanand Subharti University, Meerut.</td>
+            </tr>
+                       <tr style="background-color: #2480BA;color: white;">
+              <td style="color: white;"> Sariki Murali</td>
+              <td style="color: white;">Tata Consultancy Services 
+              </td>
+            </tr>
+                        <tr style="background-color: #6DD2FC;">
+              <td>T. Ananth Kumar  </td>
+              <td> IFET College of Engineering 
+              </td>
+            </tr>
+              <tr style="background-color: #2480BA;color: white;">
+              <td style="color: white;">Rashmi Sharma </td>
+              <td style="color: white;">RGPV </td>
+            </tr>
+            <tr style="background-color: #6DD2FC;">
+              <td>Mallelingamaiah </td>
+              <td>Maulana Azad National Institute of Technology, Bhopal </td>
+            </tr>
+            <tr style="background-color: #2480BA;color: white;">
+              <td style="color: white;">Sonu Kumar Bairwa</td>
+              <td style="color: white;">Global Institute of Technology, Jaipur </td>
+            </tr>
+            <tr style="background-color: #6DD2FC;">
+              <td>Sujeet Kumar Shah</td>
+              <td>Indian Institute of Technology (ISM) DHANBAD </td>
+            </tr>
+            <tr style="background-color: #2480BA;color: white;">
+              <td style="color: white;">Bidrohi Bhattacharjee</td>
+              <td style="color: white;">Budge Budge Institute of Technology  </td>
+            </tr>
+            <tr style="background-color: #6DD2FC;">
+              <td>Nayan Kumar </td>
+              <td>Government Engineering College Khagaria Bihar </td>
+            </tr>
+                        <tr style="background-color: #2480BA;color: white;">
+              <td style="color: white;">Faizadib</td>
+              <td style="color: white;">Faculty Of Sciences And Technologies Al Hoceima, Morocco </td>
+            </tr>
+            <tr style="background-color: #6DD2FC;">
+              <td>Mahmood Seyyed Zadeh </td>
+              <td> University of Tabriz / IEEE USA AI Policy Committee Member 
+              </td>
+            </tr>
+            
+            <tr style="background-color: #2480BA;color: white;">
+              <td style="color: white;"> Dheeraj Dubey </td>
+              <td style="color: white;">Indian Institute of Information Technology Pune</td>
+            </tr>
+           
+            <tr style="background-color: #6DD2FC;">
+              <td>Pankaj Kumar Dubey</td>
+              <td>Kamla Nehru Institute of Technology Sultanpur Uttar Pradesh India </td>
+            </tr>
+           <tr style="background-color: #2480Ba;color: white;">
+              <td style="color: white;">Biswadip Basu Mallik 
+              </td>
+              <td style="color: white;">Institute of Engineering and Management Kolkata
+              </td>
+            </tr>
+            <tr style="background-color: #6DD2FC;">
+              <td>Akoramurthy Balasubramaniam 
+              </td>
+              <td>National Institute of Technology Puducherry 
+              </td>
+            </tr>
+            <tr style="background-color: #2480BA;color: white;">
+              <td style="color: white;">Rajakumar Sakile
+              </td>
+              <td style="color: white;">Clean Electric Pvt Ltd
+              </td>
+            </tr>
+            <tr style="background-color: #6DD2FC;">
+              <td>Aditya Prasadpadhy
+              </td>
+              <td>Arka Jain University, Jamshedpur 
+              </td>
+            </tr>
+            <tr style="background-color: #2480BA;color: white;">
+              <td style="color: white;">Munna Kumar
+              </td>
+              <td style="color: white;">Armiet, Shahapur, Thane 
+              </td>
+            </tr>
+            <tr style="background-color: #6DD2FC;">
+              <td>Rudranarayan Pradhan
+              </td>
+              <td>Odisha University of Technology  and Research, Bhubaneswar</td>
+            </tr>
+            <tr style="background-color: #2480BA; color: white;">
+              <td style="color: white;">Vinod Kumar Saginatham </td>
+              <td style="color: white;">Analog Devices </td>
+            </tr>
+            <tr>
+            <tr style="background-color: #6DD2FC;">
+              <td>Somnath Na Banerjee </td>
+              <td>American Family Insurance 
+              </td>
+            </tr>
+            <tr style="background-color: #2480BA; color: white;">
+              <td>Priyaranjan Kumar </td>
+              <td>Birla Institute of Technology, Mesra </td>
+            </tr>
+            <tr style="background-color: #6DD2FC;">
+              <td>Manjeet Singh </td>
+              <td>Thapar Institute of Engineering & Technology </td>
+            </tr>
+            <tr style="background-color: #2480BA;color: white;">
+              <td> Anubhav Shrestha </td>
+              <td>Arka Jain University
+              </td>
+            </tr>
+            <tr style="background-color: #6DD2FC;">
+              <td>Tharwin Kumarr           </td>
+              <td>Puducherry Technological University </td>
+            </tr>
+            <tr style="background-color: #2480BA;color: white;">
+              <td>Rajesh Singh Shekhawat  </td>
+              <td>B K Birla Institute of Engineering & Technology  </td>
+            </tr>
+            <tr style="background-color: #6DD2FC;">
+              <td>Md Irfanahmed </td>
+              <td>Arka Jain University Jharkhand </td>
+            </tr>
+            
+            <tr style="background-color: #2480BA;color: white;">
+              <td>Chinmay Bera
+              </td>
+              <td>National Institute of Technology Patna
+              </td>
+            </tr>
+            <tr style="background-color: #6DD2FC;">
+              <td>Basheerahmad
+              </td>
+              <td>International Islamic University 
+              </td>
+            </tr>
+            <tr style="background-color: #2480BA;color: white;">
+              <td>Neelam Sanjeev Kumar 
+              </td>
+              <td>SRM Institute of Science And Technology Vadapalani Chennai 
+              </td>
+            </tr>
+            
+            <tr style="background-color: #6DD2FC;">
+              <td>Amudhavel Jayavel </td>
+              <td>De Montfort university, UK </td>
+            </tr>
+            <tr style="background-color: #2480BA;color: white;">
+              <td>Somesubhra Panda </td>
+              <td>Global Institute of. Science &Technology   </td>
+            </tr>
+           
+            <tr style="background-color: #6DD2FC;">
+              <td>Dipak Sureshyeole </td>
+              <td> Vidya Pratishthan's Kamalnayan Bajaj Institute of Engineering & Technology </td>
+            </tr>
+            <tr style="background-color: #2480BA;color: white;">
+              <td>Md Mehedi Hassain </td>
+              <td>University of South Australia
+              </td>
+            </tr>
+            <tr style="background-color: #6DD2FC;">
+              <td>Md Mahmudul Hoque </td>
+              <td>CCN University of Science And Technology   </td>
+            </tr>
+            <tr style="background-color: #2480BA;color: white;">
+              <td>Shreenithi Lakshmi Narasimhan
+              </td>
+              <td>Global Climate Collective
+              </td>
+            </tr>
+            
+            <tr style="background-color: #6DD2FC;">
+              <td>Mohammad Mominur Rahman               </td>
+              <td>Hamad Bin Khalifa University     </td>
+            </tr>
+            
+            <tr style="background-color: #2480BA;color: white;">
+              <td>Ashfaque Ahmed Chowdhury
+              </td>
+              <td>Central Queensland University 
+              </td>
+            </tr>
+            <tr style="background-color: #6DD2FC;">
+              <td>Venkata Naga Sujit Vudattu 
+              </td>
+              <td>SASI Institute of Technology And Engineering 
+              </td>
+            </tr>
+            <tr style="background-color: #2480BA;color: white;">
+              <td>Sumalatha V </td>
+              <td>VELS Institute of Science Technology And Advanced Studies   </td>
+            </tr>
+            <tr style="background-color: #6DD2FC;">
+              <td>Shreyas Rajendra Hole </td>
+              <td>Dayananda Sagar University   </td>
+            </tr>
+            <tr style="background-color: #2480Ba; color: white;">
+              <td>Anjali Kumari </td>
+              <td>Birla Institute of Technology Mesra  </td>
+            </tr>
+            <tr style="background-color: #6DD2FC;">
+                <td>Bhaskar Roy</td>
+                <td>Asansol Engineering College  </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Arigela Sri Satya Veerendra Babu</td>
+                <td>Manipal Institute of Technology, MAHE  </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>S M Masfequier Rahman Swapno</td>
+                <td>Bangladesh University of Business & Technology   </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Vandana Sharma </td>
+                <td>Christ University, India  </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Jothiraj Selvaraj </td>
+                <td>SRM Institute of Science And Technology Kattanklathur   </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Harika Pudugosula  </td>
+                <td>Amrita Vishwa Vidyapeetham, Bengaluru   </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Anushka Chaurasia </td>
+                <td>National Institute of Technology Meghalaya    </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Morteza Azimi Nasab </td>
+                <td>University of South-Eastern Norway   </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Piyali Pal </td>
+                <td>Indian Institute of Technology Patna     </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Sesadri Bhusan Sahoo </td>
+                <td>Indian Institute of Technology Patna    </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Jajna Prasad Sahoo </td>
+                <td>Indian Institute of Technology Patna    </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Manikanda Prabhu Perumal Samy </td>
+                <td>Amrita Vishwa Vidyapeetham, Mysuru  </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Amit Kumar  </td>
+                <td>Indian Institute of Technology Patna    </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Oscar Javier Suarez </td>
+                <td>University Of Pamplona  </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Malay Ranjan Khuntia </td>
+                <td>Indian Institute of Technology, Delhi    </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Ayyark </td>
+                <td>SRM Valliammai Engineering College    </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Kuldeep Singh Rathore </td>
+                <td>Chandigarh University   </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Ajay Roy </td>
+                <td>University of Bisha, Saudi Arabia   </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Ezhilazhagan Chenguttuvan </td>
+                <td>Vel Tech Rangarajan Dr.Sagunthala R&D Institute of Science and Technology    </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Rajesh Gundlapalle </td>
+                <td>New Horizon College of Engineering   </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Razia Sulthana Abdul Kareem  </td>
+                <td>University of Greenwich UK    </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Deepak Kumar </td>
+                <td>Indian Institute Of Technology (ISM) Dhanbad  </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Sandeep Kanaujia  </td>
+                <td>Prof Rajendra Singh University   </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Dileep Kumar  </td>
+                <td>Power Sector   </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Avik Ghosh </td>
+                <td>Amazon Web Services   </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Malathy M Anandan  </td>
+                <td>Vel Tech High Tech Dr.Rangarajan Dr.Sakunthala Engieering Avadi   </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Vineet Kumar </td>
+                <td>Piet Parul University Vadodara Gujarat    </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Vijendra V </td>
+                <td>Intel Microelectronics, Visvesvaraya Technological University    </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Rinki Maurya </td>
+                <td>Indian Institute of Information Technology Allahabad   </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Gummala Babu </td>
+                <td>National Institute of Technology Andhra Pradesh    </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Neenu Kuriakose </td>
+                <td>Rajagiri College of Management and Applied Sciences   </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>R. Sundaramoorthi R </td>
+                <td>Kings College of Engineering   </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Mohammad Amir </td>
+                <td>University of Liverpool, United Kingdom    </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Mariacami lamoreno </td>
+                <td>Canadian Aviation Electronics    </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Ashish Laddha </td>
+                <td>Poornima Institute of Engineering & Technology, Jaipur     </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Abhishek Priyat</td>
+                <td>MPSTME, NMIMS University Mumbai    </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Dr. Mangesh Dindayal Nikose </td>
+                <td>Sandip University Nashik     </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Dr. Akshit Samadhiya</td>
+                <td> Sandip University, Nashik   </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Ram Chandra Sachan </td>
+                <td>  Wipro    </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Mangesh Nikose </td>
+                <td>Mangesh Nikose   </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Dr. Buddhadeva Sahoo </td>
+                <td>SR University   </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Abhishek Kharra </td>
+                <td>Malaviya National Institute of Technology Jaipur     </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Preeti Sharma  </td>
+                <td>BITS Pilani    </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Dr. Vinod Kumar Yadav  </td>
+                <td> Tallinn university of technology Tallinn    </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Muzammil Ahmed </td>
+                <td>Indian Institute of Technology Bhubaneswar   </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Dhaval Yogeshbhai Raval  </td>
+                <td>Atmiya University    </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Pankaj Kumar Dubey </td>
+                <td>Kamla Nehru Institute of Technology Sultanpur   </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Nivetha R  </td>
+                <td>Dayanand Sagar University      </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Rama Chaithanya Tanguturi </td>
+                <td>SRM IST, Ramapuram, Chennai     </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Dr.Sugandha Saxena  </td>
+                <td>Dayananda Sagar University,Bangalore      </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Ankita Thakkar </td>
+                <td>Dayananda Sagar University     </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Ranjeet Kumar  </td>
+                <td>IIT(ISM), Dhanbad      </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Abhinandan Routray  </td>
+                <td>CVR College Of Engineering, Hyderabad    </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Dr. Ajay Kumar   </td>
+                <td>Punjab Engineering College (Deemed to be University), Chandigarh       </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Bharti Kumari   </td>
+                <td>Birla Institute of Technology Mesra    </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Prabhat Kumar Vidyarthi   </td>
+                <td>National Institute of Technology Patna        </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Dr. Manoj Kumar Kar   </td>
+                <td>Tolani Maritime Institute Pune    </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Rinki Maurya      </td>
+                <td>Indian institute of Information Technology Allahabad        </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Dr. Suhaib Ahmed   </td>
+                <td>Model Institute of Engineering and Technology     </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Trupthi Rao    </td>
+                <td>Dayanand Sagar University        </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Amit Kumar  </td>
+                <td>Thapar Institute of Engineering and Technology Patiala   </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Ananda Babu Kancherla     </td>
+                <td>SASI Institute of Technology & Science(Autonomous)       </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Chaladi S Ganga Bhavani   </td>
+                <td>BVC Institute of Technology & Science(Autonomous)    </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Priyaranjan Kumar     </td>
+                <td>Birla institute of technology Mesra       </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Saket Chaudhari    </td>
+                <td>Software Engineer / Architect at TriNet Inc    </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Balaji Shesharao Ingole     </td>
+                <td>Gainwell Technologies, USA       </td>
+              </tr>
+              <tr style="background-color: #6DD2FC;">
+                <td>Nishant Thakkar  </td>
+                <td>Zhejiang University, Zhejiang, China   </td>
+              </tr>
+              <tr style="background-color: #2480Ba; color: white;">
+                <td>Vinod Veeramachaneni     </td>
+                <td>Colorado Technical University      </td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+    <!-- Footer-->
+
+    <div class="footerBody">
+      <footer class="footer">
+        <div class="container5">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <h3>Brought to you by :</h3>
+                <div class="logo-container">
+  
+                    <div style="height: 4rem;" class="logo-item">
+                        <img src="assets/nitlogosc.png">
+                    </div>
+                    <div style="height: 4rem;" class="logo-item">
+                        <img src="assets/NITB&WLogo.png">
+                    </div>
+                    <div style="height: 3rem;" class="logo-item">
+                        <img src="assets/ieeen.png">
+                    </div>
+                    <div style="height: 3rem;" class="logo-item">
+                        <img src="assets/IEEEKSpng.png">
+                    </div>
+                    <div style="height: 3rem;" class="logo-item">
+                        <img src="assets/ies.png" alt="Partner Logo 3">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Links -->
+            <div class="row mt-4">
+                <!-- Social Media -->
+               <div class="col-lg-4 col-md-4 mb-4 mb-lg-0">
+                    <h5>Follow Us On Social:</h5>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/ice2cpt?igsh=MXFlYmUwc2RsczdzNA=="><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/ice2cpt/"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links with Split Layout -->
+                <div class="col-lg-4 col-md-4 mb-4 mb-lg-0 quick-links-section">
+                    <h5>Quick Links</h5>
+                    <div class="links-container">
+                        <div class="links-left">
+                            <ul class="footer-links">
+                                <li><a href="https://ice2cpt.com/">Home</a></li>
+                                <li><a href="callforpapers.html">Call for Papers</a></li>
+                                <li><a href="organizingcommittee.html">Organizing Committee</a></li>
+                            </ul>
+                        </div>
+                        <div class="links-right">
+                            <ul class="footer-links">
+                              <li><a href="registrationdetails.html">Register Now</a></li>
+                                <li><a href="venue.html">Key Attractions</a></li>
+                                <li><a href="https://www.nitjsr.ac.in">NIT Jamshedpur Website</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Us -->
+                <div class="col-lg-4 col-md-4 mb-4 mb-lg-0">
+                  <!--  <h5>Contact Us</h5>
+                    <ul class="footer-links text-center">
+                        <li><a href="mailto:ice2cpt@gmail.com">ice2cpt@gmail.com</a></li>
+                        <li><a href="mailto:suryaprakash.ee@nitjsr.ac.in">suryaprakash.ee@nitjsr.ac.in</a></li>
+                        <li><a href="mailto:krnishant125@gmail.com">krnishant125@gmail.com</a></li>
+                    </ul> -->
+                    <div class="visitor-counter">
+                        <!-- <a href="http://s01.flagcounter.com/more/q6v"><img src="https://s01.flagcounter.com/count2/q6v/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></a> -->
+                        <a href="https://info.flagcounter.com/Sd75"><img src="https://s01.flagcounter.com/count2/Sd75/bg_FFFFFF/txt_000000/border_FFFFFF/columns_5/maxflags_20/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+                    </div>
+    
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="row footer-bottom">
+                <div class="col-md-12 text-center">
+                    <p class="mb-0">© ICE2CPT-2025. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+      </footer> 
+    </div>
+
+    
+    <!-- NAVBAR SHRINK -->
+<script>
+  window.addEventListener('scroll', function () {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('shrink');
+      } else {
+        navbar.classList.remove('shrink');
+      }
+    });
+</script>
+<!-- toggle menu -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const burger = document.querySelector('.burger');
+    const menu = document.querySelector('.menu');
+    let menuVisible = false;
+
+    burger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuVisible = !menuVisible;
+      menu.classList.toggle('menu-active', menuVisible);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (menuVisible && !menu.contains(e.target) && !burger.contains(e.target)) {
+        menu.classList.remove('menu-active');
+        menuVisible = false;
+      }
+    });
+  });
+</script>
+
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/script.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+</body>
+</html>

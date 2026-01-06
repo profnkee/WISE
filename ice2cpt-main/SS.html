@@ -1,0 +1,930 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Oswald:wght@200..700&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Special Sessions | ICECPT 2025</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+    body {
+      background-color: #f5f7fa;
+      color: #333;
+    }
+    header {
+      background: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .banner {
+      background: url('your-banner-image.png') no-repeat center/cover;
+      height: 100px;
+      margin-bottom: 20px;
+    }
+    .section-wrapper {
+      font-size: 1rem;
+      margin-top: 6rem !important; 
+  max-width: 100%;  /* Matches content width */
+  margin: 0 auto;
+  padding: 0 8rem;
+}
+    .cards {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1;
+  max-width: 480px; /* Increased width */
+  background: linear-gradient(135deg, #00b4db, #0083b0);
+  padding: 25px;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card.blue {
+  background: linear-gradient(135deg, #4169e1, #0b1e45);
+}
+    .card h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    .card p {
+      font-size: 15px;
+    }
+    .card a {
+      color: #fff;
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+      text-decoration: none;
+    }
+    .content {
+      font-size: 1.3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 20px;
+  text-align: justify;
+  
+}
+
+.column {
+  flex: 1;
+  min-width: 400px;
+}
+    .column p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+    .highlight {
+  font-weight: bold;
+  background: linear-gradient(to right, #0b1e45, #1e90ff); /* navy to blue */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+    .template-btn {
+      margin: 30px auto;
+      text-align: center;
+    }
+    .template-btn button {
+      padding: 10px 20px;
+      border: 2px solid #005bbb;
+      background: transparent;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+      color: black;
+    }
+    .column a{
+      font-weight: bold;
+  background: linear-gradient(to right, #0b1e45, #1e90ff); /* navy to blue */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+    }
+  </style>
+
+  <!-- ssstyle -->
+
+  <style>
+    .template-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 400px;
+      max-width: 100%;
+      margin: 30px auto;
+      padding: 12px 20px;
+      background-color: white;
+      border: 2px solid #0056d2;
+      color: #00296b;
+      font-weight: bold;
+      font-size: 16px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      text-decoration: none;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    
+    .template-button:hover {
+      background-color: #f0f8ff;
+      transform: translateY(-2px);
+    }
+    
+    .download-icon {
+      flex-shrink: 0;
+    }
+    
+    
+    .download-icon {
+      flex-shrink: 0;
+    }
+    
+    @media (max-width: 768px) {
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      .card {
+        max-width: 100%;
+      }
+    
+      .content {
+        flex-direction: column;
+      }
+    
+      .column {
+        min-width: 100%;
+      }
+    
+      .floating-template-button {
+        font-size: 14px;
+        padding: 10px 16px;
+        bottom: 20px;
+        right: 20px;
+        flex-wrap: wrap;
+        text-align: center;
+      }
+    }
+    </style>
+
+    <!-- new -->
+    <style>
+      @media (max-width: 768px) {
+        .section-wrapper {
+          padding: 0 1rem;
+          margin-top: 10rem !important;
+        }
+    
+        .cards {
+          flex-direction: column;
+          gap: 1.5rem;
+          align-items: center;
+        }
+    
+        .card {
+          max-width: 100%;
+          padding: 20px;
+        }
+    
+        .card h2 {
+          font-size: 18px;
+        }
+    
+        .card p, .card a {
+          font-size: 14px;
+        }
+    
+        .template-button {
+          width: 90%;
+          font-size: 15px;
+        }
+    
+        .column {
+          min-width: 100%;
+        }
+    
+        .column p {
+          font-size: 15px;
+        }
+    
+        .navbar .logo.left-logo img,
+        .navbar .logo.right-logo img {
+          width: 5rem;
+        }
+    
+        .menu a {
+          font-size: 1rem;
+        }
+    
+        .footer-links a {
+          font-size: 14px;
+        }
+    
+        .sponsors img {
+          height: 2rem;
+        }
+      }
+    </style>    
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<!-- THIS IS FOR NAVBAR SO PLEASE DON'T DO ANYTHING HERE -->
+<style>
+  body {
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+  }
+
+  @keyframes waveMove {
+    0% {
+      transform: translateX(0) scaleY(1.02) rotate(180deg) scaleX(-1);
+    }
+
+    25% {
+      transform: translateX(-15px) scaleY(1.03) rotate(180deg) scaleX(-1);
+    }
+
+    50% {
+      transform: translateX(-30px) scaleY(1.01) rotate(180deg) scaleX(-1);
+    }
+
+    75% {
+      transform: translateX(-15px) scaleY(1.04) rotate(180deg) scaleX(-1);
+    }
+
+    100% {
+      transform: translateX(0) scaleY(1.02) rotate(180deg) scaleX(-1);
+    }
+  }
+
+
+  .navbar-wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 103%;
+    height: 13rem;
+    transform: scaleX(-1);
+    transform: rotate(180deg);
+    pointer-events: none;
+    animation: waveMove 4s infinite;
+  }
+
+  /* Stack layers with slight offsets for depth */
+  .wave1 {
+    z-index: 1;
+    opacity: 0.9;
+    animation-delay: 0s;
+  }
+
+  .wave2 {
+    z-index: 2;
+    opacity: 0.7;
+    animation-delay: 1s;
+  }
+
+  .wave3 {
+    z-index: 3;
+    opacity: 0.6;
+    animation-delay: 2s;
+  }
+
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    background-color: #dfe5e8;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 10px 5%;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .navbar.shrink {
+    padding: 5px 5%;
+  }
+
+  .logo {
+    width: 9rem;
+    transition: transform 0.4s ease;
+  }
+
+  .left-logo img {
+    height: auto;
+    width: 7rem;
+  }
+
+  .right-logo img {
+    height: 7rem;
+    padding-top: 12px;
+    margin-left: 37px;
+    width: auto;
+  }
+
+  .navbar.shrink .logo {
+    transform: scale(0.9);
+  }
+
+  /* .logo img {
+      width: 10rem;
+      height: auto;
+    } */
+
+  .center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: calc(100% - 200px);
+    flex: 1;
+    transition: all 0.4s ease;
+  }
+
+  .sponsors {
+    display: flex;
+    gap: 6rem;
+    justify-content: center;
+    margin-bottom: 32px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    animation: fadeSlideIn 1s ease forwards;
+  }
+
+  .sponsors img {
+    height: 3rem;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+
+  .sponsors img:hover {
+    transform: scale(1.1);
+  }
+
+  .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    transition: all 0.3s ease;
+  }
+
+  .menu li {
+    position: relative;
+  }
+
+  .menu a {
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    padding: 5px 16px;
+    border-radius: 5px;
+    transition: background-color 0.5s, transform 0.5s ease;
+    display: inline-block;
+  }
+
+  .menu a:hover {
+    background-color: #002b5c;
+    /* dark blue */
+    color: #fff;
+    /* white text */
+    transform: scale(1.05);
+  }
+
+  /* Dropdown styles */
+  .dropdown-content {
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #c4c4c4;
+    border-radius: 8px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: perspective(600px) rotateX(-10deg) translateY(10px);
+    transition: all 0.5s ease;
+    transform-origin: top;
+    z-index: 10;
+    min-width: 220px;
+    padding: 10px 0;
+  }
+
+  .dropdown-content li {
+    padding: 0;
+  }
+
+  .dropdown-content a {
+    display: block;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    color: #333;
+    white-space: nowrap;
+    transition: background 0.3s;
+  }
+
+  .menu a:hover {
+    background-color: #002b5c;
+    /* dark blue */
+    color: #fff;
+    /* white text */
+    transform: scale(1.05);
+  }
+
+  /* Show dropdown on hover */
+  .menu li.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: perspective(600px) rotateX(0deg) translateY(0);
+  }
+
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive styles */
+ .burger{
+  display: none;
+ }
+
+ @media screen and (max-width: 1400px) {
+  .menu{
+    gap: 0px;
+  }
+  .menu a{
+    font-size: 0.9rem;
+  }
+  .sponsors{
+    gap: 2rem;
+  }
+}
+ @media screen and (max-width: 850px) {
+  .burger{
+    top: 3.7rem;
+    right: 1rem;
+     position: relative;
+    display: block;
+ }
+
+ .menu {
+  display: flex; /* default is flex so transition works */
+  flex-direction: column;
+  background: white;
+  color: black;
+  position: absolute;
+  top: 7.5rem;
+  right: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: all 0.3s ease;
+}
+
+.menu.menu-active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scaleY(1);
+}
+
+.menu li {
+  position: relative;
+  margin: 0.5rem 0;
+}
+
+.menu .dropdown-content {
+position: absolute;
+top: 0;
+left: -220px; /* Adjust as needed */
+background-color: #fff;
+/* padding: 0.5rem 1rem; */
+border-radius: 8px;
+display: none;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+z-index: 1000;
+/* min-width: 150px; */
+flex-direction: column;
+}
+
+.menu .dropdown:hover .dropdown-content {
+display: flex;
+}
+
+.menu .dropdown-content li {
+margin: 0.5rem 0;
+}
+
+
+/* .burger {
+  display: block;
+  cursor: pointer;
+  z-index: 1000;
+} */
+
+.center-content {
+  display: flex; /* Keep center-content active */
+}
+
+.sponsors {
+  display: none; /* Hide only unwanted items */
+}
+
+.right-logo {
+  display: none;
+}
+.hero-sec h1{
+ font-size: x-large;
+}
+
+.about-flex-box{
+ flex-direction: column;
+}
+.paragraph{
+   font-size: 1rem;
+ }
+ section h4 {
+   text-align: center;
+   font-size: 2rem;
+   font-weight: 500;
+ }
+}
+</style>
+
+
+</head>
+<body>
+
+    <!-- nav  -->
+    <nav class="navbar">
+      <div class="navbar-wave">
+        <!-- Layer 1: Darker Base Wave -->
+        <svg class="wave wave1" viewBox="0 0 400 100" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#003366" />
+              <stop offset="100%" stop-color="#004c99" />
+            </linearGradient>
+          </defs>
+          <path d="M0,90 C100,20 300,120 400,10 L400,100 L0,100 Z" fill="url(#grad1)" />
+        </svg>
+  
+        <!-- Layer 2: Mid Blue -->
+        <svg class="wave wave2" viewBox="0 0 400 100" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="grad2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#0052a5" />
+              <stop offset="100%" stop-color="#007bff" />
+            </linearGradient>
+          </defs>
+          <path d="M0,80 C120,40 280,110 400,20 L400,100 L0,100 Z" fill="url(#grad2)" />
+        </svg>
+  
+        <!-- Layer 3: Lighter Top Wave -->
+        <svg class="wave wave3" viewBox="0 0 400 100" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="grad3" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#33ccff" />
+              <stop offset="100%" stop-color="#66d9ff" />
+            </linearGradient>
+          </defs>
+          <path d="M0,70 C150,50 250,100 400,30 L400,100 L0,100 Z" fill="url(#grad3)" />
+        </svg>
+      </div>
+  
+  
+      <!-- Left Logo -->
+      <div class="logo left-logo">
+        <a href="index.html">
+          <img src="assets/ice2cptLogo.gif" alt="Left Logo" />
+        </a>
+      </div>
+  
+      <!-- Center Content -->
+      <div class="center-content">
+        <div class="sponsors">
+          <img src="assets/nitlogosc.png" alt="Sponsor 1" />
+          <img src="assets/ieeen.png" alt="Sponsor 2" />
+          <img src="assets/IEEEKSpng.png" alt="Sponsor 3" />
+          <img src="assets/ies.png" alt="Sponsor 4" />
+        </div>
+  
+        <ul class="menu">
+          <li><a href="generalchair.html">General Chair</a></li>
+  
+          <li class="dropdown">
+            <a href="#">Committee</a>
+            <ul class="dropdown-content">
+              <li><a href="internationaladvisory.html">Advisory Committee</a></li>
+              <li><a href="organizingcommittee.html">Organizing Committee</a></li>
+              <li><a href="technicalprogramcommittee.html">Technical Program Committee</a></li>
+            </ul>
+          </li>
+  
+          <li class="dropdown">
+            <a href="#">Authors</a>
+            <ul class="dropdown-content">
+              <li><a href="callforpapers.html">Call for Papers</a></li>
+              <li><a href="SS.html">Call for Special Session</a></li>
+              <li><a href="crucialdates.html">Important Dates</a></li>
+              <li><a href="manuscriptsubmission.html">Paper Submission Guidelines</a></li>
+              <li><a href="confprogram.html">Conference Program</a></li>
+            </ul>
+          </li>
+  
+          <li><a href="keynotespeakers.html">Speakers</a></li>
+          <li><a href="sponsorship.html">Sponsors</a></li>
+          <li><a href="registrationdetails.html">Registration</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+  
+      <!-- Right Logo -->
+      <div class="burger">
+       <i class="fa-solid fa-bars fa-xl"></i>
+      </div>
+      <div class="logo right-logo">
+        <a href="https://nitjsr.ac.in/" target="_blank"><img class="rightlogo" src="assets/NITB&WLogo.png" alt="Right Logo" /></a>
+      </div>
+  
+    </nav>
+  
+    
+    <div class="section-wrapper">
+    <div class="styleheading">
+      <span class="nitish">Call for Special Sessions</span>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <h2 style="text-decoration: underline;">Download Guidelines (PDF)</h2>
+        <p><h4>Call for Special Sessions – Guidelines.</h4><br>
+           Download the official PDF containing detailed information on the submission process, session scope, formatting instructions, and important deadlines.</p>
+        <a href="Special Session Template.pdf" target="_blank">[Download PDF]</a>
+      </div>
+      <div class="card blue">
+        <h2 style="text-decoration: underline;">Submit Your Proposal</h2>
+        <p><h4>Online Proposal Submission</h4><br>
+          Submit your Special Session proposal in PDF format via email to ice2cpt@gmail.com. <br> Ensure all required sections are included.
+ <b>Deadline: 30 April, 2025.</b></p>
+        <a href="mailto:ice2cpt@gmail.com">[Submit Now]</a>
+      </div>
+    </div>
+
+  <div class="content">
+    <div class="column">
+      <p><a href="https://drive.google.com/file/d/1xtpUPjP3TIQaMK0bqNxIJy95frFev7_G/view?usp=drive_link" target="_blank">SS01:</a> AI-Driven Microgrid and Decentralized Decarbonizing Power Systems<br>
+
+      <a href="https://drive.google.com/file/d/1gzTzNY4yxsTdXwBiIEeWC4JAeo0SVT3c/view?usp=sharing" target="_blank">SS02:</a> Sustainable Advancement in the Integration of Renewable Energy and EV Power Processing<br>
+
+      <a href="https://drive.google.com/file/d/1d-4tiO5m3WAoCMZF4cM3Kz5qatQ0578-/view?usp=sharing" target="_blank">SS03:</a> Computational Intelligence and AI Techniques: Advances and Challenges<br>
+
+      <a href="https://drive.google.com/file/d/1xsnVnBNyzydcipxvhHDTYA_npbVYMGKK/view?usp=sharing" target="_blank">SS04:</a> Advanced Computational Techniques for Efficient Operation & Management of Distribution Networks Integrating Renewables<br>
+
+      <a href="https://drive.google.com/file/d/1jjs6hYS0SMRjAuTk7Z7r9T_QQfkl8QfL/view?usp=sharing" target="_blank">SS05:</a> Advancements in Electrified Transportation, Wireless Power Transfer, Next-Generation Power Electronics, and AI-Driven Power System Security for a Resilient Renewable Energy Future<br>
+
+      <a href="https://drive.google.com/file/d/1-91j1-Zp-d0PgpYOtB3R5eMBTeyu5RBB/view?usp=sharing" target="_blank">SS06:</a> Power Electronics-Converter Circuit, Control and Applications<br>
+
+      <a href="https://drive.google.com/file/d/1GGvo1g5PLTkmdtkDUCs3uPNH0OFU6JI6/view?usp=sharing" target="_blank">SS07:</a> Recent Advances in Control and Security Technologies for Renewable Energy Systems <br>
+      <a href="https://drive.google.com/file/d/1MFusUuPvsYd27AKPrzNktOKixtogcNuw/view?usp=sharing" target="_blank">SS08:</a> Empowering Grid Reliability: Optimization-Driven Approaches to Power System Stability. <br>
+      <a href="https://drive.google.com/file/d/1IKsj5Tn80l9c8rk-H18uU3bhMy0lQIxj/view?usp=sharing" target="_blank">SS09:</a> Renewable Energy Integration, Sustainability, and Optimization for Smart Grid Systems <br>
+      <a href="https://drive.google.com/file/d/1PnBsuCHUUijYCDS30auXAQXZEWimgj4s/view?usp=sharing" target="_blank">SS10:</a> Dynamic Electricity Pricing with Renewable Energy and Virtual Energy Storage Systems
+      <br>
+      <a href="https://drive.google.com/file/d/1ChWqBZetQvhGN4EaC2ynskBGiQMHFyT0/view?usp=sharing" target="_blank">SS11:</a> AI Applications in Healthcare and Life Sciences
+      <br>
+      <a href="https://drive.google.com/file/d/11w2RF5WxAYJhShOm3PbJGFTmmI1UiJGi/view?usp=sharing" target="_blank">SS12:</a> Designing Autonomous Electric Vehicles: AI, Sensing, and Control Challenges
+      <br>
+      <a href="https://drive.google.com/file/d/1ckpStc5rxcZs1sWTmtuyxKOmjg3rhqqK/view?usp=sharing" target="_blank">SS13:</a> Emerging Trends and Innovations in Power System Protection
+      <br>
+      <a href="https://drive.google.com/file/d/11swLI-kHHJ5JCod2MN7Pb06kph11jMmp/view?usp=sharing" target="_blank">SS14:</a> Self-Organizing Intelligent Systems for Resilient and Secure Renewable Integration: Optimization, Cybersecurity, and Grid Dynamics
+      <br>
+      <a href="https://drive.google.com/file/d/14FG63Gf-Tq1QhmS9yf2XnZgWq3JnVt7H/view?usp=sharing" target="_blank">SS15:</a> Resilient Control Methods and Energy Management in Vehicle to Smart Grid Integration
+    </p>
+
+
+      <p><span class="highlight">Special Sessions:</span> Special sessions provide the opportunity to focus in detail on emerging topics, which are not reflected in the list of conference main technical tracks or represent a specific working field where researchers would like to meet and discuss advances. Sessions focused on reporting innovations and breakthroughs in highly specialized topic areas (within the conference’s scope) will be organized. These sessions will broaden the knowledge base of attendees, helping them stay updated with Electrical, Electronics and Computer Science with Advance Technologies. </p>
+
+      <p>The ICE2CPT 2025 organizing committee invites professionals in the areas of recent Technologies in Electrical, Electronics and Computer Science domain to propose special sessions (SS)s to be held at ICE2CPT 2025. Once approved, the Organizers will publicize the Special Session among researchers and practitioners in the field and attract sufficient number of papers.ted to special sessions will undergo the same review process as regular papers. The special session organizers of the respective special session are responsible for organizing the review process, assuring at least three reviews per paper. This includes selection of reviewers from their peers.</p>
+
+    </div>
+    
+    <div class="column">
+      
+      <p><span class="highlight">Free Conference Registration:</span> At least one organizer of the successful Special Sessions is expected to register for and attend the conference, as well as chair of the corresponding sessions. One complimentary full registration will be provided to successful Special Sessions with at least 6 papers not authored by any of the organizers.</p>
+
+      <p><span class="highlight">Conflict of Interest:</span> Before starting the review process, SS organizers must explicitly declare papers which present a conflict of interest for them. A conflict of interest arises where the judgement of a paper quality can be influenced by the organizers being authors or knowing some of the authors. To ensure independent reviews, this conflict must be marked as such in the submission system and the SS Co-Chairs notified so that they can arrange the review process.</p>
+
+      <p><span class="highlight">Restrictions:</span> During the review process, Special Session Organizers must take into account that: (1) An individual cannot be (co-) author of more than two papers submitted to the same Special Session. (2) Papers from organizers cannot exceed 60% of the contents of the Special Session.</p>
+
+      <p><span class="highlight">Session Chairs:</span> When a SS is finally accepted by the conference, SS organizers will serve as Session chairs in the conference. In some extenuated circumstance, Technical Program chairs and Conference General Chairs might take up the full control of appointing the Session Chairs, should the SS organizers be unable to participate in the conference.</p>
+
+      <p><span class="highlight">Proposal Content:</span> The proposal should include all information mentioned in the MS Word template.It must also provide the names and contact details of 2 to 3 organizers, ensuring they are from multiple institutions (mandatory) and preferably from different countries. A short background of each organizer should also be included. Additionally, the proposal should list potential authors along with their affiliations who are likely to contribute papers, as well as at least 20 potential reviewers with their respective affiliations to ensure a rigorous peer-review process.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Sticky Proposal Download Button -->
+<a href="SSPT.docx" download class="template-button" title="Download Special Sessions Proposal Template">
+  <span>Special Sessions Proposal Template</span>
+  <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 24 24" fill="none" stroke="#00296b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="download-icon">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+    <polyline points="7 10 12 15 17 10"/>
+    <line x1="12" y1="15" x2="12" y2="3"/>
+  </svg>
+</a>
+
+
+
+<div class="footerBody">
+  <footer class="footer">
+    <div class="container5">
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <h3>Brought to you by :</h3>
+            <div class="logo-container">
+
+                <div style="height: 4rem;" class="logo-item">
+                    <img src="assets/nitlogosc.png">
+                </div>
+                <div style="height: 4rem;" class="logo-item">
+                    <img src="assets/NITB&WLogo.png">
+                </div>
+                <div style="height: 3rem;" class="logo-item">
+                    <img src="assets/ieeen.png">
+                </div>
+                <div style="height: 3rem;" class="logo-item">
+                    <img src="assets/IEEEKSpng.png">
+                </div>
+                <div style="height: 3rem;" class="logo-item">
+                    <img src="assets/ies.png" alt="Partner Logo 3">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Links -->
+        <div class="row mt-4">
+            <!-- Social Media -->
+           <div class="col-lg-4 col-md-4 mb-4 mb-lg-0">
+                <h5>Follow Us On Social:</h5>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/ice2cpt?igsh=MXFlYmUwc2RsczdzNA=="><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/ice2cpt/"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <!-- Quick Links with Split Layout -->
+            <div class="col-lg-4 col-md-4 mb-4 mb-lg-0 quick-links-section">
+                <h5>Quick Links</h5>
+                <div class="links-container">
+                    <div class="links-left">
+                        <ul class="footer-links">
+                            <li><a href="https://ice2cpt.com/">Home</a></li>
+                            <li><a href="callforpapers.html">Call for Papers</a></li>
+                            <li><a href="organizingcommittee.html">Organizing Committee</a></li>
+                        </ul>
+                    </div>
+                    <div class="links-right">
+                        <ul class="footer-links">
+                          <li><a href="registrationdetails.html">Register Now</a></li>
+                            <li><a href="venue.html">Key Attractions</a></li>
+                            <li><a href="https://www.nitjsr.ac.in">NIT Jamshedpur Website</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Us -->
+            <div class="col-lg-4 col-md-4 mb-4 mb-lg-0">
+              <!--  <h5>Contact Us</h5>
+                <ul class="footer-links text-center">
+                    <li><a href="mailto:ice2cpt@gmail.com">ice2cpt@gmail.com</a></li>
+                    <li><a href="mailto:suryaprakash.ee@nitjsr.ac.in">suryaprakash.ee@nitjsr.ac.in</a></li>
+                    <li><a href="mailto:krnishant125@gmail.com">krnishant125@gmail.com</a></li>
+                </ul> -->
+                <div class="visitor-counter">
+                    <!-- <a href="http://s01.flagcounter.com/more/q6v"><img src="https://s01.flagcounter.com/count2/q6v/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></a> -->
+                    <a href="https://info.flagcounter.com/Sd75"><img src="https://s01.flagcounter.com/count2/Sd75/bg_FFFFFF/txt_000000/border_FFFFFF/columns_5/maxflags_20/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="row footer-bottom">
+            <div class="col-md-12 text-center">
+                <p class="mb-0">© ICE2CPT-2025. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+  </footer> 
+</div>
+
+
+<!-- NAVBAR SHRINK -->
+<script>
+  window.addEventListener('scroll', function () {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('shrink');
+      } else {
+        navbar.classList.remove('shrink');
+      }
+    });
+</script>
+<!-- toggle menu -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const burger = document.querySelector('.burger');
+    const menu = document.querySelector('.menu');
+    let menuVisible = false;
+
+    burger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuVisible = !menuVisible;
+      menu.classList.toggle('menu-active', menuVisible);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (menuVisible && !menu.contains(e.target) && !burger.contains(e.target)) {
+        menu.classList.remove('menu-active');
+        menuVisible = false;
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

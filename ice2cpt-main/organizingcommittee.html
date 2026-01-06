@@ -1,0 +1,2296 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="images/logo1.png" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organizing Committee</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+  <link rel="stylesheet" type="text/css" href="icomoon/icomoon.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/vendor.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&amp;family=Roboto+Slab&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- THIS IS FOR NAVBAR SO PLEASE DON'T DO ANYTHING HERE -->
+  <style>
+    body {
+      font-family: 'Oswald', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+    }
+
+    @keyframes waveMove {
+      0% {
+        transform: translateX(0) scaleY(1.02) rotate(180deg) scaleX(-1);
+      }
+
+      25% {
+        transform: translateX(-15px) scaleY(1.03) rotate(180deg) scaleX(-1);
+      }
+
+      50% {
+        transform: translateX(-30px) scaleY(1.01) rotate(180deg) scaleX(-1);
+      }
+
+      75% {
+        transform: translateX(-15px) scaleY(1.04) rotate(180deg) scaleX(-1);
+      }
+
+      100% {
+        transform: translateX(0) scaleY(1.02) rotate(180deg) scaleX(-1);
+      }
+    }
+
+
+    .navbar-wave {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .wave {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 103%;
+      height: 13rem;
+      transform: scaleX(-1);
+      transform: rotate(180deg);
+      pointer-events: none;
+      animation: waveMove 4s infinite;
+    }
+
+    /* Stack layers with slight offsets for depth */
+    .wave1 {
+      z-index: 1;
+      opacity: 0.9;
+      animation-delay: 0s;
+    }
+
+    .wave2 {
+      z-index: 2;
+      opacity: 0.7;
+      animation-delay: 1s;
+    }
+
+    .wave3 {
+      z-index: 3;
+      opacity: 0.6;
+      animation-delay: 2s;
+    }
+
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      background-color: #dfe5e8;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 10px 5%;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar.shrink {
+      padding: 5px 5%;
+    }
+
+    .logo {
+      width: 9rem;
+      transition: transform 0.4s ease;
+    }
+
+    .left-logo img {
+      height: auto;
+      width: 7rem;
+    }
+
+    .right-logo img {
+      height: 7rem;
+      padding-top: 12px;
+      margin-left: 37px;
+      width: auto;
+    }
+
+    .navbar.shrink .logo {
+      transform: scale(0.9);
+    }
+
+    /* .logo img {
+        width: 10rem;
+        height: auto;
+      } */
+
+    .center-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: calc(100% - 200px);
+      flex: 1;
+      transition: all 0.4s ease;
+    }
+
+    .sponsors {
+      display: flex;
+      gap: 6rem;
+      justify-content: center;
+      margin-bottom: 32px;
+      padding-left: 5px;
+      padding-right: 5px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      flex-wrap: wrap;
+      border-radius: 5px;
+      animation: fadeSlideIn 1s ease forwards;
+    }
+
+    .sponsors img {
+      height: 3rem;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .sponsors img:hover {
+      transform: scale(1.1);
+    }
+
+    .menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      transition: all 0.3s ease;
+    }
+
+    .menu li {
+      position: relative;
+    }
+
+    .menu a {
+      font-size: 1.3rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      padding: 5px 16px;
+      border-radius: 5px;
+      transition: background-color 0.5s, transform 0.5s ease;
+      display: inline-block;
+    }
+
+    .menu a:hover {
+      background-color: #002b5c;
+      /* dark blue */
+      color: #fff;
+      /* white text */
+      transform: scale(1.05);
+    }
+
+    /* Dropdown styles */
+    .dropdown-content {
+      list-style: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #c4c4c4;
+      border-radius: 8px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      visibility: hidden;
+      transform: perspective(600px) rotateX(-10deg) translateY(10px);
+      transition: all 0.5s ease;
+      transform-origin: top;
+      z-index: 10;
+      min-width: 220px;
+      padding: 10px 0;
+    }
+
+    .dropdown-content li {
+      padding: 0;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 5px 10px;
+      font-size: 1.2rem;
+      color: #333;
+      white-space: nowrap;
+      transition: background 0.3s;
+    }
+
+    .menu a:hover {
+      background-color: #002b5c;
+      /* dark blue */
+      color: #fff;
+      /* white text */
+      transform: scale(1.05);
+    }
+
+    /* Show dropdown on hover */
+    .menu li.dropdown:hover .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: perspective(600px) rotateX(0deg) translateY(0);
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive styles */
+   .burger{
+    display: none;
+   }
+
+   @media screen and (max-width: 1400px) {
+    .menu{
+      gap: 0px;
+    }
+    .menu a{
+      font-size: 0.9rem;
+    }
+    .sponsors{
+      gap: 2rem;
+    }
+}
+   @media screen and (max-width: 850px) {
+    .burger{
+      top: 3.7rem;
+      right: 1rem;
+       position: relative;
+      display: block;
+   }
+
+   .menu {
+    display: flex; /* default is flex so transition works */
+    flex-direction: column;
+    background: white;
+    color: black;
+    position: absolute;
+    top: 7.5rem;
+    right: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    z-index: 999;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: all 0.3s ease;
+  }
+
+  .menu.menu-active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scaleY(1);
+  }
+
+  .menu li {
+    position: relative;
+    margin: 0.5rem 0;
+  }
+
+  .menu .dropdown-content {
+  position: absolute;
+  top: 0;
+  left: -220px; /* Adjust as needed */
+  background-color: #fff;
+  /* padding: 0.5rem 1rem; */
+  border-radius: 8px;
+  display: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  /* min-width: 150px; */
+  flex-direction: column;
+}
+
+.menu .dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+.menu .dropdown-content li {
+  margin: 0.5rem 0;
+}
+
+
+  /* .burger {
+    display: block;
+    cursor: pointer;
+    z-index: 1000;
+  } */
+
+  .center-content {
+    display: flex; /* Keep center-content active */
+  }
+
+  .sponsors {
+    display: none; /* Hide only unwanted items */
+  }
+
+  .right-logo {
+    display: none;
+  }
+  .hero-sec h1{
+   font-size: x-large;
+  }
+  
+  .about-flex-box{
+   flex-direction: column;
+  }
+  .paragraph{
+     font-size: 1rem;
+   }
+   section h4 {
+     text-align: center;
+     font-size: 2rem;
+     font-weight: 500;
+   }
+}
+  </style>
+
+
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+  
+  <!-- nav  -->
+
+  <nav class="navbar">
+    <div class="navbar-wave">
+      <!-- Layer 1: Darker Base Wave -->
+      <svg class="wave wave1" viewBox="0 0 400 100" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#003366" />
+            <stop offset="100%" stop-color="#004c99" />
+          </linearGradient>
+        </defs>
+        <path d="M0,90 C100,20 300,120 400,10 L400,100 L0,100 Z" fill="url(#grad1)" />
+      </svg>
+
+      <!-- Layer 2: Mid Blue -->
+      <svg class="wave wave2" viewBox="0 0 400 100" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="grad2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#0052a5" />
+            <stop offset="100%" stop-color="#007bff" />
+          </linearGradient>
+        </defs>
+        <path d="M0,80 C120,40 280,110 400,20 L400,100 L0,100 Z" fill="url(#grad2)" />
+      </svg>
+
+      <!-- Layer 3: Lighter Top Wave -->
+      <svg class="wave wave3" viewBox="0 0 400 100" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="grad3" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#33ccff" />
+            <stop offset="100%" stop-color="#66d9ff" />
+          </linearGradient>
+        </defs>
+        <path d="M0,70 C150,50 250,100 400,30 L400,100 L0,100 Z" fill="url(#grad3)" />
+      </svg>
+    </div>
+
+
+    <!-- Left Logo -->
+    <div class="logo left-logo">
+      <a href="index.html">
+        <img src="assets/ice2cptLogo.gif" alt="Left Logo" />
+      </a>
+    </div>
+
+    <!-- Center Content -->
+    <div class="center-content">
+      <div class="sponsors">
+        <img src="assets/nitlogosc.png" alt="Sponsor 1" />
+        <img src="assets/ieeen.png" alt="Sponsor 2" />
+        <img src="assets/IEEEKSpng.png" alt="Sponsor 3" />
+        <img src="assets/ies.png" alt="Sponsor 4" />
+      </div>
+
+      <ul class="menu">
+        <li><a href="generalchair.html">General Chairs</a></li>
+
+        <li class="dropdown">
+          <a href="#">Committee</a>
+          <ul class="dropdown-content">
+            <li><a href="internationaladvisory.html">Advisory Committee</a></li>
+            <li><a href="organizingcommittee.html">Organizing Committee</a></li>
+            <li><a href="technicalprogramcommittee.html">Technical Program Committee</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Authors</a>
+          <ul class="dropdown-content">
+            <li><a href="callforpapers.html">Call for Papers</a></li>
+            <li><a href="SS.html">Call for Special Session</a></li>
+            <li><a href="crucialdates.html">Important Dates</a></li>
+            <li><a href="manuscriptsubmission.html">Paper Submission Guidelines</a></li>
+            <li><a href="confprogram.html">Conference Program</a></li>
+          </ul>
+        </li>
+
+        <li><a href="keynotespeakers.html">Speakers</a></li>
+        <li><a href="sponsorship.html">Sponsors</a></li>
+        <li><a href="registrationdetails.html">Registration</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Right Logo -->
+    <div class="burger">
+     <i class="fa-solid fa-bars fa-xl"></i>
+    </div>
+    <div class="logo right-logo">
+      <a href="https://nitjsr.ac.in/" target="_blank"><img class="rightlogo" src="assets/NITB&WLogo.png" alt="Right Logo" /></a>
+    </div>
+
+  </nav>
+
+
+  <!-- Main Content -->
+  <main class="container mx-auto p-4">
+    <div class="styleheading mt-20">
+      <span class="nitish mt-4">Organizing Committee</span>
+    </div>
+    <h3 class="headingP text-center text-3xl font-bold mb-3 mt-10">Chief Patron</h3>
+    <div class="row" style="display: flex; justify-content: center; margin-bottom: -3%;">
+      <div class="speaker-block-three col-xl-3 col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
+        <div class="inner-box">
+          <div class="image-box">
+            <figure class="image"><a href="https://www.nitjsr.ac.in/Administration/Director"><img src="images/dir.png" alt="Prof. Goutam Sutradhar"></a></figure>
+          </div>
+          <div class="info-box">
+            <h4 class="name"><a href="https://www.nitjsr.ac.in/Administration/Director">Prof. Goutam Sutradhar</a></h4>
+            <span class="designation">Director, NIT Jamshedpur</span>
+          </div>
+          <div class="social-box">
+            <ul class="social-links social-icon-colored">
+              <li></li>
+              <!-- <li><a href="#"><i class="fab fa-twitter"></i></a></li> -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+<main class="container mx-auto p-4">
+  <h3 class="headingP text-center text-2xl font-bold mb-3">Patrons</h3>
+
+  <div class="row flex flex-wrap justify-center gap-4 mb-[-6%]">
+
+    <!-- Card 2 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.iitism.ac.in/director">
+              <img src="assets/IIT-ISM-Dhanbad-Director-Prof.-Sukumar-Mishra.jpg" alt="Prof. Sukumar Mishra" class="mx-auto" />
+            </a>
+          </figure>
+        </div>
+        <div class="info-box mt-4">
+          <h4 class="name text-lg font-semibold">
+            <a href="https://www.iitism.ac.in/director">Prof. Sukumar Mishra</a>
+          </h4>
+          <span class="designation text-sm text-gray-600">Director, IIT (ISM) Dhanbad</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.mnit.ac.in/admin/director">
+              <img src="images/np padhy.jpg" alt="Prof. N. P. Padhy" class="mx-auto" />
+            </a>
+          </figure>
+        </div>
+        <div class="info-box mt-4">
+          <h4 class="name text-lg font-semibold">
+            <a href="https://www.mnit.ac.in/admin/director">Prof. N. P. Padhy</a>
+          </h4>
+          <span class="designation text-sm text-gray-600">Director, MNIT Jaipur</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 1 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.nitjsr.ac.in/Administration/deputy_director">
+              <img src="images/RVS.png" alt="Prof. R.V. Sharma" class="mx-auto" />
+            </a>
+          </figure>
+        </div>
+        <div class="info-box mt-4">
+          <h4 class="name text-lg font-semibold">
+            <a href="https://www.nitjsr.ac.in/Administration/deputy_director">Prof. R.V. Sharma</a>
+          </h4>
+          <span class="designation text-sm text-gray-600">Deputy Director, NIT Jamshedpur</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+<main class="container mx-auto p-4">
+  <h3 class="headingP text-center text-2xl font-bold mb-3 mt-10">Co-Patrons</h3>
+
+  <div class="row flex flex-wrap justify-center mb-[-6%]">
+  
+    <!-- Card 1 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.nitjsr.ac.in/people/profile/ME108"><img src="images/mk singh.jpg" alt="Prof. M. K. Sinha"></a>
+          </figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/ME108">Prof. M. K. Sinha</a></h4>
+          <span class="designation">Dean (Academic)</span>
+        </div>
+        <div class="social-box"><ul class="social-links social-icon-colored"><li></li></ul></div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.nitjsr.ac.in/people/profile/ME117"><img src="images/satish kumar.jpeg" alt="Prof. Satish Kumar"></a>
+          </figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/ME117">Prof. Satish Kumar</a></h4>
+          <span class="designation">Dean (Research and Consultancy)</span>
+        </div>
+        <div class="social-box"><ul class="social-links social-icon-colored"><li></li></ul></div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.nitjsr.ac.in/people/profile/CA105"><img src="images/dk yadav.jpg" alt="Prof. D. K. Yadav"></a>
+          </figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/CA105">Prof. D. K. Yadav</a></h4>
+          <span class="designation">Dean (Faculty Welfare)</span>
+        </div>
+        <div class="social-box"><ul class="social-links social-icon-colored"><li></li></ul></div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.nitjsr.ac.in/people/profile/EE108"><img src="images/kb yadav.jpg" alt="Prof. Krishna Bihari Yadav"></a>
+          </figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EE108">Prof. Krishna Bihari Yadav</a></h4>
+          <span class="designation">Dean (Industry and Alumni Relations)</span>
+        </div>
+        <div class="social-box"><ul class="social-links social-icon-colored"><li></li></ul></div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.nitjsr.ac.in/people/profile/EE114"><img src="images/uk sinha.jpeg" alt="Prof. Umesh Kumar Sinha"></a>
+          </figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EE114">Prof. Umesh Kumar Sinha</a></h4>
+          <span class="designation">Dean (Planning and Development)</span>
+        </div>
+        <div class="social-box"><ul class="social-links social-icon-colored"><li></li></ul></div>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.nitjsr.ac.in/people/profile/CE113"><img src="images/rakesh prat.jpg" alt="Dr. Rakesh Pratap Singh"></a>
+          </figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/CE113">Dr. Rakesh Pratap Singh</a></h4>
+          <span class="designation">Dean (Students’ Welfare)</span>
+        </div>
+        <div class="social-box"><ul class="social-links social-icon-colored"><li></li></ul></div>
+      </div>
+    </div>
+
+    <!-- Card 7 (Dr. Madhu Singh – existing image) -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.nitjsr.ac.in/people/profile/EE105"><img src="images/Madhu.png" alt="Dr. Madhu Singh"></a>
+          </figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EE105">Dr. Madhu Singh</a></h4>
+          <span class="designation">HoD, Electrical Engineering</span>
+        </div>
+        <div class="social-box"><ul class="social-links social-icon-colored"><li></li></ul></div>
+      </div>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.nitjsr.ac.in/people/profile/CA104"><img src="images/danish ali khan.png" alt="Prof. Danish Ali Khan"></a>
+          </figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/CA104">Prof. Danish Ali Khan</a></h4>
+          <span class="designation">HoD, Computer Science and Engineering</span>
+        </div>
+        <div class="social-box"><ul class="social-links social-icon-colored"><li></li></ul></div>
+      </div>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.nitjsr.ac.in/people/profile/EC108"><img src="images/dkshaw.jpg" alt="Dr. Dilip Kumar"></a>
+          </figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EC108">Dr. Dilip Kumar</a></h4>
+          <span class="designation">HoD, Electronics and Communication Engineering</span>
+        </div>
+        <div class="social-box"><ul class="social-links social-icon-colored"><li></li></ul></div>
+      </div>
+    </div>
+
+    <!-- Card 10 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.nitjsr.ac.in/people/profile/ME113"><img src="images/p kumar.jpg" alt="Dr. Parmanand Kumar"></a>
+          </figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/ME113">Dr. Parmanand Kumar</a></h4>
+          <span class="designation">HoD, Mechanical Engineering</span>
+        </div>
+        <div class="social-box"><ul class="social-links social-icon-colored"><li></li></ul></div>
+      </div>
+    </div>
+
+    <!-- Card 11 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.nitjsr.ac.in/people/profile/PI110"><img src="images/raj ballav.jpg" alt="Prof. Raj Ballav"></a>
+          </figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/PI110">Prof. Raj Ballav</a></h4>
+          <span class="designation">HoD, Production and Industrial Engineering</span>
+        </div>
+        <div class="social-box"><ul class="social-links social-icon-colored"><li></li></ul></div>
+      </div>
+    </div>
+
+    <!-- Card 12 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.nitjsr.ac.in/people/profile/MM102"><img src="images/A kumar.jpg" alt="Prof. Ashok Kumar"></a>
+          </figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/MM102">Prof. Ashok Kumar</a></h4>
+          <span class="designation">HoD, Metallurgical and Materials Engineering</span>
+        </div>
+        <div class="social-box"><ul class="social-links social-icon-colored"><li></li></ul></div>
+      </div>
+    </div>
+
+    <!-- Card 13 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.nitjsr.ac.in/people/profile/CE15"><img src="images/P prasad.jpg" alt="Dr. Prahlad Prasad"></a>
+          </figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/CE15">Dr. Prahlad Prasad</a></h4>
+          <span class="designation">HoD, Civil Engineering</span>
+        </div>
+        <div class="social-box"><ul class="social-links social-icon-colored"><li></li></ul></div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+
+
+<main class="container mx-auto p-4">
+  <h3 class="headingP text-center text-2xl font-bold mb-3 mt-10">Honorary Chairs</h3>
+
+  <div class="row flex flex-wrap justify-center mb-[-6%]">
+
+    <!-- Card 1 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://person.zju.edu.cn/en/0000146/831666.html">
+              <img src="images/Yag.png" alt="Prof. Deng Yan">
+            </a>
+          </figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name">
+            <a href="https://person.zju.edu.cn/en/0000146/831666.html">Prof. Deng Yan</a>
+          </h4>
+          <span class="designation">Zhejiang University, China</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.sharjah.ac.ae/Academics/Faculty-And-Staff/Ramesh-Bansal">
+              <img src="images/RB.png" alt="Prof. Ramesh Bansal">
+            </a>
+          </figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name">
+            <a href="https://www.sharjah.ac.ae/Academics/Faculty-And-Staff/Ramesh-Bansal">Prof. Ramesh Bansal</a>
+          </h4>
+          <span class="designation">University of Sharjah, Sharjah, UAE</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://ieee-aess.org/contact/puneet-kumar-mishra">
+              <img src="images/Puneet.png" alt="Dr. Puneet Kumar Mishra">
+            </a>
+          </figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name">
+            <a href="https://ieee-aess.org/contact/puneet-kumar-mishra">Dr. Puneet Kumar Mishra</a>
+          </h4>
+          <span class="designation">2025 VP (Education), IEEE AESS</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.ece.uh.edu/faculty/rajashekara-kaushik">
+              <img src="images/rajashekara.jpg" alt="Prof. Kaushik Rajashekara">
+            </a>
+          </figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name">
+            <a href="https://www.ece.uh.edu/faculty/rajashekara-kaushik">Prof. Kaushik Rajashekara</a>
+          </h4>
+          <span class="designation">University of Houston, USA</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.iotshow.in/iotshow-2024/satya-gupta/">
+              <img src="images/Dr. Satya Gupta.png" alt="Dr. Satya Gupta">
+            </a>
+          </figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name">
+            <a href="https://www.iotshow.in/iotshow-2024/satya-gupta/">Dr. Satya Gupta</a>
+          </h4>
+          <span class="designation">President, VLSI Society of India</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<main class="container mx-auto p-4">
+  <h3 class="headingP text-center text-2xl font-bold mb-3 mt-10">Honorary Co-Chairs</h3>
+
+  <div class="row flex flex-wrap justify-center mb-[-6%]">
+
+    <!-- Card 1 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/EE112"><img src="images/mahanty.jpg" alt="Prof. R. N. Mahanty"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EE112">Prof. R. N. Mahanty</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box"><ul class="social-links social-icon-colored"><li></li></ul></div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/EE110"><img src="images/n kumar.jpeg" alt="Prof. Niranjan Kumar"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EE110">Prof. Niranjan Kumar</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box"><ul class="social-links social-icon-colored"><li></li></ul></div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/ME116"><img src="images/sanjay.jpg" alt="Prof. Sanjay"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/ME116">Prof. Sanjay</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box"><ul class="social-links social-icon-colored"><li></li></ul></div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/ME141"><img src="images/saroj.jpg" alt="Prof. Saroj Kumar Sarangi"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/ME141">Prof. Saroj Kumar Sarangi</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box"><ul class="social-links social-icon-colored"><li></li></ul></div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/CE121"><img src="images/virendar.jpg" alt="Prof. Virendra Kumar"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/CE121">Prof. Virendra Kumar</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box"><ul class="social-links social-icon-colored"><li></li></ul></div>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/CE102"><img src="images/akl sri.jpg" alt="Prof. Arvind Kumar Lal Srivastava"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/CE102">Prof. Arvind Kumar Lal Srivastava</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box"><ul class="social-links social-icon-colored"><li></li></ul></div>
+      </div>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/CE106"><img src="images/anil.jpg" alt="Prof. Anil Kumar Choudhary"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/CE106">Prof. Anil Kumar Choudhary</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box"><ul class="social-links social-icon-colored"><li></li></ul></div>
+      </div>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/PI102"><img src="images/amresh.jfif" alt="Prof. Amresh Kumar"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/PI102">Prof. Amresh Kumar</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box"><ul class="social-links social-icon-colored"><li></li></ul></div>
+      </div>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/PI111"><img src="images/sahsi .jpg" alt="Prof. Shashi Bhushan Prasad"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/PI111">Prof. Shashi Bhushan Prasad</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box"><ul class="social-links social-icon-colored"><li></li></ul></div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+
+
+<main class="container mx-auto p-4">
+  <h3 class="headingP text-center text-2xl font-bold mb-3 mt-10">General Chairs</h3>
+
+  <div class="row flex flex-wrap justify-center mb-[-6%]">
+
+    <!-- Card 1 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.usn.no/english/about/contact-us/employees/sanjeevikumar-padmanaban"><img src="images/sanj.png" alt="Prof. Sanjeevikumar Padmanaban"></a>
+          </figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.usn.no/english/about/contact-us/employees/sanjeevikumar-padmanaban">Prof. Sanjeevikumar Padmanaban</a></h4>
+          <span class="designation">University of South-Eastern Norway</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.nitjsr.ac.in/people/profile/EE123"><img src="images/_DSC1301-removebg-preview.png" alt="Dr. Veerpratap Meena"></a>
+          </figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EE123">Dr. Veerpratap Meena</a></h4>
+          <span class="designation">National Institute of Technology, Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+
+<main class="container mx-auto p-4">
+  <h3 class="headingP text-center text-2xl font-bold mb-3 mt-10">General Co-Chairs</h3>
+
+  <div class="row flex flex-wrap justify-center mb-[-6%]">
+
+    <!-- Card 1 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://ieeexplore.ieee.org/author/37086090061"><img src="images/skc.png" alt="Dr. Suparna Kar Chowdhury"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://ieeexplore.ieee.org/author/37086090061">Dr. Suparna Kar Chowdhury</a></h4>
+          <span class="designation">Chair, IEEE Kolkata Section</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://person.zju.edu.cn/en/abhi"><img src="assets/AKChina.jpg" alt="Dr. Abhishek Kumar"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://person.zju.edu.cn/en/abhi">Dr. Abhishek Kumar</a></h4>
+          <span class="designation">Zhejiang University, China</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/EE113"><img src="images/skg.jpeg" alt="Dr. Sushil Kumar Gupta"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EE113">Dr. Sushil Kumar Gupta</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/EE111"><img src="images/ohg.png" alt="Dr. Omhari Gupta"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EE111">Dr. Omhari Gupta</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+
+<main class="container mx-auto p-4">
+  <h3 class="headingP text-center text-2xl font-bold mb-3 mt-10">Organising Chairs </h3>
+  <div class="row flex flex-wrap justify-center mb-[-6%]">
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/ME114"><img src="images/PC.png" alt="Prof. Goutam Sutradhar"></a></figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/ME114">Prof. Prabha Chand</a></h4>
+          <span class="designation">Professor, NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Repeat the above block for each speaker -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/EE109"><img src="images/namrata.jpeg" alt="Dr. Kumari Namrata"></a></figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EE109">Dr. Kumari Namrata</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<main class="container mx-auto p-4">
+  <h3 class="headingP text-center text-2xl font-bold mb-3 mt-10">Organizing Co-Chairs</h3>
+
+  <div class="row flex flex-wrap justify-center mb-[-6%]">
+
+    <!-- Card 1 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.iitism.ac.in/faculty-details?faculty=dushyant"><img src="images/d singh.jpeg" alt="Dr. Dushyant Sharma"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.iitism.ac.in/faculty-details?faculty=dushyant">Dr. Dushyant Sharma</a></h4>
+          <span class="designation">IIT (ISM) Dhanbad</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://ewh.ieee.org/r10/calcutta/message_secretary.html"><img src="images/tnag.png" alt="Dr. Tridibesh Nag"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://ewh.ieee.org/r10/calcutta/message_secretary.html">Dr. Tridibesh Nag</a></h4>
+          <span class="designation">Secretary, IEEE Kolkata Section</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/EE2201"><img src="images/supriyo.jpeg" alt="Dr. Supriyo Das"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EE2201">Dr. Supriyo Das</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/EC122"><img src="images/surajit.jpg" alt="Dr. Surajit Kundu"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EC122">Dr. Surajit Kundu</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+
+
+<main class="container mx-auto p-4">
+  <h3 class="headingP text-center text-2xl font-bold mb-3 mt-10">Organizing Secretaries</h3>
+  <div class="row flex flex-wrap justify-center mb-[-6%]">
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/EE107"><img src="images/jitu.png" alt="Prof. Goutam Sutradhar"></a></figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EE107">Dr. Jitendra Kumar</a></h4>
+          <span class="designation">Assistant Professor, NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/EE125"><img src="images/surya.png" alt="Prof. Goutam Sutradhar"></a></figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EE125">Dr. Suryaprakash</a></h4>
+          <span class="designation">Asst. Prof., NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/EC117"><img src="images/s sahoo.jpeg" alt=""></a></figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EC117">Dr. Swagatadeb Sahoo
+          </a></h4>
+          <span class="designation">NIT Jamshedpur 
+          </span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/CS111"><img src="images/din.jpeg" alt="Dr. Dinesh Kumar"></a></figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/CS111">Dr. Dinesh Kumar
+          </a></h4>
+          <span class="designation">NIT Jamshedpur 
+          </span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<main class="container mx-auto p-4">
+  <h3 class="headingP text-center text-2xl font-bold mb-3 mt-10">Technical Program Chairs</h3>
+  <div class="row flex flex-wrap justify-center mb-[-6%]">
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/EE122"><img src="images/mks.jpg" alt="Dr. Mrinal Kanti Sarkar"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EE122">Dr. Mrinal Kanti Sarkar</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/EE102"><img src="images/ananyo.jpg" alt="Dr. Ananyo Bhattacharya"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EE102">Dr. Ananyo Bhattacharya</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/EC110"><img src="images/kunal.jpg" alt="Dr. Kunal Singh"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EC110">Dr. Kunal Singh</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/PI106"><img src="images/dinesh.jpg" alt="Dr. Dinesh Kumar"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/PI106">Dr. Dinesh Kumar</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+
+<main class="container mx-auto p-4">
+  <h3 class="headingP text-center text-2xl font-bold mb-3 mt-10">Women in Engineering (WIE) Chairs</h3>
+  <div class="row flex flex-wrap justify-center mb-[-4%]">
+   <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/EC115"><img src="images/rsinha.png" alt="Dr. Rashmi Sinha"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EC115">Dr. Rashmi Sinha</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://mnit.ac.in/cee/profile?fid=R6qN"><img src="images/sunanda.png" alt="Dr. Sunanda Sinha"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://mnit.ac.in/cee/profile?fid=R6qN">Dr. Sunanda Sinha</a></h4>
+          <span class="designation">MNIT Jaipur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/ME105"><img src="images/dulari.jpeg" alt="Dr. Dulari Hansdah"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/ME105">Dr. Dulari Hansdah</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.iitism.ac.in/faculty-details?faculty=swatirajput"><img src="images/swati.jpg" alt="Dr. Swati Rajput"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.iitism.ac.in/faculty-details?faculty=swatirajput">Dr. Swati Rajput</a></h4>
+          <span class="designation">IIT (ISM) Dhanbad</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<main class="container mx-auto p-1">
+  <h3 class="headingP text-center text-2xl font-bold mb-3 mt-10">Publication Chairs </h3>
+  <div class="row flex flex-wrap justify-center mb-[-2%]">
+   <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.mnit.ac.in/dept_ee/profile?fid=R6SN"><img src="images/vpsingh.png" alt="Dr. Vinay Pratap Singh"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.mnit.ac.in/dept_ee/profile?fid=R6SN">Dr. Vinay Pratap Singh</a></h4>
+          <span class="designation"> MNIT Jaipur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/EC102"><img src="images/ajay.jpg" alt="Dr. Ajay Kumar"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EC102">Dr. Ajay Kumar</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://research.iitj.ac.in/researcher/ravi-yadav-1"><img src="images/ravi.jpeg" alt="Dr. Ravi Yadav"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://research.iitj.ac.in/researcher/ravi-yadav-1">Dr. Ravi Yadav</a></h4>
+          <span class="designation">IIT Jodhpur, India</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/CS103"><img src="images/kks.jpeg" alt="Dr. K. K. Singh"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/CS103">Dr. K. K. Singh</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<main class="container mx-auto p-1">
+  <h3 class="headingP text-center text-2xl font-bold mb-3 mt-10">Publicity Chairs </h3>
+  <div class="row flex flex-wrap justify-center mb-[-2%]">
+   <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/EE106"><img src="images/san.jpg" alt="Dr. Sanjay Kumar"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EE106">Dr. Sanjay Kumar</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/EE120"><img src="images/sks.png" alt="Dr. Simanta Kumar Samal"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EE120">Dr. Simanta Kumar Samal</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/CS117"><img src="images/pampa.png" alt="Dr. Pampa Howladar"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/CS117">Dr. Pampa Howladar</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/EE101"><img src="images/alok.jpg" alt="Dr. Alok Priyadarshi"></a></figure>
+        </div>
+        <div class="info-box text-center">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EE101">Dr. Alok Priyadarshi</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<main class="container mx-auto p-1">
+  <h3 class="headingP text-center text-2xl font-bold mb-3 mt-10">Sponsorship Chairs</h3>
+  <div class="row flex flex-wrap justify-center mb-[-2%]">
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.manipal.edu/mu/campuses/mahe-bengaluru/academics/institution-list/sorm/department-faculty/faculty-list/dr-vinay-kumar-rao/_jcr_content.html"><img src="assets/Vinay.jpg" alt="Prof. Goutam Sutradhar"></a></figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="https://www.manipal.edu/mu/campuses/mahe-bengaluru/academics/institution-list/sorm/department-faculty/faculty-list/dr-vinay-kumar-rao/_jcr_content.html">Dr. Vinay Kumar Jadoun</a></h4>
+          <span class="designation">Manipal Institute of Technology, Manipal, India</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/ME102"><img src="images/ashok.png" alt="Dr. Ashok Kumar Mandal"></a></figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/ME102">Dr. Ashok Kumar Mandal</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/EC112"><img src="images/rout.jpg" alt="Dr. Mrutyunjay Rout"></a></figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EC112l">Dr. Mrutyunjay Rout</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/EE117"><img src="images/nayak.jpg" alt="Dr Kethavath Raghavendra Naik"></a></figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EE117">Dr Kethavath Raghavendra Naik</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<main class="container mx-auto p-1">
+  <h3 class="headingP text-center text-2xl font-bold mb-3 mt-10">Special Session Chairs</h3>
+  <div class="row flex flex-wrap justify-center mb-[-2%]">
+
+    <!-- Card 1 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="http://nitjsr.ac.in/people/profile/CS121"><img src="images/tripathi.jpg" alt="Dr. Diwakar Tripathi"></a>
+          </figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="http://nitjsr.ac.in/people/profile/CS121">Dr. Diwakar Tripathi</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.nitjsr.ac.in/people/profile/CS115"><img src="images/ramachand.jpeg" alt="Dr. B. R. Reddy"></a>
+          </figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/CS115">Dr. B. R. Reddy</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.nitjsr.ac.in/people/profile/EE124"><img src="images/s tiwari.jpeg" alt="Dr. S. K. Tiwary"></a>
+          </figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EE124">Dr. S. K. Tiwary</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.nitjsr.ac.in/people/profile/EC124"><img src="images/k das.png" alt="Dr. Kaushik Das"></a>
+          </figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EC124">Dr. Kaushik Das</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+
+
+<main class="container mx-auto p-1">
+  <h3 class="headingP text-center text-2xl font-bold mb-3 mt-10">Tutorial/ Workshop Chairs</h3>
+  <div class="row flex flex-wrap justify-center mb-[-4%]">
+
+    <!-- Card 1 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.nitjsr.ac.in/people/profile/EE126"><img src="images/kundan.png" alt="Dr. Kundan Kumar"></a>
+          </figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EE126">Dr. Kundan Kumar</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.nitjsr.ac.in/people/profile/EE119"><img src="images/ravi.jpg" alt="Dr. Ravi Bhushan"></a>
+          </figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EE119">Dr. Ravi Bhushan</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.nitjsr.ac.in/people/profile/EC125"><img src="images/msingh.jpg" alt="Dr. Munendra Singh"></a>
+          </figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/EC125">Dr. Munendra Singh</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image">
+            <a href="https://www.nitjsr.ac.in/people/profile/CS120"><img src="images/drai.jpg" alt="Dr. Deepak Rai"></a>
+          </figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/CS120">Dr. Deepak Rai</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored"><li></li></ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+
+<div class="container mx-auto px-4 py-6 flex flex-col lg:flex-row gap-8 justify-center items-start">
+
+  <!-- Left Section: Finance / Treasurer Chairs -->
+  <main class="w-full lg:w-1/2">
+    <h3 class="headingP text-center text-2xl font-bold mb-3 mt-10">Finance / Treasurer Chairs</h3>
+    <div class="row flex flex-wrap justify-center mb-[-6%]">
+      <div class="speaker-block-three w-full sm:w-[250px] wow fadeInUp">
+        <div class="inner-box">
+          <div class="image-box">
+            <figure class="image">
+              <a href="https://www.nitjsr.ac.in/people/profile/ME144">
+                <img src="images/alokray.jpg" alt="Dr. Alok Kumar Ray">
+              </a>
+            </figure>
+          </div>
+          <div class="info-box text-center">
+            <h4 class="name">
+              <a href="https://www.nitjsr.ac.in/people/profile/ME144">Dr. Alok Kumar Ray</a>
+            </h4>
+            <span class="designation">NIT Jamshedpur</span>
+          </div>
+          <div class="social-box">
+            <ul class="social-links social-icon-colored"><li></li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Right Section: Industry Liaison Chairs -->
+  <main class="w-full lg:w-1/7">
+    <h3 class="headingP text-center text-2xl font-bold mb-3 mt-10">Industry Liaison Chairs</h3>
+    <div class="row flex flex-wrap justify-center mb-[-6%] ml-6">
+      
+      <!-- Card 1 -->
+      <div class="speaker-block-three w-full sm:w-[250px] wow fadeInUp">
+        <div class="inner-box">
+          <div class="image-box">
+            <figure class="image">
+              <a href="https://www.iitbhilai.ac.in/index.php?pid=kmurari">
+                <img src="images/krishna .jpg" alt="Dr. Krishna Murari">
+              </a>
+            </figure>
+          </div>
+          <div class="info-box text-center">
+            <h4 class="name">
+              <a href="https://www.iitbhilai.ac.in/index.php?pid=kmurari">Dr. Krishna Murari</a>
+            </h4>
+            <span class="designation">IIT Bhilai, India</span>
+          </div>
+          <div class="social-box">
+            <ul class="social-links social-icon-colored"><li></li></ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="speaker-block-three w-full sm:w-[250px] wow fadeInUp">
+        <div class="inner-box">
+          <div class="image-box">
+            <figure class="image">
+              <a href="https://sites.google.com/iitj.ac.in/preeti-meena">
+                <img src="images/WhatsApp Image 2025-08-11 at 02.23.40.jpeg" alt="Preeti Meena">
+              </a>
+            </figure>
+          </div>
+          <div class="info-box text-center">
+            <h4 class="name">
+              <a href="https://sites.google.com/iitj.ac.in/preeti-meena">Preeti Meena</a>
+            </h4>
+            <span class="designation">Indian Institute of Technology Jodhpur</span>
+          </div>
+          <div class="social-box">
+            <ul class="social-links social-icon-colored"><li></li></ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="speaker-block-three w-full sm:w-[250px] wow fadeInUp">
+        <div class="inner-box">
+          <div class="image-box">
+            <figure class="image">
+              <a href="https://www.nitjsr.ac.in/people/profile/CS118">
+                <img src="images/rk.jpg" alt="Dr. Rakesh Kumar">
+              </a>
+            </figure>
+          </div>
+          <div class="info-box text-center">
+            <h4 class="name">
+              <a href="https://www.nitjsr.ac.in/people/profile/CS118">Dr. Rakesh Kumar</a>
+            </h4>
+            <span class="designation">NIT Jamshedpur</span>
+          </div>
+          <div class="social-box">
+            <ul class="social-links social-icon-colored"><li></li></ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- USE THE BELOW CODE WHEN THE FINANCE/TREASURER AND INDUSTRY LIAISION SECTION EXTENDS i.e. IF EACH SECTION HAS MORE THAN 3 CARDS-->
+
+<!-- <main class="container mx-auto p-1">
+  <h3 class="headingP text-center text-2xl font-bold mb-3 mt-10">Finance / Treasurer Chairs</h3> 
+  <div class="row flex flex-wrap justify-center">
+    <div class="speaker-block-three col-xl-3 col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/ME144"><img src="images/alokray.jpg" alt="Dr. Alok Kumar Ray"></a></figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/ME144">Dr. Alok Kumar Ray</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<main class="container mx-auto p-1">
+  <h3 class="headingP text-center text-2xl font-bold mb-3 mt-10">Industry Liaison Chairs</h3>
+  <div class="row flex flex-wrap justify-center">
+    <div class="speaker-block-three col-xl-3 col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.iitbhilai.ac.in/index.php?pid=kmurari"><img src="images/krishna .jpg" alt="Dr. Krishna Murari"></a></figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="https://www.iitbhilai.ac.in/index.php?pid=kmurari">Dr. Krishna Murari</a></h4>
+          <span class="designation">IIT Bhilai, India</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaker-block-three col-xl-3 col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.nitjsr.ac.in/people/profile/CS118"><img src="images/rk.jpg" alt="Dr. Rakesh Kumar"></a></figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="https://www.nitjsr.ac.in/people/profile/CS118">Dr. Rakesh Kumar</a></h4>
+          <span class="designation">NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main> -->
+
+
+<main class="container mx-auto p-1">
+  <h3 class="headingP text-center text-2xl font-bold mb-3 mt-10">Web & Social Media Chairs</h3>
+  <div class="row flex flex-wrap justify-center">
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="#"><img src="images/nishant.png" alt="Prof. Goutam Sutradhar"></a></figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="#">Dr. Nishant Kumar</a></h4>
+          <span class="designation">Assistant Prof., BK BIET, Pilani</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://scholar.google.com/citations?user=F6kdFRnAjb4C&hl=en"><img src="assets/PKM.jpg" alt="Dr. Pawan Kumar Meena"></a></figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="https://scholar.google.com/citations?user=F6kdFRnAjb4C&hl=en">Dr. Pavan Kumar Meena
+          </a></h4>
+          <span class="designation">IIT Bombay</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="https://www.linkedin.com/in/karansinghrathour/"><img src="images/KSR.jpg" alt="Karan Singh Rathour"></a></figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="https://www.linkedin.com/in/karansinghrathour/">Karan Singh Rathour</a></h4>
+          <span class="designation">4th Year B.Tech., NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="#"><img src="images/RKJSR.jpeg" alt="Rahul Kumar"></a></figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="#">Rahul Kumar</a></h4>
+          <span class="designation">4th Year B.Tech., NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full"></div>
+
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="#"><img src="images/rishit.png" alt="Rahul Kumar"></a></figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="#">Rishit Raj</a></h4>
+          <span class="designation">3rd Year B.Tech., NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="#"><img src="images/adityaprem.png" alt="Rahul Kumar"></a></figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="#">Aditya Prem</a></h4>
+          <span class="designation">3rd Year B.Tech., NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="#"><img src="images/dhani.png" alt="Rahul Kumar"></a></figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="#">Supriyo Dhani</a></h4>
+          <span class="designation">3rd Year B.Tech., NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaker-block-three xl:w-1/5 lg:w-1/4 md:w-1/3 sm:w-1/2 w-full wow fadeInUp">
+      <div class="inner-box">
+        <div class="image-box">
+          <figure class="image"><a href="#"><img src="images/Asmi.png" alt="Rahul Kumar"></a></figure>
+        </div>
+        <div class="info-box">
+          <h4 class="name"><a href="#">Asmi Srivastava</a></h4>
+          <span class="designation">3rd Year B.Tech., NIT Jamshedpur</span>
+        </div>
+        <div class="social-box">
+          <ul class="social-links social-icon-colored">
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+  <!-- Footer-->
+
+  <div class="footerBody">
+    <footer class="footer">
+      <div class="container5">
+          <!-- Logo Section -->
+          <div class="logo-section">
+              <h3>Brought to you by :</h3>
+              <div class="logo-container">
+
+                  <div style="height: 4rem;" class="logo-item">
+                      <img src="assets/nitlogosc.png">
+                  </div>
+                  <div style="height: 4rem;" class="logo-item">
+                      <img src="assets/NITB&WLogo.png">
+                  </div>
+                  <div style="height: 3rem;" class="logo-item">
+                      <img src="assets/ieeen.png">
+                  </div>
+                  <div style="height: 3rem;" class="logo-item">
+                      <img src="assets/IEEEKSpng.png">
+                  </div>
+                  <div style="height: 3rem;" class="logo-item">
+                      <img src="assets/ies.png" alt="Partner Logo 3">
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Footer Links -->
+          <div class="row mt-4">
+              <!-- Social Media -->
+             <div class="col-lg-4 col-md-4 mb-4 mb-lg-0">
+                  <h5>Follow Us On Social:</h5>
+                  <div class="social-icons">
+                      <a href="https://www.instagram.com/ice2cpt?igsh=MXFlYmUwc2RsczdzNA=="><i class="fab fa-instagram"></i></a>
+                      <a href="https://www.linkedin.com/company/ice2cpt/"><i class="fab fa-linkedin-in"></i></a>
+                  </div>
+              </div>
+              
+              <!-- Quick Links with Split Layout -->
+              <div class="col-lg-4 col-md-4 mb-4 mb-lg-0 quick-links-section">
+                  <h5>Quick Links</h5>
+                  <div class="links-container">
+                      <div class="links-left">
+                          <ul class="footer-links">
+                              <li><a href="https://ice2cpt.com/">Home</a></li>
+                              <li><a href="callforpapers.html">Call for Papers</a></li>
+                              <li><a href="organizingcommittee.html">Organizing Committee</a></li>
+                          </ul>
+                      </div>
+                      <div class="links-right">
+                          <ul class="footer-links">
+                            <li><a href="registrationdetails.html">Register Now</a></li>
+                              <li><a href="venue.html">Key Attractions</a></li>
+                              <li><a href="https://www.nitjsr.ac.in">NIT Jamshedpur Website</a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+              
+              <!-- Contact Us -->
+              <div class="col-lg-4 col-md-4 mb-4 mb-lg-0">
+                <!--  <h5>Contact Us</h5>
+                  <ul class="footer-links text-center">
+                      <li><a href="mailto:ice2cpt@gmail.com">ice2cpt@gmail.com</a></li>
+                      <li><a href="mailto:suryaprakash.ee@nitjsr.ac.in">suryaprakash.ee@nitjsr.ac.in</a></li>
+                      <li><a href="mailto:krnishant125@gmail.com">krnishant125@gmail.com</a></li>
+                  </ul> -->
+                  <div class="visitor-counter">
+                      <!-- <a href="http://s01.flagcounter.com/more/q6v"><img src="https://s01.flagcounter.com/count2/q6v/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></a> -->
+                      <a href="https://info.flagcounter.com/Sd75"><img src="https://s01.flagcounter.com/count2/Sd75/bg_FFFFFF/txt_000000/border_FFFFFF/columns_5/maxflags_20/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+                  </div>
+  
+              </div>
+          </div>
+          
+          <!-- Copyright -->
+          <div class="row footer-bottom">
+              <div class="col-md-12 text-center">
+                  <p class="mb-0">© ICE2CPT-2025. All rights reserved.</p>
+              </div>
+          </div>
+      </div>
+    </footer> 
+  </div>
+
+
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <script src="js/plugins.js"></script>
+  <script src="script.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+<!-- NAVBAR SHRINK -->
+<script>
+  window.addEventListener('scroll', function () {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('shrink');
+      } else {
+        navbar.classList.remove('shrink');
+      }
+    });
+</script>
+<!-- toggle menu -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const burger = document.querySelector('.burger');
+    const menu = document.querySelector('.menu');
+    let menuVisible = false;
+
+    burger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuVisible = !menuVisible;
+      menu.classList.toggle('menu-active', menuVisible);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (menuVisible && !menu.contains(e.target) && !burger.contains(e.target)) {
+        menu.classList.remove('menu-active');
+        menuVisible = false;
+      }
+    });
+  });
+</script>
+
+
+ </body>
+</html>

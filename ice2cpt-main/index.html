@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Oswald:wght@200..700&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ice2cpt</title>
+    
+    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- THIS IS FOR NAVBAR SO PLEASE DON'T DO ANYTHING HERE -->
+  <style>
+    body {
+      font-family: 'Oswald', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+    }
+
+    @keyframes waveMove {
+      0% {
+        transform: translateX(0) scaleY(1.02) rotate(180deg) scaleX(-1);
+      }
+
+      25% {
+        transform: translateX(-15px) scaleY(1.03) rotate(180deg) scaleX(-1);
+      }
+
+      50% {
+        transform: translateX(-30px) scaleY(1.01) rotate(180deg) scaleX(-1);
+      }
+
+      75% {
+        transform: translateX(-15px) scaleY(1.04) rotate(180deg) scaleX(-1);
+      }
+
+      100% {
+        transform: translateX(0) scaleY(1.02) rotate(180deg) scaleX(-1);
+      }
+    }
+
+
+    .navbar-wave {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .wave {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 103%;
+      height: 13rem;
+      transform: scaleX(-1);
+      transform: rotate(180deg);
+      pointer-events: none;
+      animation: waveMove 4s infinite;
+    }
+
+    /* Stack layers with slight offsets for depth */
+    .wave1 {
+      z-index: 1;
+      opacity: 0.9;
+      animation-delay: 0s;
+    }
+
+    .wave2 {
+      z-index: 2;
+      opacity: 0.7;
+      animation-delay: 1s;
+    }
+
+    .wave3 {
+      z-index: 3;
+      opacity: 0.6;
+      animation-delay: 2s;
+    }
+
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      background-color: #dfe5e8;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 10px 5%;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar.shrink {
+      padding: 5px 5%;
+    }
+
+    .logo {
+      width: 9rem;
+      transition: transform 0.4s ease;
+    }
+
+    .left-logo img {
+      height: auto;
+      width: 7rem;
+    }
+
+    .right-logo img {
+      height: 7rem;
+      padding-top: 12px;
+      margin-left: 37px;
+      width: auto;
+    }
+
+    .navbar.shrink .logo {
+      transform: scale(0.9);
+    }
+
+    /* .logo img {
+        width: 10rem;
+        height: auto;
+      } */
+
+    .center-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: calc(100% - 200px);
+      flex: 1;
+      transition: all 0.4s ease;
+    }
+
+    .sponsors {
+      display: flex;
+      gap: 6rem;
+      justify-content: center;
+      margin-bottom: 32px;
+      padding-left: 5px;
+      padding-right: 5px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      flex-wrap: wrap;
+      border-radius: 5px;
+      animation: fadeSlideIn 1s ease forwards;
+    }
+
+    .sponsors img {
+      height: 3rem;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .sponsors img:hover {
+      transform: scale(1.1);
+    }
+
+    .menu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      transition: all 0.3s ease;
+    }
+
+    .menu li {
+      position: relative;
+    }
+
+    .menu a {
+      font-size: 1.3rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      padding: 5px 16px;
+      border-radius: 5px;
+      transition: background-color 0.5s, transform 0.5s ease;
+      display: inline-block;
+    }
+
+    .menu a:hover {
+      background-color: #002b5c;
+      /* dark blue */
+      color: #fff;
+      /* white text */
+      transform: scale(1.05);
+    }
+
+    /* Dropdown styles */
+    .dropdown-content {
+      list-style: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #c4c4c4;
+      border-radius: 8px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      visibility: hidden;
+      transform: perspective(600px) rotateX(-10deg) translateY(10px);
+      transition: all 0.5s ease;
+      transform-origin: top;
+      z-index: 10;
+      min-width: 220px;
+      padding: 10px 0;
+    }
+
+    .dropdown-content li {
+      padding: 0;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 5px 10px;
+      font-size: 1.2rem;
+      color: #333;
+      white-space: nowrap;
+      transition: background 0.3s;
+    }
+
+    .menu a:hover {
+      background-color: #002b5c;
+      /* dark blue */
+      color: #fff;
+      /* white text */
+      transform: scale(1.05);
+    }
+
+    /* Show dropdown on hover */
+    .menu li.dropdown:hover .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: perspective(600px) rotateX(0deg) translateY(0);
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive styles */
+   .burger{
+    display: none;
+   }
+
+   @media screen and (max-width: 1400px) {
+    .menu{
+      gap: 0px;
+    }
+    .menu a{
+      font-size: 0.9rem;
+    }
+    .sponsors{
+      gap: 2rem;
+    }
+}
+   @media screen and (max-width: 850px) {
+    .burger{
+      top: 3.7rem;
+      right: 1rem;
+       position: relative;
+      display: block;
+   }
+
+   .menu {
+    display: flex; /* default is flex so transition works */
+    flex-direction: column;
+    background: white;
+    color: black;
+    position: absolute;
+    top: 7.5rem;
+    right: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    z-index: 999;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: all 0.3s ease;
+  }
+
+  .menu.menu-active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scaleY(1);
+  }
+
+  .menu li {
+    position: relative;
+    margin: 0.5rem 0;
+  }
+
+  .menu .dropdown-content {
+  position: absolute;
+  top: 0;
+  left: -220px; /* Adjust as needed */
+  background-color: #fff;
+  /* padding: 0.5rem 1rem; */
+  border-radius: 8px;
+  display: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  /* min-width: 150px; */
+  flex-direction: column;
+}
+
+.menu .dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+.menu .dropdown-content li {
+  margin: 0.5rem 0;
+}
+
+
+  /* .burger {
+    display: block;
+    cursor: pointer;
+    z-index: 1000;
+  } */
+
+  .center-content {
+    display: flex; /* Keep center-content active */
+  }
+
+  .sponsors {
+    display: none; /* Hide only unwanted items */
+  }
+
+  .right-logo {
+    display: none;
+  }
+  .hero-sec h1{
+   font-size: x-large;
+  }
+  
+  .about-flex-box{
+   flex-direction: column;
+  }
+  .paragraph{
+     font-size: 1rem;
+   }
+   section h4 {
+     text-align: center;
+     font-size: 2rem;
+     font-weight: 500;
+   }
+   
+
+}
+  </style>
+
+
+</head>
+
+<body>
+
+  <!-- nav  -->
+
+  <nav class="navbar">
+    <div class="navbar-wave">
+      <!-- Layer 1: Darker Base Wave -->
+      <svg class="wave wave1" viewBox="0 0 400 100" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#003366" />
+            <stop offset="100%" stop-color="#004c99" />
+          </linearGradient>
+        </defs>
+        <path d="M0,90 C100,20 300,120 400,10 L400,100 L0,100 Z" fill="url(#grad1)" />
+      </svg>
+
+      <!-- Layer 2: Mid Blue -->
+      <svg class="wave wave2" viewBox="0 0 400 100" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="grad2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#0052a5" />
+            <stop offset="100%" stop-color="#007bff" />
+          </linearGradient>
+        </defs>
+        <path d="M0,80 C120,40 280,110 400,20 L400,100 L0,100 Z" fill="url(#grad2)" />
+      </svg>
+
+      <!-- Layer 3: Lighter Top Wave -->
+      <svg class="wave wave3" viewBox="0 0 400 100" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="grad3" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#33ccff" />
+            <stop offset="100%" stop-color="#66d9ff" />
+          </linearGradient>
+        </defs>
+        <path d="M0,70 C150,50 250,100 400,30 L400,100 L0,100 Z" fill="url(#grad3)" />
+      </svg>
+    </div>
+
+
+    <!-- Left Logo -->
+    <div class="logo left-logo">
+      <a href="index.html">
+        <img src="assets/ice2cptLogo.gif" alt="Left Logo" />
+      </a>
+    </div>
+
+    <!-- Center Content -->
+    <div class="center-content">
+      <div class="sponsors">
+        <img src="assets/nitlogosc.png" alt="Sponsor 1" />
+        <img src="assets/ieeen.png" alt="Sponsor 2" />
+        <img src="assets/IEEEKSpng.png" alt="Sponsor 3" />
+        <img src="assets/ies.png" alt="Sponsor 4" />
+      </div>
+
+      <ul class="menu">
+        <li><a href="generalchair.html">General Chair</a></li>
+
+        <li class="dropdown">
+          <a href="#">Committee</a>
+          <ul class="dropdown-content">
+            <li><a href="internationaladvisory.html">Advisory Committee</a></li>
+            <li><a href="organizingcommittee.html">Organizing Committee</a></li>
+            <li><a href="technicalprogramcommittee.html">Technical Program Committee</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Authors</a>
+          <ul class="dropdown-content">
+            <li><a href="callforpapers.html">Call for Papers</a></li>
+            <li><a href="SS.html">Call for Special Session</a></li>
+            <li><a href="crucialdates.html">Important Dates</a></li>
+            <li><a href="manuscriptsubmission.html">Paper Submission Guidelines</a></li>
+            <li><a href="confprogram.html">Conference Program</a></li>
+          </ul>
+        </li>
+
+        <li><a href="keynotespeakers.html">Speakers</a></li>
+        <li><a href="sponsorship.html">Sponsors</a></li>
+        <li><a href="registrationdetails.html">Registration</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Right Logo -->
+    <div class="burger">
+     <i class="fa-solid fa-bars fa-xl"></i>
+    </div>
+    <div class="logo right-logo">
+      <a href="https://nitjsr.ac.in/" target="_blank"><img class="rightlogo" src="assets/NITB&WLogo.png" alt="Right Logo" /></a>
+    </div>
+
+  </nav>
+
+
+  <!-- hero-section  -->
+
+  <div class="nav-mar-top">
+    <div class="hero-section hero-sec">
+      <video autoplay muted loop playsinline class="bg-video">
+        <source src="https://res.cloudinary.com/dzcwojp3z/video/upload/v1757583769/campusTour_1_xsdxap.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div class="center-wrapper">
+        <div class="left-heading">
+          <h1 class="titleh1">
+            International Conference on Electrical, Electronics and Computer Science with Advance Power Technologies - A Future Trend
+          </h1>
+        </div>
+      </div>
+  
+      <div class="dates">
+        <i class="fa-solid fa-calendar-days calendar-icon"></i>
+        <p class="october">29-31 October, 2025</p>
+      </div>
+  
+      <div class="buttonAndCntdwn">
+        <div class="button-body">
+          
+          <a style="text-decoration: none;" href="https://drive.google.com/file/d/1sWoSwEt99-8xsERCcYE8qfuTBydfLseY/view?usp=sharing" target="_blank">
+            <button class="available-for-btn">
+              <div class="circle">
+                <div class="dot"></div>
+                <div class="outline"></div>
+              </div>
+              Download Schedule
+            </button>
+
+          </a>
+        </div>
+  
+        <div class="countdownBody">
+          <div class="countdown">
+            <div id="months" data-desc="Months" class="animate-in " style="--d:1800ms">
+              <span>2</span>
+              <span>0</span>
+            </div>
+            <div id="days" data-desc="Days" class="animate-in " style="--d:1500ms">
+              <span>2</span>
+              <span>0</span>
+            </div>
+            <div id="hours" data-desc="Hours" class="animate-in " style="--d:1200ms">
+              <span>2</span>
+              <span>3</span>
+            </div>
+            <div id="minutes" data-desc="minutes" class="animate-in " style="--d:800ms">
+              <span>1</span>
+              <span>2</span>
+            </div>
+            <div id="seconds" data-desc="seconds" class="animate-in " style="--d:500ms">
+              <span>0</span>
+              <span>1</span>
+            </div>
+          </div>
+          <div class="paracntdwn">Countdown to the Conference</div>
+        </div>
+      </div>
+    </div>
+    <div class="marquee-wrapper">
+      <h5 class="marquee-text">ICE2CPT 2025 will be organized at NIT Jamshedpur, Jharkhand, India, during October 29–31, 2025. <span class="toAddSpace">|</span> <a style="text-decoration: none; onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'" href="callforpapers.html">Call for Paper</a> <span class="toAddSpace">|</span>  Accepted papers will be submitted to IEEE Xplore for inclusion in the digital library.</h5>
+    </div>
+  </div>
+
+  <div class="swagatam">
+    <img class="swagat" src="assets/swagat2.png"/>
+  </div>
+
+
+<!-- ABOUT KA MAIN -->
+  <main>
+    <section>
+      <h4 class="about_IC-head">About ICE2CPT 2025</h4>
+      <div class="about-ice2cpt about-flex-box">
+        <div id="first" class="about-image about-ice2cpt-image"><img style="height: 22rem; width: 350rem;" class="first"
+            src="assets/IMGIce2cpt.jpg">
+
+        </div>
+        <div class="about-ice2cpt-message about-flex-box-message">
+          <p class="paragraph">The 2025 IEEE 1st International Conference on Electrical, Electronics and Computer Science with Advanced Power Technologies – A Future Trend (ICE2CPT 2025) will be organized by the Department of Electrical Engineering, National Institute of Technology (NIT) Jamshedpur, from 29th to 31st October 2025 in hybrid mode. This premier event is being held in association with IEEE, IEEE Kolkata Section, IEEE Industrial Electronics Society, VLSI Society of India, and the IEEE Student Branch, NIT Jamshedpur. As a flagship international conference of the IEEE Kolkata Section and Industrial Electronics Society, ICE2CPT 2025 is poised to serve as a global platform for researchers, academicians, and industry professionals to exchange cutting-edge developments in electrical engineering, electronics, computer science, and advanced power technologies.
+
+            ICE2CPT 2025 aims to foster interdisciplinary collaboration by highlighting emerging trends and innovations in areas such as smart grids, AI and IoT applications, signal processing, advanced control systems, and sustainable energy technologies. The conference will facilitate knowledge sharing and thought leadership across academia and industry, addressing critical challenges and opportunities in green industrial electronics and digital transformation. By encouraging dynamic discussions and strategic networking, ICE2CPT 2025 aspires to shape the future landscape of intelligent and sustainable energy and communication systems.
+          </p>
+        </div>
+      </div>
+
+      <h4 class="about_nit-head">About NIT Jamshedpur</h4>
+      <div class="about-nit about-flex-box">
+        
+        <div class="about-about-nit-message about-flex-box-message">
+          <p class="paragraph">The National Institute of Technology Jamshedpur (NIT Jamshedpur), is an Institute of
+            National
+            Importance located at Jamshedpur, Jharkhand, India. Established as a Regional Institute of Technology in
+            1960,
+            it
+            was upgraded to NIT on 27 December 2002 with the status of Deemed University. It is one of the 31 NITs in
+            India,
+            and
+            as such is directly under the control of the Ministry of Human Resource Development (MHRD). It is the third
+            in
+            the
+            chain of eight NITs established as a part of the Second Five Year Plan (1956–61) by the Government of India.
+            The
+            Institute has twelve departments including engineering, science and humanities. The institute offers a
+            4-year
+            Bachelor of Technology degree in the various streams. The institute also offers Master and Ph.D degrees in
+            various
+            streams. The institute is bound to the quest for academic excellence and good governance, growth of
+            institute,
+            admired and respected institute for students, employees and industry, innovative leader.
+          </p>
+        </div>
+        <div id="third" class="about-image about-nit-image"><img class="third"
+          src="assets/nit-jamshedpur-placement (1).jpg">
+
+      </div>
+      </div>
+
+      <h4 class="about_EE-head">About Electrical Department</h4>
+      <div class="about-EEdep about-flex-box">
+        <div id="second" class="about-image about-EEdep-image">
+          <img class="Second" src="assets/EED1.jpg">
+
+        </div>
+        <div class="about-about-EEdep-message about-flex-box-message">
+          <p class="paragraph">The Department of Electrical Engineering was started in 1960. The Department has been
+            consistently
+            producing quality Engineers since its inception and is also involved in research and development activities.
+            The
+            alumni of the department are well placed in both public and private sectors. In addition to the UG programme
+            the
+            department runs PG programme in Power Systems and Power Electronics and Drives and Ph.D. program in
+            different
+            areas
+            of specialization. To emerge as a front-runner for catering latest needs of Power Sector, Electrical
+            Industries,
+            Public Service and to improve the quality of life with high human values. Imparting quality education and
+            skills
+            by
+            establishing the state-of-the-art research facilities to students that further contributes to the
+            socio–economic
+            growth and eventually contributing to sustainable development of the society.
+          </p>
+        </div>
+        
+      </div>
+
+    </section>
+
+    <!-- about sponsors -->
+    <section class="conference-sponsor-section">
+      <div class="sponsor-two-grid">
+        <div class="sponsor-block">
+          <h4><strong><span class="highlight-purple">ORGANISED</span> BY</strong></h4>
+          <div class="sponsor-group">
+            <img src="assets/NITB&WLogo.png" alt="AESS Bangalore Chapter">
+            <img src="assets/nitlogosc.png" alt="AP-S MTT-S Bangalore Chapter">
+          </div>
+        </div>
+    
+        <div class="sponsor-block">
+          <h4><strong>TECHNICAL <span class="highlight-purple">CO-SPONSORS</span></strong></h4>
+          <div class="sponsor-group">
+            <img src="assets/ieeen.png" alt="IEEE">
+            <img src="assets/IEEEKSpng.png" alt="IEEE Bangalore Section">
+            <img src="assets/ies.png" alt="AESS">
+          </div>
+        </div>
+      </div>
+    
+      <div class="knowledgepartner">
+        <div class="sponsor-block">
+          <h4><strong><span class="highlight-purple">KNOWLEDGE</span> PARTNER</strong></h4>
+          <div class="sponsor-group">
+            <img src="assets/vlsi-logo.webp" alt="AICTE">
+            <img style="width: 19rem;" src="assets/zheUni.png" alt="VLSI Society of India">
+          </div>
+        </div>
+      </div>
+      
+      <div class="titlesponsor">
+        <div class="sponsor-block">
+          <h4><strong>PLATINUM <span class="highlight-purple">SPONSOR</span></strong></h4>
+          <div class="sponsor-group">
+              <img style="width: 13rem;" src="assets/Hoymiles logo_PNG▓╩.png" alt="Ansys">
+          </div>
+        </div>
+      </div>
+
+      <div class="titlesponsor">
+        <div class="sponsor-block">
+          <h4><strong><span class="highlight-purple">BRONZE</span> SPONSOR</strong></h4>
+          <div class="sponsor-group">
+              <img style="width: 15rem;" src="assets/logo typhoon-quarbz.jpg" alt="Ansys">
+              <img style="width: 15rem;" src="assets/OPAL-RT.jpg" alt="Ansys">
+              <img style="width: 15rem;" src="images/mahirut.png" alt="Ansys">
+          </div>
+        </div>
+      </div>
+
+      
+
+    </section>
+
+  </main>
+
+  <div class="footerBody">
+    <footer class="footer">
+      <div class="container5">
+          <!-- Logo Section -->
+          <div class="logo-section">
+              <h3>Brought to you by :</h3>
+              <div class="logo-container">
+
+                  <div style="height: 4rem;" class="logo-item">
+                      <img src="assets/nitlogosc.png">
+                  </div>
+                  <div style="height: 4rem;" class="logo-item">
+                      <img src="assets/NITB&WLogo.png">
+                  </div>
+                  <div style="height: 3rem;" class="logo-item">
+                      <img src="assets/ieeen.png">
+                  </div>
+                  <div style="height: 3rem;" class="logo-item">
+                      <img src="assets/IEEEKSpng.png">
+                  </div>
+                  <div style="height: 3rem;" class="logo-item">
+                      <img src="assets/ies.png" alt="Partner Logo 3">
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Footer Links -->
+          <div class="row mt-4">
+              <!-- Social Media -->
+             <div class="col-lg-4 col-md-4 mb-4 mb-lg-0">
+                  <h5>Follow Us On Social:</h5>
+                  <div class="social-icons">
+                      <a href="https://www.instagram.com/ice2cpt?igsh=MXFlYmUwc2RsczdzNA=="><i class="fab fa-instagram"></i></a>
+                      <a href="https://www.linkedin.com/company/ice2cpt/"><i class="fab fa-linkedin-in"></i></a>
+                  </div>
+              </div>
+              
+              <!-- Quick Links with Split Layout -->
+              <div class="col-lg-4 col-md-4 mb-4 mb-lg-0 quick-links-section">
+                  <h5>Quick Links</h5>
+                  <div class="links-container">
+                      <div class="links-left">
+                          <ul class="footer-links">
+                              <li><a href="https://ice2cpt.com/">Home</a></li>
+                              <li><a href="callforpapers.html">Call for Papers</a></li>
+                              <li><a href="organizingcommittee.html">Organizing Committee</a></li>
+                          </ul>
+                      </div>
+                      <div class="links-right">
+                          <ul class="footer-links">
+                            <li><a href="registrationdetails.html">Register Now</a></li>
+                              <li><a href="venue.html">Key Attractions</a></li>
+                              <li><a href="https://www.nitjsr.ac.in">NIT Jamshedpur Website</a></li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+              
+              <!-- Contact Us -->
+              <div class="col-lg-4 col-md-4 mb-4 mb-lg-0">
+                <!--  <h5>Contact Us</h5>
+                  <ul class="footer-links text-center">
+                      <li><a href="mailto:ice2cpt@gmail.com">ice2cpt@gmail.com</a></li>
+                      <li><a href="mailto:suryaprakash.ee@nitjsr.ac.in">suryaprakash.ee@nitjsr.ac.in</a></li>
+                      <li><a href="mailto:krnishant125@gmail.com">krnishant125@gmail.com</a></li>
+                  </ul> -->
+                  <div class="visitor-counter">
+                      <!-- <a href="http://s01.flagcounter.com/more/q6v"><img src="https://s01.flagcounter.com/count2/q6v/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></a> -->
+                      <a href="https://info.flagcounter.com/Sd75"><img src="https://s01.flagcounter.com/count2/Sd75/bg_FFFFFF/txt_000000/border_FFFFFF/columns_5/maxflags_20/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+                  </div>
+  
+              </div>
+          </div>
+          
+          <!-- Copyright -->
+          <div class="row footer-bottom">
+              <div class="col-md-12 text-center">
+                  <p class="mb-0">© ICE2CPT-2025. All rights reserved.</p>
+              </div>
+          </div>
+      </div>
+    </footer> 
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+
+  <!-- COUNTDOWN FN -->
+  <script>
+    // COUNTDOWN FN
+    
+      const today = new Date();
+      const currentYear = today.getFullYear();
+
+      // Check if Christmas has passed for the current year
+      const TARGET_DATE = new Date("2025-10-29T00:00:00");
+      const EXP_DATE = today <= TARGET_DATE ? TARGET_DATE : new Date("2026-10-29T00:00:00");
+      const SPEED = 150;
+
+
+      /***************** COUNTDOWN ********************/
+      const panelCountdown = document.querySelector("#panel-countdown");
+
+      // Select elements and spans dynamically
+      const countdownElements = ["months", "days", "hours", "minutes", "seconds"];
+      const elements = {};
+      const currentValues = {};
+
+      countdownElements.forEach((id) => {
+        elements[id] = document.querySelectorAll(`#${id} span`);
+        currentValues[id] = [];
+      });
+
+      function getCurrentDate() {
+        const currentDate = new Date();
+        const timeDifference = EXP_DATE - currentDate;
+
+        return {
+          months: Math.floor((timeDifference % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44)),
+          days: Math.floor((timeDifference % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((timeDifference % (1000 * 60)) / 1000),
+        };
+      }
+
+      function updateCountdown() {
+        const currentDate = getCurrentDate();
+
+        countdownElements.forEach((unit, index) => {
+          const paddedValue = padTo2(currentDate[unit]);
+
+          paddedValue.split("").forEach((digit, i) => {
+            if (digit !== currentValues[unit][i]) {
+              changeNum(elements[unit][i], digit, SPEED * (countdownElements.length - index));
+            }
+          });
+
+          currentValues[unit] = paddedValue.split("");
+        });
+      }
+
+      function initialLoad() {
+        const currentDate = getCurrentDate();
+
+        countdownElements.forEach((unit) => {
+          const paddedValue = padTo2(currentDate[unit]);
+          currentValues[unit] = paddedValue.split("");
+
+          elements[unit][0].innerText = currentValues[unit][0];
+          elements[unit][1].innerText = currentValues[unit][1];
+        });
+      }
+
+      // Initialize the countdown display
+      initialLoad();
+
+      // Interval to update the countdown every second
+      let EXP_DATEInterval;
+
+      function startCountdownInterval() {
+        clearInterval(EXP_DATEInterval);
+        EXP_DATEInterval = setInterval(updateCountdown, 1000);
+      }
+      startCountdownInterval();
+
+      // change the numbers
+      function changeNum(el, newVal, timing) {
+        el.style.scale = 0;
+        setTimeout(() => {
+          el.innerText = "";
+          el.style.translate = '0 -5rem';
+          setTimeout(() => {
+            el.style.scale = 1;
+            el.innerText = newVal;
+            setTimeout(() => {
+              el.style.translate = '0';
+            }, timing);
+          }, timing);
+        }, timing);
+      }
+
+
+      function padTo2(num) {
+        return num.toString().padStart(2, "0");
+      }
+
+  </script>
+
+
+<!-- NAVBAR SHRINK -->
+<script>
+  window.addEventListener('scroll', function () {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('shrink');
+      } else {
+        navbar.classList.remove('shrink');
+      }
+    });
+</script>
+<!-- toggle menu -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const burger = document.querySelector('.burger');
+    const menu = document.querySelector('.menu');
+    let menuVisible = false;
+
+    burger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuVisible = !menuVisible;
+      menu.classList.toggle('menu-active', menuVisible);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (menuVisible && !menu.contains(e.target) && !burger.contains(e.target)) {
+        menu.classList.remove('menu-active');
+        menuVisible = false;
+      }
+    });
+  });
+</script>
+
+
+
+</body>
+
+</html>

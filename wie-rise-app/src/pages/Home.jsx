@@ -4,9 +4,66 @@ import Container from '../components/Container'
 import SectionHeading from '../components/SectionHeading'
 import Countdown from '../components/Countdown'
 import { SITE } from '../data/site'
+import { TRACKS, IMPORTANT_DATES } from '../data/dates'
+
+const QUICK_FACTS = [
+  {
+    label: 'Conference Dates',
+    value: 'April 01–03, 2027',
+    icon: (
+      <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3M3 11h18M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" />
+    ),
+  },
+  {
+    label: 'Mode',
+    value: 'Hybrid — Virtual & Physical',
+    icon: <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />,
+  },
+  {
+    label: 'Venue',
+    value: 'NIT Jamshedpur, Jharkhand',
+    icon: (
+      <>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+      </>
+    ),
+  },
+  {
+    label: 'Publication',
+    value: 'IEEE Xplore*',
+    icon: (
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+    ),
+  },
+]
+
+const HIGHLIGHTS = [
+  {
+    title: 'IEEE Xplore Publication',
+    description: 'Accepted and presented papers will be submitted for possible inclusion in the IEEE Xplore Digital Library.',
+    icon: <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />,
+  },
+  {
+    title: 'Distinguished Keynotes',
+    description: 'Hear from renowned researchers and industry leaders shaping the future of smart engineering.',
+    icon: <path strokeLinecap="round" strokeLinejoin="round" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />,
+  },
+  {
+    title: 'Special Sessions & Networking',
+    description: 'Focused sessions on emerging themes, plus rich opportunities to connect with peers across academia and industry.',
+    icon: <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />,
+  },
+  {
+    title: 'Awards & Recognition',
+    description: 'Best Paper, Young Researcher, and other awards recognize outstanding contributions at the conference.',
+    icon: <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35" />,
+  },
+]
 
 export default function Home() {
   const [videoFailed, setVideoFailed] = useState(false)
+  const upcomingDates = IMPORTANT_DATES.slice(0, 5)
 
   return (
     <div>
@@ -35,6 +92,8 @@ export default function Home() {
           />
         )}
         <div className="absolute inset-0 bg-gradient-to-b from-navy-950/90 via-navy-950/70 to-navy-950" />
+        <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-blue-600/20 blur-3xl" />
+        <div className="pointer-events-none absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-sky-500/10 blur-3xl" />
 
         <Container className="relative py-20">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sky-400">
@@ -57,17 +116,25 @@ export default function Home() {
           </div>
 
           <div className="mt-10 flex flex-wrap items-center gap-8">
-            <a
-              href="https://drive.google.com/file/d/1sWoSwEt99-8xsERCcYE8qfuTBydfLseY/view?usp=sharing"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-navy-700 to-blue-600 px-6 py-3 text-sm font-semibold shadow-lg shadow-blue-900/30 transition hover:brightness-110"
-            >
-              Download Schedule
-              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 5l7 7-7 7M5 12h15" />
-              </svg>
-            </a>
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href="https://drive.google.com/file/d/1sWoSwEt99-8xsERCcYE8qfuTBydfLseY/view?usp=sharing"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-navy-700 to-blue-600 px-6 py-3 text-sm font-semibold shadow-lg shadow-blue-900/30 transition hover:brightness-110"
+              >
+                Download Schedule
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 5l7 7-7 7M5 12h15" />
+                </svg>
+              </a>
+              <Link
+                to="/call-for-papers"
+                className="inline-flex items-center gap-2 rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+              >
+                Submit a Paper
+              </Link>
+            </div>
 
             <div>
               <Countdown target={SITE.targetDate} />
@@ -75,10 +142,35 @@ export default function Home() {
             </div>
           </div>
         </Container>
+
+        <div className="absolute inset-x-0 bottom-6 hidden justify-center sm:flex">
+          <span className="flex h-9 w-6 items-start justify-center rounded-full border border-white/30 p-1">
+            <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-sky-400" />
+          </span>
+        </div>
       </section>
 
+      {/* Quick facts strip — overlaps hero/next section boundary */}
+      <div className="relative z-10 -mt-10 px-4 sm:-mt-12 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-5xl grid-cols-2 divide-y divide-slate-100 rounded-2xl bg-white shadow-xl ring-1 ring-slate-900/5 sm:grid-cols-4 sm:divide-x sm:divide-y-0">
+          {QUICK_FACTS.map((fact) => (
+            <div key={fact.label} className="flex items-center gap-3 px-5 py-5">
+              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-navy-900/10 text-navy-900">
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  {fact.icon}
+                </svg>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-wide text-slate-400">{fact.label}</p>
+                <p className="text-sm font-semibold text-navy-950">{fact.value}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Marquee */}
-      <div className="overflow-hidden border-y border-navy-900/10 bg-navy-900 py-2.5 text-sm text-slate-100">
+      <div className="mt-14 overflow-hidden border-y border-navy-900/10 bg-navy-900 py-2.5 text-sm text-slate-100">
         <div className="animate-marquee whitespace-nowrap">
           {Array.from({ length: 4 }).map((_, i) => (
             <span key={i} className="mx-8 inline-flex items-center gap-8">
@@ -156,6 +248,84 @@ export default function Home() {
         </Container>
       </section>
 
+      {/* Why Attend */}
+      <section className="bg-slate-50 py-20">
+        <Container>
+          <SectionHeading eyebrow="Why Attend" title="What Makes WIE-RISE 2027" center />
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {HIGHLIGHTS.map((h) => (
+              <div
+                key={h.title}
+                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+              >
+                <div className="grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-navy-700 to-blue-600 text-white">
+                  <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    {h.icon}
+                  </svg>
+                </div>
+                <h3 className="mt-4 font-display text-lg tracking-wide text-navy-950">{h.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{h.description}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-center text-xs text-slate-400">
+            *Subject to compliance with IEEE quality standards and presentation at the conference.
+          </p>
+        </Container>
+      </section>
+
+      {/* Tracks */}
+      <section className="py-20">
+        <Container>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHeading eyebrow="Scope" title="Explore the Tracks" />
+            <Link
+              to="/call-for-papers"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-navy-700 hover:underline"
+            >
+              Full Call for Papers →
+            </Link>
+          </div>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2">
+            {TRACKS.map((t) => (
+              <div
+                key={t.id}
+                className="group rounded-2xl border border-slate-200 p-6 shadow-sm transition hover:border-navy-700/30 hover:shadow-md"
+              >
+                <span className="text-xs font-bold uppercase tracking-widest text-sky-600">{t.id}</span>
+                <h3 className="mt-1 font-display text-lg tracking-wide text-navy-950">{t.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{t.description}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Key Dates teaser */}
+      <section className="bg-navy-950 py-20 text-white">
+        <Container>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHeading eyebrow="Timeline" title="Key Dates" />
+            <Link
+              to="/important-dates"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-sky-400 hover:underline"
+            >
+              View All Dates →
+            </Link>
+          </div>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-5">
+            {upcomingDates.map((d, i) => (
+              <div key={d.milestone} className="rounded-xl border border-white/10 bg-white/5 p-5">
+                <span className="font-display text-2xl text-sky-400">{String(i + 1).padStart(2, '0')}</span>
+                <p className="mt-3 text-sm font-semibold text-white">{d.milestone}</p>
+                <p className="mt-1 text-xs text-slate-300">{d.date}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       {/* Sponsors */}
       <section className="bg-slate-50 py-20">
         <Container>
@@ -163,6 +333,40 @@ export default function Home() {
           <div className="mt-10 flex flex-wrap items-center justify-center gap-12">
             <img src="/assets/NITB&WLogo.png" alt="NIT Jamshedpur" className="h-16 object-contain" />
             <img src="/assets/nitlogosc.png" alt="Organizer" className="h-16 object-contain" />
+          </div>
+        </Container>
+      </section>
+
+      {/* Final CTA */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-blue-800 py-20 text-white">
+        <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-sky-500/20 blur-3xl" />
+        <Container className="relative text-center">
+          <h2 className="font-display text-2xl tracking-wide sm:text-3xl">
+            Ready to be part of WIE-RISE 2027?
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-slate-200/90">
+            Submit your research, join the conversation, and connect with the smart engineering community at
+            NIT Jamshedpur this April.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              to="/call-for-papers"
+              className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-navy-950 transition hover:bg-slate-100"
+            >
+              Submit Your Paper
+            </Link>
+            <Link
+              to="/registration"
+              className="rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+            >
+              Register Now
+            </Link>
+            <Link
+              to="/contact"
+              className="rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+            >
+              Contact Us
+            </Link>
           </div>
         </Container>
       </section>

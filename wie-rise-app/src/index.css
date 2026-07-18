@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300..700&family=Anton&display=swap');
+
+@theme {
+  --font-sans: 'Oswald', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Anton', 'Oswald', sans-serif;
+
+  --color-navy-950: #001428;
+  --color-navy-900: #002b5c;
+  --color-navy-800: #003366;
+  --color-navy-700: #004c99;
+  --color-navy-600: #0052a5;
+  --color-blue-600: #007bff;
+  --color-sky-500: #33ccff;
+  --color-sky-400: #66d9ff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: #fff;
+  color: #1a1a1a;
+}
+
+::selection {
+  background-color: var(--color-blue-600);
+  color: #fff;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  animation: marquee 30s linear infinite;
+}

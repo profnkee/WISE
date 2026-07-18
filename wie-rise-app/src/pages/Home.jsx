@@ -115,39 +115,33 @@ export default function Home() {
             <span>{SITE.venueShort}</span>
           </div>
 
-          <div className="mt-10 flex flex-wrap items-center gap-8">
-            <div className="flex flex-wrap items-center gap-3">
-              <a
-                href="https://drive.google.com/file/d/1sWoSwEt99-8xsERCcYE8qfuTBydfLseY/view?usp=sharing"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-navy-700 to-blue-600 px-6 py-3 text-sm font-semibold shadow-lg shadow-blue-900/30 transition hover:brightness-110"
-              >
-                Download Schedule
-                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 5l7 7-7 7M5 12h15" />
-                </svg>
-              </a>
-              <Link
-                to="/call-for-papers"
-                className="inline-flex items-center gap-2 rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-              >
-                Submit a Paper
-              </Link>
-            </div>
+          <div className="mt-10 flex flex-wrap items-center gap-3">
+            <a
+              href="https://drive.google.com/file/d/1sWoSwEt99-8xsERCcYE8qfuTBydfLseY/view?usp=sharing"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-navy-700 to-blue-600 px-6 py-3 text-sm font-semibold shadow-lg shadow-blue-900/30 transition hover:brightness-110"
+            >
+              Download Schedule
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 5l7 7-7 7M5 12h15" />
+              </svg>
+            </a>
+            <Link
+              to="/call-for-papers"
+              className="inline-flex items-center gap-2 rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+            >
+              Submit a Paper
+            </Link>
+          </div>
 
-            <div>
-              <Countdown target={SITE.targetDate} />
-              <p className="mt-2 text-xs uppercase tracking-widest text-slate-400">Countdown to the Conference</p>
-            </div>
+          <div className="mt-10">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-slate-400">
+              Countdown to the Conference
+            </p>
+            <Countdown target={SITE.targetDate} />
           </div>
         </Container>
-
-        <div className="absolute inset-x-0 bottom-6 hidden justify-center sm:flex">
-          <span className="flex h-9 w-6 items-start justify-center rounded-full border border-white/30 p-1">
-            <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-sky-400" />
-          </span>
-        </div>
       </section>
 
       {/* Quick facts strip — overlaps hero/next section boundary */}

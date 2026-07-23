@@ -7,10 +7,30 @@ import { SITE } from "../data/site";
 import { TRACKS, IMPORTANT_DATES } from "../data/dates";
 
 const COLORS = [
-  { grad: "from-blue-500 to-blue-600", soft: "bg-blue-50 text-blue-600", text: "text-blue-600", text400: "text-blue-400" },
-  { grad: "from-violet-500 to-purple-600", soft: "bg-violet-50 text-violet-600", text: "text-violet-600", text400: "text-violet-400" },
-  { grad: "from-amber-400 to-orange-500", soft: "bg-amber-50 text-amber-600", text: "text-amber-600", text400: "text-amber-400" },
-  { grad: "from-emerald-400 to-teal-500", soft: "bg-emerald-50 text-emerald-600", text: "text-emerald-600", text400: "text-emerald-400" },
+  {
+    grad: "from-cyan-500 to-cyan-600",
+    soft: "bg-cyan-50 text-cyan-600",
+    text: "text-cyan-600",
+    text400: "text-cyan-400",
+  },
+  {
+    grad: "from-violet-500 to-purple-600",
+    soft: "bg-violet-50 text-violet-600",
+    text: "text-violet-600",
+    text400: "text-violet-400",
+  },
+  {
+    grad: "from-amber-400 to-orange-500",
+    soft: "bg-amber-50 text-amber-600",
+    text: "text-amber-600",
+    text400: "text-amber-400",
+  },
+  {
+    grad: "from-emerald-400 to-teal-500",
+    soft: "bg-emerald-50 text-emerald-600",
+    text: "text-emerald-600",
+    text400: "text-emerald-400",
+  },
 ];
 
 const QUICK_FACTS = [
@@ -74,65 +94,65 @@ const ABOUT_ITEMS = [
     alt: "Conference",
     text: (
       <>
-        The 1st IEEE Conference on WIE-RISE: Revolutionizing Innovation in
-        Smart Engineering will be organized by the Department of Electrical
+        The 1st IEEE Conference on WIE-RISE: Revolutionizing Innovation in Smart
+        Engineering will be organized by the Department of Electrical
         Engineering, National Institute of Technology (NIT) Jamshedpur, from
-        01st to 03rd April 2027 in hybrid mode. This premier event is being
-        held in association with IEEE, IEEE Kolkata Section, and the IEEE
-        Student Branch, NIT Jamshedpur. As a flagship international conference
-        of the IEEE Kolkata Section, WIE-RISE 2027 is poised to serve as a
-        global platform for researchers, academicians, and industry
-        professionals to exchange cutting-edge developments in electrical
-        engineering, electronics, computer science, biotechnology, biomedical
-        engineering and advanced power technologies.
+        01st to 03rd April 2027 in hybrid mode. This premier event is being held
+        in association with IEEE, IEEE Kolkata Section, and the IEEE Student
+        Branch, NIT Jamshedpur. As a flagship international conference of the
+        IEEE Kolkata Section, WIE-RISE 2027 is poised to serve as a global
+        platform for researchers, academicians, and industry professionals to
+        exchange cutting-edge developments in electrical engineering,
+        electronics, computer science, biotechnology, biomedical engineering and
+        advanced power technologies.
         <br />
         <br />
         WIE-RISE 2027 aims to foster interdisciplinary collaboration by
         highlighting emerging trends and innovations in areas such as smart
         grids, AI and IoT applications, signal processing, advanced control
         systems, and sustainable energy technologies. The conference will
-        facilitate knowledge sharing and thought leadership across academia
-        and industry, addressing critical challenges and opportunities in
-        green industrial electronics and digital transformation.
+        facilitate knowledge sharing and thought leadership across academia and
+        industry, addressing critical challenges and opportunities in green
+        industrial electronics and digital transformation.
       </>
     ),
   },
-  {
-    label: "NIT Jamshedpur",
-    image: "/assets/nit-jamshedpur-placement (1).jpg",
-    alt: "NIT Jamshedpur",
-    text: (
-      <>
-        The National Institute of Technology Jamshedpur (NIT Jamshedpur) is an
-        Institute of National Importance located at Jamshedpur, Jharkhand,
-        India. Established as a Regional Institute of Technology in 1960, it
-        was upgraded to NIT on 27 December 2002 with the status of Deemed
-        University. It is one of the 31 NITs in India, directly under the
-        Ministry of Human Resource Development (MHRD), and the third in the
-        chain of eight NITs established under the Second Five Year Plan
-        (1956–61) by the Government of India. The Institute has twelve
-        departments spanning engineering, science and humanities, offering
-        4-year B.Tech, Master's and Ph.D degrees across various streams.
-      </>
-    ),
-  },
-  {
-    label: "Electrical Engineering",
-    image: "/assets/EED1.jpg",
-    alt: "Electrical Engineering Department",
-    text: (
-      <>
-        The Department of Electrical Engineering was established in 1960 and
-        has consistently produced quality engineers since its inception,
-        remaining actively involved in research and development. In addition
-        to its UG programme, the department runs PG programmes in Power
-        Systems and Power Electronics & Drives, and a Ph.D. programme across
-        various specializations — imparting quality education and building
-        state-of-the-art research facilities that contribute to sustainable
-        socio-economic development.
-      </>
-    ),
-  },
+  // {
+  //   label: "NIT Jamshedpur",
+  //   image: "/assets/nit-jamshedpur-placement (1).jpg",
+  //   alt: "NIT Jamshedpur",
+  //   text: (
+  //     <>
+  //       The National Institute of Technology Jamshedpur (NIT Jamshedpur) is an
+  //       Institute of National Importance located at Jamshedpur, Jharkhand,
+  //       India. Established as a Regional Institute of Technology in 1960, it
+  //       was upgraded to NIT on 27 December 2002 with the status of Deemed
+  //       University. It is one of the 31 NITs in India, directly under the
+  //       Ministry of Human Resource Development (MHRD), and the third in the
+  //       chain of eight NITs established under the Second Five Year Plan
+  //       (1956–61) by the Government of India. The Institute has twelve
+  //       departments spanning engineering, science and humanities, offering
+  //       4-year B.Tech, Master's and Ph.D degrees across various streams.
+  //     </>
+  //   ),
+  // },
+  // {
+  //   label: "Electrical Engineering",
+  //   image: "/assets/EED1.jpg",
+  //   alt: "Electrical Engineering Department",
+  //   text: (
+  //     <>
+  //       The Department of Electrical Engineering was established in 1960 and
+  //       has consistently produced quality engineers since its inception,
+  //       remaining actively involved in research and development. In addition
+  //       to its UG programme, the department runs PG programmes in Power
+  //       Systems and Power Electronics & Drives, and a Ph.D. programme across
+  //       various specializations — imparting quality education and building
+  //       state-of-the-art research facilities that contribute to sustainable
+  //       socio-economic development.
+  //     </>
+  //   ),
+  // },
 ];
 
 const HIGHLIGHTS = [
@@ -254,7 +274,7 @@ export default function Home() {
 
           <div className="mt-10 flex flex-wrap items-center gap-3">
             <a
-              href="https://drive.google.com/file/d/1sWoSwEt99-8xsERCcYE8qfuTBydfLseY/view?usp=sharing"
+              href="#"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-navy-700 to-blue-600 px-6 py-3 text-sm font-semibold shadow-lg shadow-blue-900/30 transition hover:brightness-110"

@@ -5,14 +5,15 @@
   --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Space Grotesk', 'Plus Jakarta Sans', ui-sans-serif, sans-serif;
 
-  --color-navy-950: #001428;
-  --color-navy-900: #002b5c;
-  --color-navy-800: #003366;
-  --color-navy-700: #004c99;
-  --color-navy-600: #0052a5;
-  --color-blue-600: #007bff;
-  --color-sky-500: #33ccff;
-  --color-sky-400: #66d9ff;
+  --color-navy-950: #170d02;
+  --color-navy-900: #2b1800;
+  --color-navy-800: #43230a;
+  --color-navy-700: #b35900;
+  --color-navy-600: #cc6a00;
+  --color-navy-300: #f2b880;
+  --color-blue-600: #ff9933;
+  --color-sky-500: #ffb366;
+  --color-sky-400: #ffcc99;
 }
 
 html {

@@ -514,7 +514,7 @@ export default function Home() {
       </section>
 
       {/* Sponsors */}
-      <section className="bg-gradient-to-br from-blue-50 via-slate-50 to-violet-50 py-20">
+      <section className="bg-gradient-to-br from-amber-50 via-orange-50/60 to-slate-50 py-20">
         <Container>
           <SectionHeading eyebrow="Support" title="Organised By" center />
           <div className="mt-10 flex flex-wrap items-center justify-center gap-12">
@@ -533,7 +533,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-blue-800 py-20 text-white">
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-950 to-navy-800 py-20 text-white">
         <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-sky-500/20 blur-3xl" />
         <Container className="relative text-center">
           <h2 className="font-display text-2xl tracking-wide sm:text-3xl">

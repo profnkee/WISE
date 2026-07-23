@@ -121,7 +121,7 @@ export default function Navbar() {
       className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
         scrolled
           ? 'border-white/10 bg-navy-900/95 py-1.5 shadow-lg shadow-black/20 backdrop-blur'
-          : 'border-transparent bg-gradient-to-r from-navy-900 via-navy-700 to-blue-600 py-3'
+          : 'border-transparent bg-gradient-to-r from-navy-950 via-navy-900 to-navy-800 py-3'
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">

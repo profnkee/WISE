@@ -6,6 +6,13 @@ import Countdown from "../components/Countdown";
 import { SITE } from "../data/site";
 import { TRACKS, IMPORTANT_DATES } from "../data/dates";
 
+const COLORS = [
+  { grad: "from-blue-500 to-blue-600", soft: "bg-blue-50 text-blue-600", text: "text-blue-600", text400: "text-blue-400" },
+  { grad: "from-violet-500 to-purple-600", soft: "bg-violet-50 text-violet-600", text: "text-violet-600", text400: "text-violet-400" },
+  { grad: "from-amber-400 to-orange-500", soft: "bg-amber-50 text-amber-600", text: "text-amber-600", text400: "text-amber-400" },
+  { grad: "from-emerald-400 to-teal-500", soft: "bg-emerald-50 text-emerald-600", text: "text-emerald-600", text400: "text-emerald-400" },
+];
+
 const QUICK_FACTS = [
   {
     label: "Conference Dates",
@@ -210,9 +217,11 @@ export default function Home() {
       {/* Quick facts strip — overlaps hero/next section boundary */}
       <div className="relative z-10 -mt-10 px-4 sm:-mt-12 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-5xl grid-cols-2 divide-y divide-slate-100 rounded-2xl bg-white shadow-xl ring-1 ring-slate-900/5 sm:grid-cols-4 sm:divide-x sm:divide-y-0">
-          {QUICK_FACTS.map((fact) => (
+          {QUICK_FACTS.map((fact, i) => (
             <div key={fact.label} className="flex items-center gap-3 px-5 py-5">
-              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-navy-900/10 text-navy-900">
+              <div
+                className={`grid h-10 w-10 shrink-0 place-items-center rounded-full ${COLORS[i % COLORS.length].soft}`}
+              >
                 <svg
                   className="h-5 w-5"
                   viewBox="0 0 24 24"
@@ -255,8 +264,11 @@ export default function Home() {
       </div>
 
       {/* About */}
-      <section className="py-20">
-        <Container>
+      <section className="relative overflow-hidden py-20">
+        <div className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-blue-200/40 blur-3xl" />
+        <div className="pointer-events-none absolute -right-24 top-1/2 h-96 w-96 rounded-full bg-violet-200/30 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-amber-200/30 blur-3xl" />
+        <Container className="relative">
           <SectionHeading
             eyebrow="Introduction"
             title="About WIE-RISE 2027"
@@ -345,12 +357,14 @@ export default function Home() {
             center
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {HIGHLIGHTS.map((h) => (
+            {HIGHLIGHTS.map((h, i) => (
               <div
                 key={h.title}
                 className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
               >
-                <div className="grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-navy-700 to-blue-600 text-white">
+                <div
+                  className={`grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br text-white ${COLORS[i % COLORS.length].grad}`}
+                >
                   <svg
                     className="h-6 w-6"
                     viewBox="0 0 24 24"
@@ -390,15 +404,20 @@ export default function Home() {
             </Link>
           </div>
           <div className="mt-10 grid gap-5 sm:grid-cols-2">
-            {TRACKS.map((t) => (
+            {TRACKS.map((t, i) => (
               <div
                 key={t.id}
-                className="group rounded-2xl border border-slate-200 p-6 shadow-sm transition hover:border-navy-700/30 hover:shadow-md"
+                className="group relative overflow-hidden rounded-2xl border border-slate-200 p-6 pt-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
               >
-                <span className="text-xs font-bold uppercase tracking-widest text-sky-600">
+                <div
+                  className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${COLORS[i % COLORS.length].grad}`}
+                />
+                <span
+                  className={`inline-block rounded-full px-2.5 py-1 text-xs font-bold uppercase tracking-widest ${COLORS[i % COLORS.length].soft}`}
+                >
                   {t.id}
                 </span>
-                <h3 className="mt-1 font-display text-lg tracking-wide text-navy-950">
+                <h3 className="mt-3 font-display text-lg tracking-wide text-navy-950">
                   {t.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">
@@ -429,7 +448,9 @@ export default function Home() {
                 key={d.milestone}
                 className="rounded-xl border border-white/10 bg-white/5 p-5"
               >
-                <span className="font-display text-2xl text-sky-400">
+                <span
+                  className={`font-display text-2xl ${COLORS[i % COLORS.length].text400}`}
+                >
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="mt-3 text-sm font-semibold text-white">
@@ -443,7 +464,7 @@ export default function Home() {
       </section>
 
       {/* Sponsors */}
-      <section className="bg-slate-50 py-20">
+      <section className="bg-gradient-to-br from-blue-50 via-slate-50 to-violet-50 py-20">
         <Container>
           <SectionHeading eyebrow="Support" title="Organised By" center />
           <div className="mt-10 flex flex-wrap items-center justify-center gap-12">

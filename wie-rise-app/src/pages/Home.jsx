@@ -126,7 +126,7 @@ export default function Home() {
             loop
             playsInline
             onError={() => setVideoFailed(true)}
-            className="absolute inset-0 h-full w-full object-cover opacity-40"
+            className="absolute inset-0 h-full w-full object-cover"
           >
             <source
               src="https://res.cloudinary.com/dzcwojp3z/video/upload/v1757583769/campusTour_1_xsdxap.mp4"
@@ -138,10 +138,12 @@ export default function Home() {
           <img
             src="/assets/nit-jamshedpur-placement (1).jpg"
             alt=""
-            className="absolute inset-0 h-full w-full object-cover opacity-40"
+            className="absolute inset-0 h-full w-full object-cover"
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-950/90 via-navy-950/70 to-navy-950" />
+        {/* Keep text legible on the left without dimming the image itself */}
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-950/60 to-navy-950/10 sm:from-navy-950/95 sm:via-navy-950/55 sm:to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-navy-950 to-transparent" />
         <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-blue-600/20 blur-3xl" />
         <div className="pointer-events-none absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-sky-500/10 blur-3xl" />
 

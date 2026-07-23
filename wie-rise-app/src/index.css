@@ -1,9 +1,9 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300..700&family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Space+Grotesk:wght@400..700&display=swap');
 
 @theme {
-  --font-sans: 'Oswald', ui-sans-serif, system-ui, sans-serif;
-  --font-display: 'Anton', 'Oswald', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', 'Plus Jakarta Sans', ui-sans-serif, sans-serif;
 
   --color-navy-950: #001428;
   --color-navy-900: #002b5c;
@@ -24,6 +24,12 @@ body {
   font-family: var(--font-sans);
   background-color: #fff;
   color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 ::selection {

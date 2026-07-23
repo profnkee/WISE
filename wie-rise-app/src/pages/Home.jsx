@@ -67,6 +67,74 @@ const QUICK_FACTS = [
   },
 ];
 
+const ABOUT_ITEMS = [
+  {
+    label: "WIE-RISE 2027",
+    image: "/assets/IMGIce2cpt.jpg",
+    alt: "Conference",
+    text: (
+      <>
+        The 1st IEEE Conference on WIE-RISE: Revolutionizing Innovation in
+        Smart Engineering will be organized by the Department of Electrical
+        Engineering, National Institute of Technology (NIT) Jamshedpur, from
+        01st to 03rd April 2027 in hybrid mode. This premier event is being
+        held in association with IEEE, IEEE Kolkata Section, and the IEEE
+        Student Branch, NIT Jamshedpur. As a flagship international conference
+        of the IEEE Kolkata Section, WIE-RISE 2027 is poised to serve as a
+        global platform for researchers, academicians, and industry
+        professionals to exchange cutting-edge developments in electrical
+        engineering, electronics, computer science, biotechnology, biomedical
+        engineering and advanced power technologies.
+        <br />
+        <br />
+        WIE-RISE 2027 aims to foster interdisciplinary collaboration by
+        highlighting emerging trends and innovations in areas such as smart
+        grids, AI and IoT applications, signal processing, advanced control
+        systems, and sustainable energy technologies. The conference will
+        facilitate knowledge sharing and thought leadership across academia
+        and industry, addressing critical challenges and opportunities in
+        green industrial electronics and digital transformation.
+      </>
+    ),
+  },
+  {
+    label: "NIT Jamshedpur",
+    image: "/assets/nit-jamshedpur-placement (1).jpg",
+    alt: "NIT Jamshedpur",
+    text: (
+      <>
+        The National Institute of Technology Jamshedpur (NIT Jamshedpur) is an
+        Institute of National Importance located at Jamshedpur, Jharkhand,
+        India. Established as a Regional Institute of Technology in 1960, it
+        was upgraded to NIT on 27 December 2002 with the status of Deemed
+        University. It is one of the 31 NITs in India, directly under the
+        Ministry of Human Resource Development (MHRD), and the third in the
+        chain of eight NITs established under the Second Five Year Plan
+        (1956–61) by the Government of India. The Institute has twelve
+        departments spanning engineering, science and humanities, offering
+        4-year B.Tech, Master's and Ph.D degrees across various streams.
+      </>
+    ),
+  },
+  {
+    label: "Electrical Engineering",
+    image: "/assets/EED1.jpg",
+    alt: "Electrical Engineering Department",
+    text: (
+      <>
+        The Department of Electrical Engineering was established in 1960 and
+        has consistently produced quality engineers since its inception,
+        remaining actively involved in research and development. In addition
+        to its UG programme, the department runs PG programmes in Power
+        Systems and Power Electronics & Drives, and a Ph.D. programme across
+        various specializations — imparting quality education and building
+        state-of-the-art research facilities that contribute to sustainable
+        socio-economic development.
+      </>
+    ),
+  },
+];
+
 const HIGHLIGHTS = [
   {
     title: "IEEE Xplore Publication",
@@ -274,76 +342,38 @@ export default function Home() {
             title="About WIE-RISE 2027"
             center
           />
-          <div className="mt-12 grid items-center gap-10 lg:grid-cols-2">
-            <img
-              src="/assets/IMGIce2cpt.jpg"
-              alt="Conference"
-              className="aspect-[4/3] w-full rounded-2xl object-cover shadow-lg"
-            />
-            <p className="text-justify leading-relaxed text-slate-600">
-              The 1st IEEE Conference on WIE-RISE: Revolutionizing Innovation in
-              Smart Engineering will be organized by the Department of
-              Electrical Engineering, National Institute of Technology (NIT)
-              Jamshedpur, from 01st to 03rd April 2027 in hybrid mode. This
-              premier event is being held in association with IEEE, IEEE Kolkata
-              Section, and the IEEE Student Branch, NIT Jamshedpur. As a
-              flagship international conference of the IEEE Kolkata Section,
-              WIE-RISE 2027 is poised to serve as a global platform for
-              researchers, academicians, and industry professionals to exchange
-              cutting-edge developments in electrical engineering, electronics,
-              computer science, biotechnology, biomedical engineering and
-              advanced power technologies.
-              <br />
-              <br />
-              WIE-RISE 2027 aims to foster interdisciplinary collaboration by
-              highlighting emerging trends and innovations in areas such as
-              smart grids, AI and IoT applications, signal processing, advanced
-              control systems, and sustainable energy technologies. The
-              conference will facilitate knowledge sharing and thought
-              leadership across academia and industry, addressing critical
-              challenges and opportunities in green industrial electronics and
-              digital transformation.
-            </p>
-          </div>
-
-          <div className="mt-20 grid items-center gap-10 lg:grid-cols-2">
-            <p className="order-2 text-justify leading-relaxed text-slate-600 lg:order-1">
-              The National Institute of Technology Jamshedpur (NIT Jamshedpur)
-              is an Institute of National Importance located at Jamshedpur,
-              Jharkhand, India. Established as a Regional Institute of
-              Technology in 1960, it was upgraded to NIT on 27 December 2002
-              with the status of Deemed University. It is one of the 31 NITs in
-              India, directly under the Ministry of Human Resource Development
-              (MHRD), and the third in the chain of eight NITs established under
-              the Second Five Year Plan (1956–61) by the Government of India.
-              The Institute has twelve departments spanning engineering, science
-              and humanities, offering 4-year B.Tech, Master's and Ph.D degrees
-              across various streams.
-            </p>
-            <img
-              src="/assets/nit-jamshedpur-placement (1).jpg"
-              alt="NIT Jamshedpur"
-              className="order-1 aspect-[4/3] w-full rounded-2xl object-cover shadow-lg lg:order-2"
-            />
-          </div>
-
-          <div className="mt-20 grid items-center gap-10 lg:grid-cols-2">
-            <img
-              src="/assets/EED1.jpg"
-              alt="Electrical Engineering Department"
-              className="aspect-[4/3] w-full rounded-2xl object-cover shadow-lg"
-            />
-            <p className="text-justify leading-relaxed text-slate-600">
-              The Department of Electrical Engineering was established in 1960
-              and has consistently produced quality engineers since its
-              inception, remaining actively involved in research and
-              development. In addition to its UG programme, the department runs
-              PG programmes in Power Systems and Power Electronics & Drives, and
-              a Ph.D. programme across various specializations — imparting
-              quality education and building state-of-the-art research
-              facilities that contribute to sustainable socio-economic
-              development.
-            </p>
+          <div className="mt-12 space-y-8">
+            {ABOUT_ITEMS.map((item, i) => {
+              const c = COLORS[i % COLORS.length];
+              const imageFirst = i % 2 === 0;
+              return (
+                <div
+                  key={item.label}
+                  className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm ring-1 ring-black/5"
+                >
+                  <div className={`h-1.5 bg-gradient-to-r ${c.grad}`} />
+                  <div className="grid items-center gap-8 p-6 sm:p-8 lg:grid-cols-2">
+                    <img
+                      src={item.image}
+                      alt={item.alt}
+                      className={`aspect-[4/3] w-full rounded-2xl object-cover shadow-md ${
+                        imageFirst ? "lg:order-1" : "lg:order-2"
+                      }`}
+                    />
+                    <div className={imageFirst ? "lg:order-2" : "lg:order-1"}>
+                      <span
+                        className={`inline-block rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest ${c.soft}`}
+                      >
+                        {item.label}
+                      </span>
+                      <p className="mt-4 text-justify leading-relaxed text-slate-600">
+                        {item.text}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </Container>
       </section>

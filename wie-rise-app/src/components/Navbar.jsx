@@ -149,7 +149,7 @@ export default function Navbar() {
           <img
             src="/assets/nitlogosc.png"
             alt="NIT Jamshedpur"
-            className="h-10 w-auto"
+            className="h-10 w-auto rounded-lg"
           />
           <span className="hidden font-display text-lg tracking-wide text-white sm:block">
             {SITE.shortName}

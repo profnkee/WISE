@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import { FOOTER_LINKS, SITE } from '../data/site'
+import { Link } from "react-router-dom";
+import { FOOTER_LINKS, SITE } from "../data/site";
 
 export default function Footer() {
   return (
@@ -8,8 +8,16 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3">
-              <img src="/assets/NITB&WLogo.png" alt="NIT Jamshedpur" className="h-12 w-auto brightness-0 invert" />
-              <img src="/assets/nitlogosc.png" alt="Organizer" className="h-12 w-auto" />
+              <img
+                src="/assets/NITB&WLogo.png"
+                alt="NIT Jamshedpur"
+                className="h-12 w-auto brightness-0 invert"
+              />
+              <img
+                src="/assets/nitlogosc.png"
+                alt="Organizer"
+                className="h-12 w-auto rounded-lg"
+              />
             </div>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-400">
               {SITE.fullName}, organized by the {SITE.organizer}, {SITE.dates}.
@@ -17,11 +25,16 @@ export default function Footer() {
           </div>
 
           <div>
-            <h5 className="font-display text-sm tracking-wide text-white">Quick Links</h5>
+            <h5 className="font-display text-sm tracking-wide text-white">
+              Quick Links
+            </h5>
             <ul className="mt-4 space-y-2 text-sm">
               {FOOTER_LINKS.left.map((l) => (
                 <li key={l.to}>
-                  <Link to={l.to} className="text-slate-400 transition hover:text-sky-400">
+                  <Link
+                    to={l.to}
+                    className="text-slate-400 transition hover:text-sky-400"
+                  >
                     {l.label}
                   </Link>
                 </li>
@@ -30,17 +43,27 @@ export default function Footer() {
           </div>
 
           <div>
-            <h5 className="font-display text-sm tracking-wide text-white">Resources</h5>
+            <h5 className="font-display text-sm tracking-wide text-white">
+              Resources
+            </h5>
             <ul className="mt-4 space-y-2 text-sm">
               {FOOTER_LINKS.right.map((l) => (
                 <li key={l.to}>
-                  <Link to={l.to} className="text-slate-400 transition hover:text-sky-400">
+                  <Link
+                    to={l.to}
+                    className="text-slate-400 transition hover:text-sky-400"
+                  >
                     {l.label}
                   </Link>
                 </li>
               ))}
               <li>
-                <a href="https://www.nitjsr.ac.in" target="_blank" rel="noreferrer" className="text-slate-400 transition hover:text-sky-400">
+                <a
+                  href="https://www.nitjsr.ac.in"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-slate-400 transition hover:text-sky-400"
+                >
                   NIT Jamshedpur Website
                 </a>
               </li>
@@ -51,13 +74,16 @@ export default function Footer() {
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-slate-500 sm:flex-row">
           <p>© {SITE.shortName}. All rights reserved.</p>
           <p>
-            Contact:{' '}
-            <a href={`mailto:${SITE.emails.namrata}`} className="text-slate-400 hover:text-sky-400">
+            Contact:{" "}
+            <a
+              href={`mailto:${SITE.emails.namrata}`}
+              className="text-slate-400 hover:text-sky-400"
+            >
               {SITE.emails.namrata}
             </a>
           </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

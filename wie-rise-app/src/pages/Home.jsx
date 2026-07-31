@@ -526,7 +526,7 @@ export default function Home() {
             <img
               src="/assets/nitlogosc.png"
               alt="Organizer"
-              className="h-16 object-contain"
+              className="h-16 object-contain rounded-lg"
             />
           </div>
         </Container>

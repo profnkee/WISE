@@ -103,6 +103,6 @@ export const FAQS = [
   },
   {
     q: 'Who do I contact for further queries?',
-    a: 'You can reach the organizing team at namrata.ee@nitjsr.ac.in or krnishant125@gmail.com.',
+    a: 'You can reach the organizing team at wierise@nitjsr.ac.in or krnishant125@gmail.com.',
   },
 ]

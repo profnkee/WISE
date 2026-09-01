@@ -11,7 +11,7 @@ export const SITE = {
     "NIT Campus, Adityapur, Jamshedpur, Seraikela-Kharsawan, Jharkhand – 831014",
   emails: {
     nishant: "krnishant125@gmail.com",
-    namrata: "namrata.ee@nitjsr.ac.in",
+    namrata: "wierise@nitjsr.ac.in",
   },
   phone: "+91-9862882395",
   contactPerson: "Dr. Nishant Kumar",

@@ -243,8 +243,11 @@ export default function Home() {
         <div className="pointer-events-none absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-sky-500/10 blur-3xl" />
 
         <Container className="relative py-20">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sky-400">
-            {SITE.organizer}
+          <p className="font-display text-lg font-bold uppercase tracking-[0.2em] text-white sm:text-xl">
+            {SITE.institute}
+          </p>
+          <p className="mt-2 text-sm font-semibold uppercase tracking-[0.25em] text-sky-400">
+            {SITE.departments}
           </p>
           <h1 className="mt-4 max-w-4xl font-display text-3xl leading-tight tracking-wide sm:text-5xl lg:text-6xl">
             1st IEEE Conference on WIE-RISE

@@ -5,7 +5,7 @@ import SectionHeading from '../components/SectionHeading'
 export default function About() {
   return (
     <div>
-      <PageHeader eyebrow="Get to know us" title="About" subtitle="NIT Jamshedpur & the Department of Electrical Engineering" />
+      <PageHeader eyebrow="Get to know us" title="About" subtitle="NIT Jamshedpur & the Departments of Electrical and Mechanical Engineering" />
       <Container className="py-16">
         <SectionHeading eyebrow="Host Institute" title="About NIT Jamshedpur" />
         <div className="mt-8 grid items-center gap-10 lg:grid-cols-2">
@@ -37,6 +37,24 @@ export default function About() {
               the latest needs of the power sector and electrical industries, while imparting quality education
               through state-of-the-art research facilities that contribute to sustainable socio-economic growth.
             </p>
+          </div>
+        </div>
+
+        <div className="mt-20">
+          <SectionHeading eyebrow="Department" title="About Mechanical Engineering" />
+          <div className="mt-8 grid items-center gap-10 lg:grid-cols-2">
+            <p className="text-justify leading-relaxed text-slate-600">
+              The Department of Mechanical Engineering is one of the oldest (started in 1960) and the largest
+              department in terms of faculty, students and activities. The Department offers B.Tech (Hons.) in
+              Mechanical Engineering, M.Tech in Computer Integrated Design & Manufacturing (CIDM), M.Tech in
+              Thermal Engineering (TE) and M.Tech in Energy System (ES). Department is also running PhD Program
+              in various research areas in the Mechanical Engineering. It also offers part time PhD program,
+              mainly meant for those employed in industries and academic institutions. The department is having
+              highly qualified and experienced faculty in all streams of Mechanical Engineering. An interactive
+              relationship is maintained between the students and staff which enables the students to develop a
+              sound foundation in the stream in a conducive environment.
+            </p>
+            <img src="/assets/NIT-NIGHT.jpeg" alt="Mechanical Engineering Department" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-lg" />
           </div>
         </div>
       </Container>

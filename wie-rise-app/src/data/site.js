@@ -3,7 +3,10 @@ export const SITE = {
   fullName:
     "1st IEEE Conference on WIE-RISE: Revolutionizing Innovation in Smart Engineering",
   organizer:
-    "National Institute of Technology (NIT) Jamshedpur, Department of Electrical Engineering",
+    "National Institute of Technology (NIT) Jamshedpur, Department of Electrical Engineering & Department of Mechanical Engineering",
+  institute: "National Institute of Technology (NIT) Jamshedpur",
+  departments:
+    "Department of Electrical Engineering & Department of Mechanical Engineering",
   dates: "April 01–03, 2027",
   targetDate: "2027-04-01T09:00:00",
   venueShort: "NIT Jamshedpur, Jharkhand, India",

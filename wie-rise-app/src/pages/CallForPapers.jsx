@@ -65,10 +65,11 @@ export default function CallForPapers() {
           for camera-ready instructions.
         </p>
 
-        <p className="mt-6 text-sm text-slate-500">
-          CMT Acknowledgment: The Microsoft CMT service was used for managing the peer-reviewing process for
-          this conference. This service was provided for free by Microsoft and they bore all expenses,
-          including costs for Azure cloud services as well as for software development and support.
+        <p className="mt-6 text-sm text-slate-500">CMT Acknowledgment:</p>
+        <p className="mt-1 text-sm text-slate-500">
+          The Microsoft CMT service was used for managing the peer-reviewing process for this conference.
+          This service was provided for free by Microsoft and they bore all expenses, including costs for
+          Azure cloud services as well as for software development and support.
         </p>
       </Container>
     </div>

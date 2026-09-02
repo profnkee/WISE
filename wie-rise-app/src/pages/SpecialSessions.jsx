@@ -3,33 +3,16 @@ import Container from "../components/Container";
 import SectionHeading from "../components/SectionHeading";
 import { SPECIAL_SESSION_TOPICS } from "../data/dates";
 
-const WHY_PROPOSE = [
-  {
-    title: "Showcase Innovation",
-    description:
-      "Highlight novel technologies and disruptive research directions.",
-  },
-  {
-    title: "Grow Communities",
-    description:
-      "Connect organizers, authors, and reviewers around a shared focus.",
-  },
-  {
-    title: "Keep Reviews Rigorous",
-    description:
-      "All session submissions go through the standard WIE-RISE review process.",
-  },
-];
-
 const PROPOSAL_CHECKLIST = [
   { label: "Session title", detail: "a memorable and descriptive name." },
   {
     label: "Session overview",
-    detail: "~100 words explaining the topic and its relevance.",
+    detail: "~200 words explaining the topic and its relevance.",
   },
   {
     label: "Organizers",
-    detail: "2–4 names with contact details and institutions.",
+    detail:
+      "2–4 names with contact details and institutions (1 Female Session Chair is desirable to promote WIE).",
   },
   { label: "Potential authors", detail: "list contributors and affiliations." },
   {
@@ -43,7 +26,7 @@ const KEY_GUIDELINES = [
   "Organizers should represent at least two institutions.",
   "Organizers may not author more than 60% of the session content.",
   "No person may be author/co-author on more than two papers in the same session.",
-  "At least one organizer should register and attend onsite.",
+  "Each successful Session Organizer will be entitled to one complimentary paper presentation registration for the conference.",
 ];
 
 export default function SpecialSessions() {
@@ -59,7 +42,7 @@ export default function SpecialSessions() {
           <div className="space-y-5 text-justify leading-relaxed text-slate-600">
             <SectionHeading
               eyebrow="Special Sessions"
-              title="Lead a High-Impact Session at WIE-RISE 2027"
+              title="Lead a High-Impact Session at WIERISE 2027"
             />
             <p>
               Create a focused forum for cutting-edge research and breakthrough
@@ -72,22 +55,6 @@ export default function SpecialSessions() {
               and rapid knowledge exchange.
             </p>
           </div>
-          <div className="grid gap-4">
-            {WHY_PROPOSE.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-2xl border border-slate-200 p-5 shadow-sm"
-              >
-                <h4 className="font-semibold text-navy-950">{item.title}</h4>
-                <p className="mt-1 text-sm leading-relaxed text-slate-600">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-16 grid gap-10 lg:grid-cols-2">
           <div className="space-y-5 text-justify leading-relaxed text-slate-600">
             <SectionHeading
               eyebrow="Overview"
@@ -111,29 +78,6 @@ export default function SpecialSessions() {
                 </li>
               ))}
             </ul>
-          </div>
-          <div className="space-y-5 text-justify leading-relaxed text-slate-600">
-            <SectionHeading eyebrow="About" title="About Special Sessions" />
-            <p>
-              Special Sessions broaden attendees' expertise by offering
-              intensive technical programs for emerging fields. They are ideal
-              for launching new collaborations, attracting contributors, and
-              accelerating innovation.
-            </p>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl border border-slate-200 p-5 shadow-sm">
-                <h4 className="font-semibold text-navy-950">Community</h4>
-                <p className="mt-1 text-sm leading-relaxed text-slate-600">
-                  Build new networks of researchers and practitioners.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-slate-200 p-5 shadow-sm">
-                <h4 className="font-semibold text-navy-950">Visibility</h4>
-                <p className="mt-1 text-sm leading-relaxed text-slate-600">
-                  Give emerging topics a prominent platform.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -200,8 +144,34 @@ export default function SpecialSessions() {
               Special Session Template
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-slate-600">
-              Will be provided soon.
+              Download the official template and prepare your proposal
+              accordingly.
             </p>
+            <p className="mt-2 text-sm leading-relaxed text-slate-600">
+              A Special Session will be considered successful if it receives at
+              least 10 paper submissions, of which a minimum of 6 papers are
+              accepted.
+            </p>
+            <a
+              href="/assets/Special%20Session%20Template.docx"
+              download="Special Session Template.docx"
+              className="mt-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-navy-700 to-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:brightness-110"
+            >
+              <svg
+                className="h-4 w-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+                />
+              </svg>
+              Download Template
+            </a>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-navy-950 p-6 text-white shadow-sm">
             <h3 className="font-display text-lg tracking-wide">
@@ -218,10 +188,10 @@ export default function SpecialSessions() {
               <p className="mt-1 text-slate-200/90">
                 Email:{" "}
                 <a
-                  href="mailto:wierise@gmail.com"
+                  href="mailto:wierise@nitjsr.ac.in"
                   className="font-semibold text-sky-400 hover:underline"
                 >
-                  wierise@gmail.com
+                  wierise@nitjsr.ac.in
                 </a>{" "}
                 |{" "}
                 <a

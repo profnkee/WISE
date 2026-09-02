@@ -22,6 +22,23 @@ export default function Footer() {
             <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-400">
               {SITE.fullName}, organized by the {SITE.organizer}, {SITE.dates}.
             </p>
+            <div className="mt-6">
+              <h5 className="font-display text-sm tracking-wide text-white">
+                Visitors
+              </h5>
+              <a
+                href="https://info.flagcounter.com/NpLz"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-3 inline-block"
+              >
+                <img
+                  src="https://s01.flagcounter.com/count2/NpLz/bg_170D02/txt_FFCC99/border_43230A/columns_4/maxflags_12/viewers_0/labels_0/pageviews_1/flags_0/percent_0/"
+                  alt="Flag Counter"
+                  className="rounded-lg"
+                />
+              </a>
+            </div>
           </div>
 
           <div>

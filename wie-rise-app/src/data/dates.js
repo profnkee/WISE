@@ -12,28 +12,21 @@ export const IMPORTANT_DATES = [
 
 export const TRACKS = [
   {
-    id: "Track 1",
-    title: "Power Electronics & Smart Grids",
-    description:
-      "Power Electronics, Power Systems, Smart Grids, and Sustainable and Intelligent Renewable based Energy Systems.",
+    id: "Track 01",
+    title: "Electrical Power, Renewable Energy and Smart Grids",
   },
   {
-    id: "Track 2",
-    title: "Electronics & Communication",
-    description:
-      "Electronics, Robotics, VLSI, IoT, Control, Embedded Systems, and Communication Engineering.",
+    id: "Track 02",
+    title: "Electronics, Communication and Embedded Systems",
   },
   {
-    id: "Track 3",
-    title: "AI, Security & Biomedical",
-    description:
-      "Cybersecurity, Blockchain, AI-ML, Computational Imaging, and Biomedical Applications.",
+    id: "Track 03",
+    title: "Mechatronic, Robotics, IoT and Automation",
   },
   {
-    id: "Track 4",
-    title: "Electric Mobility",
-    description:
-      "Electric Vehicles, Electric Drives, Energy Storage, and Transportation Electrification.",
+    id: "Track 04",
+    title:
+      "Artificial Intelligence, Data Analytics, Cybersecurity and Intelligent Systems",
   },
 ];
 

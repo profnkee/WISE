@@ -149,9 +149,6 @@ export default function CallForPapers() {
                 <h3 className="mt-1 font-display text-lg tracking-wide text-navy-950">
                   {t.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                  {t.description}
-                </p>
               </div>
             ))}
           </div>

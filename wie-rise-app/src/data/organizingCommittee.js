@@ -19,21 +19,21 @@ export const ORGANIZING_COMMITTEE = [
         name: "Prof. V. Ramgopal Rao",
         affiliation: "Group Vice-Chancellor, BITS Pilani",
       },
-      {
-        name: "Prof. Sukumar Mishra",
-        affiliation: "Director, IIT (ISM) Dhanbad, India",
-        photo: "/images/sukumar-mishra.jpg",
-      },
-      {
-        name: "Prof. N. P. Padhy",
-        affiliation: "Director, MNIT Jaipur, India",
-        photo: "/images/np padhy.jpg",
-      },
-      {
-        name: "Prof. R. V. Sharma",
-        affiliation: "Deputy Director, NIT Jamshedpur, India",
-        photo: "/images/RVS.png",
-      },
+      // {
+      //   name: "Prof. Sukumar Mishra",
+      //   affiliation: "Director, IIT (ISM) Dhanbad, India",
+      //   photo: "/images/sukumar-mishra.jpg",
+      // },
+      // {
+      //   name: "Prof. N. P. Padhy",
+      //   affiliation: "Director, MNIT Jaipur, India",
+      //   photo: "/images/np padhy.jpg",
+      // },
+      // {
+      //   name: "Prof. R. V. Sharma",
+      //   affiliation: "Deputy Director, NIT Jamshedpur, India",
+      //   photo: "/images/RVS.png",
+      // },
       {
         name: "Prof. Satish Kumar",
         affiliation: "Dean R&C, NIT Jamshedpur, India",
@@ -109,11 +109,11 @@ export const ORGANIZING_COMMITTEE = [
         affiliation: "University of South-Eastern Norway",
         photo: "/images/sanj.png",
       },
-      {
-        name: "Prof. Satish Kumar",
-        affiliation: "Dean R&C, NIT Jamshedpur, India",
-        photo: "/images/satish kumar.jpeg",
-      },
+      // {
+      //   name: "Prof. Satish Kumar",
+      //   affiliation: "Dean R&C, NIT Jamshedpur, India",
+      //   photo: "/images/satish kumar.jpeg",
+      // },
     ],
   },
   {
@@ -352,8 +352,14 @@ export const ORGANIZING_COMMITTEE = [
   {
     role: "Student Coordinators",
     members: [
-      { name: "Mr. Rumit Tiwari", affiliation: "Ph.D. Scholar, EE, NIT Jamshedpur" },
-      { name: "Mr. Rishi Ranjan", affiliation: "Ph.D. Scholar, EE, NIT Jamshedpur" },
+      {
+        name: "Mr. Rumit Tiwari",
+        affiliation: "Ph.D. Scholar, EE, NIT Jamshedpur",
+      },
+      {
+        name: "Mr. Rishi Ranjan",
+        affiliation: "Ph.D. Scholar, EE, NIT Jamshedpur",
+      },
     ],
   },
 ];

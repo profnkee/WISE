@@ -1,7 +1,30 @@
+import { useState } from "react";
 import PageHeader from "../components/PageHeader";
 import Container from "../components/Container";
 import SectionHeading from "../components/SectionHeading";
 import { ORGANIZING_COMMITTEE } from "../data/organizingCommittee";
+
+const TABS = [
+  {
+    label: "Patrons & Chairs",
+    roles: [
+      "Chief Patron",
+      "Patron(s)",
+      "Co-Patron(s)",
+      "Honorary General Chair(s)",
+      "Honorary General Co-Chair(s)",
+      "General Chair(s)",
+      "Chairperson",
+      "Organising Chair(s)",
+      "Organising Secretaries",
+      "Special Session Chair",
+    ],
+  },
+  { label: "Internal Advisory Committee", roles: ["Internal Advisory Committee"] },
+  { label: "WIE", roles: ["WIE Chairs", "WIE Committee"] },
+  { label: "Steering Committee", roles: ["Steering Committee"] },
+  { label: "Student Coordinators", roles: ["Student Coordinators"] },
+];
 
 function initials(name) {
   return name
@@ -66,6 +89,19 @@ function MemberCard({ member }) {
 }
 
 export default function OrganizingCommittee() {
+  const [activeTab, setActiveTab] = useState(0);
+  const groups = TABS[activeTab].roles
+    .map((role) => ORGANIZING_COMMITTEE.find((g) => g.role === role))
+    .filter(Boolean);
+
+  function handleKeyDown(e) {
+    const delta = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+    if (!delta) return;
+    const next = (activeTab + delta + TABS.length) % TABS.length;
+    setActiveTab(next);
+    document.getElementById(`committee-tab-${next}`)?.focus();
+  }
+
   return (
     <div>
       <PageHeader
@@ -74,8 +110,47 @@ export default function OrganizingCommittee() {
         subtitle="The patrons, chairs, and committee members organizing WIE-RISE 2027."
       />
       <Container className="py-16">
-        <div className="space-y-16">
-          {ORGANIZING_COMMITTEE.map((group) => (
+        <div
+          role="tablist"
+          aria-label="Committee sections"
+          onKeyDown={handleKeyDown}
+          className="flex overflow-x-auto border-b-2 border-slate-200"
+        >
+          {TABS.map((tab, i) => {
+            const selected = i === activeTab;
+            return (
+              <button
+                key={tab.label}
+                id={`committee-tab-${i}`}
+                type="button"
+                role="tab"
+                aria-selected={selected}
+                aria-controls="committee-tabpanel"
+                tabIndex={selected ? 0 : -1}
+                onClick={() => setActiveTab(i)}
+                className={`relative -mb-0.5 shrink-0 whitespace-nowrap px-6 py-3 text-base transition sm:px-8 ${
+                  selected
+                    ? "bg-white font-medium text-navy-950"
+                    : "text-slate-500 hover:text-navy-950"
+                }`}
+              >
+                {tab.label}
+                <span
+                  className={`absolute inset-x-0 bottom-0 h-1 rounded-t-md transition ${
+                    selected ? "bg-navy-950" : "bg-transparent"
+                  }`}
+                />
+              </button>
+            );
+          })}
+        </div>
+        <div
+          id="committee-tabpanel"
+          role="tabpanel"
+          aria-labelledby={`committee-tab-${activeTab}`}
+          className="mt-12 space-y-16"
+        >
+          {groups.map((group) => (
             <section key={group.role}>
               <SectionHeading title={group.role} />
               <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">

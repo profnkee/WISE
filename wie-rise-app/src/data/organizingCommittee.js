@@ -298,7 +298,7 @@ export const ORGANIZING_COMMITTEE = [
       {
         name: "Dr. Nishant Kumar",
         affiliation: "B.K. Birla Institute of Engineering & Technology, Pilani",
-        photo: "/images/nishant.png",
+        photo: "/images/nishant.jpeg",
       },
     ],
   },

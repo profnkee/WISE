@@ -2,16 +2,20 @@ import { useState } from 'react'
 import PageHeader from '../components/PageHeader'
 import Container from '../components/Container'
 import { SITE } from '../data/site'
+import { ORGANIZING_COMMITTEE } from '../data/organizingCommittee'
 
 const CARDS = [
   {
     label: 'About Us',
     value: `The ${SITE.shortName} conference is focused on innovative, collaborative, and knowledge sharing engineering research.`,
   },
-  { label: 'Contact Person', value: `${SITE.contactPerson} — ${SITE.phone}` },
+  { label: 'Contact Person', value: `${SITE.contactPerson}\n${SITE.phone}` },
   { label: 'Location', value: SITE.venueAddress },
   { label: 'E-mail', value: `${SITE.emails.namrata} / ${SITE.emails.nishant}` },
 ]
+
+const STUDENT_COORDINATORS =
+  ORGANIZING_COMMITTEE.find((g) => g.role === 'Student Coordinators')?.members ?? []
 
 export default function Contact() {
   const [sent, setSent] = useState(false)
@@ -29,10 +33,35 @@ export default function Contact() {
           {CARDS.map((c) => (
             <div key={c.label} className="rounded-2xl border border-slate-200 p-6 shadow-sm">
               <h4 className="font-display text-sm tracking-wide text-navy-950">{c.label}</h4>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{c.value}</p>
+              <p className="mt-2 whitespace-pre-line text-sm leading-relaxed text-slate-600">{c.value}</p>
             </div>
           ))}
         </div>
+
+        {STUDENT_COORDINATORS.length > 0 && (
+          <div className="mt-16">
+            <h3 className="font-display text-xl tracking-wide text-navy-950">Student Coordinators</h3>
+            <p className="mt-2 text-sm text-slate-600">For more information, contact our student coordinators.</p>
+            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {STUDENT_COORDINATORS.map((m) => (
+                <div key={m.name} className="rounded-2xl border border-slate-200 p-6 shadow-sm">
+                  <h4 className="font-display text-sm tracking-wide text-navy-950">{m.name}</h4>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{m.affiliation}</p>
+                  {m.emails?.map((email) => (
+                    <a key={email} href={`mailto:${email}`} className="mt-1 block text-sm font-medium text-navy-700 hover:underline">
+                      {email}
+                    </a>
+                  ))}
+                  {m.phone && (
+                    <a href={`tel:${m.phone}`} className="mt-1 block text-sm text-slate-600 hover:underline">
+                      {m.phone}
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div className="mt-16 grid gap-10 lg:grid-cols-2">
           <div>

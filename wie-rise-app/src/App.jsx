@@ -1,12 +1,10 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Layout from './components/Layout'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import About from './pages/About'
 import GeneralChair from './pages/GeneralChair'
-import AdvisoryCommittee from './pages/AdvisoryCommittee'
 import OrganizingCommittee from './pages/OrganizingCommittee'
-import TechnicalProgramCommittee from './pages/TechnicalProgramCommittee'
 import CallForPapers from './pages/CallForPapers'
 import SpecialSessions from './pages/SpecialSessions'
 import ImportantDates from './pages/ImportantDates'
@@ -31,9 +29,9 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="general-chair" element={<GeneralChair />} />
-          <Route path="advisory-committee" element={<AdvisoryCommittee />} />
+          <Route path="advisory-committee" element={<Navigate to="/organizing-committee?tab=advisory" replace />} />
           <Route path="organizing-committee" element={<OrganizingCommittee />} />
-          <Route path="technical-program-committee" element={<TechnicalProgramCommittee />} />
+          <Route path="technical-program-committee" element={<Navigate to="/organizing-committee?tab=technical-program" replace />} />
           <Route path="call-for-papers" element={<CallForPapers />} />
           <Route path="special-sessions" element={<SpecialSessions />} />
           <Route path="important-dates" element={<ImportantDates />} />

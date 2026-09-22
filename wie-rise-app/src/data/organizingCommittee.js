@@ -1,5 +1,5 @@
 // Source of truth: "WIE-RISE 2027 Brochure.pptx" (Organising Committee slide).
-// `photo` paths are files in /public/images. Members without a confirmed
+// `photo` paths are files in /public/images (or absolute URLs). Members without a confirmed
 // photograph are rendered with an initials monogram by the committee page.
 export const ORGANIZING_COMMITTEE = [
   {
@@ -18,6 +18,7 @@ export const ORGANIZING_COMMITTEE = [
       {
         name: "Prof. V. Ramgopal Rao",
         affiliation: "Group Vice-Chancellor, BITS Pilani",
+        photo: "/images/v-ramgopal-rao.jpg",
       },
       // {
       //   name: "Prof. Sukumar Mishra",
@@ -67,14 +68,17 @@ export const ORGANIZING_COMMITTEE = [
       {
         name: "Prof. Bozenna Pasik-Duncan",
         affiliation: "University of Kansas",
+        photo: "/images/bozenna-pasik-duncan.jpg",
       },
       {
         name: "Prof. Mary Ellen Randall",
         affiliation: "Founder/CEO, Ascot Technologies Inc.",
+        photo: "/images/mary-ellen-randall.jpg",
       },
       {
         name: "Sr. Prof. Emeritus Stephanie White",
         affiliation: "Long Island University",
+        photo: "/images/stephanie-white.jpg",
       },
     ],
   },
@@ -89,10 +93,12 @@ export const ORGANIZING_COMMITTEE = [
       {
         name: "Prof. Winnie Ye",
         affiliation: "Carleton University, Canada",
+        photo: "/images/winnie-ye.jpg",
       },
       {
         name: "Prof. Preeti Bajaj",
         affiliation: "VC, Galgotias University, India",
+        photo: "/images/preeti-bajaj.jpg",
       },
     ],
   },
@@ -177,6 +183,7 @@ export const ORGANIZING_COMMITTEE = [
       {
         name: "Dr. Neha Jaiswal",
         affiliation: "NIT Jamshedpur, India",
+        photo: "/images/neha-jaiswal.jpg",
       },
       {
         name: "Dr. Veer Pratap Meena",
@@ -201,6 +208,7 @@ export const ORGANIZING_COMMITTEE = [
       {
         name: "Dr. Debangshu Dey",
         affiliation: "Chair, IEEE Kolkata Section",
+        photo: "/images/debangshu-dey.jpg",
       },
       {
         name: "Dr. Tridibesh Nag",
@@ -235,6 +243,7 @@ export const ORGANIZING_COMMITTEE = [
       {
         name: "Prof. Ujjawal Laha",
         affiliation: "NIT Jamshedpur, India",
+        photo: "/images/ujjawal-laha.jpg",
       },
       {
         name: "Prof. Anil Kumar Choudhary",
@@ -254,6 +263,7 @@ export const ORGANIZING_COMMITTEE = [
       {
         name: "Prof. Hira Lal Yadav",
         affiliation: "NIT Jamshedpur, India",
+        photo: "/images/hira-lal-yadav.jpg",
       },
       {
         name: "Prof. Niranjan Kumar",
@@ -293,18 +303,47 @@ export const ORGANIZING_COMMITTEE = [
     ],
   },
   {
+    role: "Technical Program Chair(s)",
+    members: [
+      {
+        name: "Dr. M. Prakash",
+        affiliation: "NIT Nagaland",
+        photo: "/images/m-prakash.jpg",
+      },
+    ],
+  },
+  {
+    role: "Technical Program Co-Chair(s)",
+    members: [
+      {
+        name: "Dr. Akshit Samadhiya",
+        affiliation: "Harcourt Butler Technical University, Kanpur",
+      },
+      {
+        name: "Dr. Rajesh Singh Shekhawat",
+        affiliation: "B.K. Birla Institute of Engineering & Technology, Pilani",
+        photo: "/images/rajesh-singh-shekhawat.jpg",
+      },
+    ],
+  },
+  {
     role: "WIE Chairs",
     members: [
       {
         name: "Prof. Sheli Sinha Chaudhuri",
         affiliation: "Chair, IEEE WIE Kolkata Section",
+        photo: "/images/sheli-sinha-chaudhuri.jpg",
       },
       {
         name: "Dr. Rashmi Sinha",
         affiliation: "NIT Jamshedpur, India",
         photo: "/images/rsinha.png",
       },
-      { name: "Dr. B. Shakila", affiliation: "NIT Nagaland" },
+      {
+        name: "Dr. B. Shakila",
+        affiliation: "NIT Nagaland",
+        photo: "/images/b-shakila.jpg",
+      },
       {
         name: "Dr. Swati Rajput",
         affiliation: "IIT (ISM) Dhanbad",
@@ -315,37 +354,115 @@ export const ORGANIZING_COMMITTEE = [
   {
     role: "WIE Committee",
     members: [
-      { name: "Dr. Rina Sahu", affiliation: "NIT Jamshedpur, India" },
-      { name: "Dr. Madhuri Seeram", affiliation: "NIT Jamshedpur, India" },
-      { name: "Dr. Kanika Prasad", affiliation: "NIT Jamshedpur, India" },
-      { name: "Dr. Akansha Shukla", affiliation: "NIT Jamshedpur, India" },
-      { name: "Dr. Neha Agnihotri", affiliation: "NIT Jamshedpur, India" },
-      { name: "Dr. Sangeeta Kumari", affiliation: "NIT Jamshedpur, India" },
-      { name: "Dr. Moumita Mondal", affiliation: "NIT Jamshedpur, India" },
-      { name: "Dr. Poulami Maji", affiliation: "NIT Jamshedpur, India" },
-      { name: "Dr. Renu Kumari", affiliation: "NIT Jamshedpur, India" },
-      { name: "Dr. Gopa Bhaumik", affiliation: "NIT Jamshedpur, India" },
-      { name: "Dr. Ambika Kuity", affiliation: "NIT Jamshedpur, India" },
-      { name: "Dr. Susmita Datta", affiliation: "NIT Jamshedpur, India" },
-      { name: "Dr. Suravi Pal", affiliation: "NIT Jamshedpur, India" },
-      { name: "Dr. Monalisa Mandal", affiliation: "NIT Jamshedpur, India" },
-      { name: "Dr. Rajashree Nayak", affiliation: "NIT Jamshedpur, India" },
+      {
+        name: "Dr. Rina Sahu",
+        affiliation: "NIT Jamshedpur, India",
+        photo: "/images/rina-sahu.jpg",
+      },
+      {
+        name: "Dr. Madhuri Seeram",
+        affiliation: "NIT Jamshedpur, India",
+        photo: "/images/madhuri-seeram.png",
+      },
+      {
+        name: "Dr. Kanika Prasad",
+        affiliation: "NIT Jamshedpur, India",
+        photo: "/images/kanika-prasad.jpg",
+      },
+      {
+        name: "Dr. Akansha Shukla",
+        affiliation: "NIT Jamshedpur, India",
+        photo: "/images/akansha-shukla.jpg",
+      },
+      {
+        name: "Dr. Neha Agnihotri",
+        affiliation: "NIT Jamshedpur, India",
+        photo: "/images/neha-agnihotri.jpg",
+      },
+      {
+        name: "Dr. Sangeeta Kumari",
+        affiliation: "NIT Jamshedpur, India",
+        photo: "/images/sangeeta-kumari.png",
+      },
+      {
+        name: "Dr. Moumita Mondal",
+        affiliation: "NIT Jamshedpur, India",
+        photo: "/images/moumita-mondal.jpg",
+      },
+      {
+        name: "Dr. Poulami Maji",
+        affiliation: "NIT Jamshedpur, India",
+        photo: "/images/poulami-maji.jpg",
+      },
+      {
+        name: "Dr. Renu Kumari",
+        affiliation: "NIT Jamshedpur, India",
+        photo: "/images/renu-kumari.jpg",
+      },
+      {
+        name: "Dr. Gopa Bhaumik",
+        affiliation: "NIT Jamshedpur, India",
+        photo: "/images/gopa-bhaumik.jpg",
+      },
+      {
+        name: "Dr. Ambika Kuity",
+        affiliation: "NIT Jamshedpur, India",
+        photo: "/images/ambika-kuity.jpg",
+      },
+      {
+        name: "Dr. Susmita Datta",
+        affiliation: "NIT Jamshedpur, India",
+        photo: "/images/susmita-datta.jpg",
+      },
+      {
+        name: "Dr. Suravi Pal",
+        affiliation: "NIT Jamshedpur, India",
+        photo: "/images/suravi-pal.jpg",
+      },
+      {
+        name: "Dr. Monalisa Mandal",
+        affiliation: "NIT Jamshedpur, India",
+        photo: "/images/monalisa-mandal.jpg",
+      },
+      {
+        name: "Dr. Rajashree Nayak",
+        affiliation: "NIT Jamshedpur, India",
+        photo: "/images/rajashree-nayak.jpg",
+      },
       {
         name: "Dr. Pampa Howladar",
         affiliation: "NIT Jamshedpur, India",
         photo: "/images/pampa.png",
       },
-      { name: "Dr. Shwati Sudha", affiliation: "NIT Jamshedpur, India" },
-      { name: "Dr. Mayuri Baruah", affiliation: "NIT Jamshedpur, India" },
-      { name: "Dr. Debshri Swargiary", affiliation: "NIT Jamshedpur, India" },
-      { name: "Dr. Anushree Dutta", affiliation: "NIT Jamshedpur, India" },
+      {
+        name: "Dr. Shwati Sudha",
+        affiliation: "NIT Jamshedpur, India",
+        photo: "/images/shwati-sudha.jpg",
+      },
+      {
+        name: "Dr. Mayuri Baruah",
+        affiliation: "NIT Jamshedpur, India",
+        photo: "/images/mayuri-baruah.jpg",
+      },
+      {
+        name: "Dr. Debshri Swargiary",
+        affiliation: "NIT Jamshedpur, India",
+        photo: "/images/debshri-swargiary.jpg",
+      },
+      {
+        name: "Dr. Anushree Dutta",
+        affiliation: "NIT Jamshedpur, India",
+        photo: "/images/anushree-dutta.jpg",
+      },
       {
         name: "Dr. Anupama Sharma",
         affiliation: "B.K. Birla Institute of Engineering & Technology, Pilani",
+        photo: "/images/anupama-sharma.jpg",
       },
       {
         name: "Dr. Rajesh Singh Shekhawat",
         affiliation: "B.K. Birla Institute of Engineering & Technology, Pilani",
+        photo: "/images/rajesh-singh-shekhawat.jpg",
       },
     ],
   },
@@ -355,10 +472,24 @@ export const ORGANIZING_COMMITTEE = [
       {
         name: "Mr. Rumit Tiwari",
         affiliation: "Ph.D. Scholar, EE, NIT Jamshedpur",
+        phone: "+91-7004136306",
       },
       {
         name: "Mr. Rishi Ranjan",
         affiliation: "Ph.D. Scholar, EE, NIT Jamshedpur",
+      },
+    ],
+  },
+  {
+    role: "Website Developer",
+    members: [
+      {
+        name: "Mr. Karan",
+        affiliation:
+          "B.Tech CSE, B.K. Birla Institute of Engineering & Technology, Pilani",
+        photo: "https://karanchoudhary.dev/karan-kumar.jpg",
+        emails: ["karankumar8239@gmail.com"],
+        portfolio: "https://karanchoudhary.dev",
       },
     ],
   },

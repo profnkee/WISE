@@ -1,11 +1,16 @@
-import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import PageHeader from "../components/PageHeader";
 import Container from "../components/Container";
 import SectionHeading from "../components/SectionHeading";
+import AdvisoryCommittee from "./AdvisoryCommittee";
+import TechnicalProgramCommittee from "./TechnicalProgramCommittee";
 import { ORGANIZING_COMMITTEE } from "../data/organizingCommittee";
 
-const TABS = [
+// `slug` is the ?tab= value; tabs either list ORGANIZING_COMMITTEE roles or
+// render their own `Panel`.
+const COMMITTEE_TABS = [
   {
+    slug: "patrons-chairs",
     label: "Patrons & Chairs",
     roles: [
       "Chief Patron",
@@ -17,13 +22,25 @@ const TABS = [
       "Chairperson",
       "Organising Chair(s)",
       "Organising Secretaries",
+      "Steering Committee",
       "Special Session Chair",
+      "Technical Program Chair(s)",
+      "Technical Program Co-Chair(s)",
+      "Website Developer",
     ],
   },
-  { label: "Internal Advisory Committee", roles: ["Internal Advisory Committee"] },
-  { label: "WIE", roles: ["WIE Chairs", "WIE Committee"] },
-  { label: "Steering Committee", roles: ["Steering Committee"] },
-  { label: "Student Coordinators", roles: ["Student Coordinators"] },
+  {
+    slug: "internal-advisory",
+    label: "Internal Advisory Committee",
+    roles: ["Internal Advisory Committee"],
+  },
+  { slug: "wie", label: "WIE", roles: ["WIE Chairs", "WIE Committee"] },
+  { slug: "advisory", label: "Advisory Committee", Panel: AdvisoryCommittee },
+  {
+    slug: "technical-program",
+    label: "Technical Program Committee",
+    Panel: TechnicalProgramCommittee,
+  },
 ];
 
 function initials(name) {
@@ -76,6 +93,18 @@ function MemberCard({ member }) {
             ))}
           </p>
         )}
+        {member.portfolio && (
+          <p className="mt-1 text-sm text-slate-600">
+            <a
+              href={member.portfolio}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-navy-700 hover:underline"
+            >
+              {member.portfolio.replace(/^https?:\/\//, "")}
+            </a>
+          </p>
+        )}
         {member.phone && (
           <p className="mt-1 text-sm text-slate-600">
             <a href={`tel:${member.phone}`} className="hover:underline">
@@ -89,15 +118,28 @@ function MemberCard({ member }) {
 }
 
 export default function OrganizingCommittee() {
-  const [activeTab, setActiveTab] = useState(0);
-  const groups = TABS[activeTab].roles
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activeTab = Math.max(
+    0,
+    COMMITTEE_TABS.findIndex((t) => t.slug === searchParams.get("tab")),
+  );
+  const { Panel, roles = [] } = COMMITTEE_TABS[activeTab];
+  const groups = roles
     .map((role) => ORGANIZING_COMMITTEE.find((g) => g.role === role))
     .filter(Boolean);
+
+  function setActiveTab(i) {
+    setSearchParams(i === 0 ? {} : { tab: COMMITTEE_TABS[i].slug }, {
+      replace: true,
+      preventScrollReset: true,
+    });
+  }
 
   function handleKeyDown(e) {
     const delta = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
     if (!delta) return;
-    const next = (activeTab + delta + TABS.length) % TABS.length;
+    const next =
+      (activeTab + delta + COMMITTEE_TABS.length) % COMMITTEE_TABS.length;
     setActiveTab(next);
     document.getElementById(`committee-tab-${next}`)?.focus();
   }
@@ -116,7 +158,7 @@ export default function OrganizingCommittee() {
           onKeyDown={handleKeyDown}
           className="flex overflow-x-auto border-b-2 border-slate-200"
         >
-          {TABS.map((tab, i) => {
+          {COMMITTEE_TABS.map((tab, i) => {
             const selected = i === activeTab;
             return (
               <button
@@ -128,7 +170,7 @@ export default function OrganizingCommittee() {
                 aria-controls="committee-tabpanel"
                 tabIndex={selected ? 0 : -1}
                 onClick={() => setActiveTab(i)}
-                className={`relative -mb-0.5 shrink-0 whitespace-nowrap px-6 py-3 text-base transition sm:px-8 ${
+                className={`relative -mb-0.5 shrink-0 grow whitespace-nowrap px-3 py-3 text-center text-sm transition lg:px-4 ${
                   selected
                     ? "bg-white font-medium text-navy-950"
                     : "text-slate-500 hover:text-navy-950"
@@ -150,6 +192,7 @@ export default function OrganizingCommittee() {
           aria-labelledby={`committee-tab-${activeTab}`}
           className="mt-12 space-y-16"
         >
+          {Panel && <Panel />}
           {groups.map((group) => (
             <section key={group.role}>
               <SectionHeading title={group.role} />

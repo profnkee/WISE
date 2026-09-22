@@ -24,17 +24,7 @@ export const NAV_LINKS = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "General Chair", to: "/general-chair" },
-  {
-    label: "Committee",
-    children: [
-      { label: "Advisory Committee", to: "/advisory-committee" },
-      { label: "Organizing Committee", to: "/organizing-committee" },
-      {
-        label: "Technical Program Committee",
-        to: "/technical-program-committee",
-      },
-    ],
-  },
+  { label: "Committee", to: "/organizing-committee" },
   {
     label: "Authors",
     children: [

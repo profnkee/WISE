@@ -28,6 +28,19 @@ export const TRACKS = [
     title:
       "Artificial Intelligence, Data Analytics, Cybersecurity and Intelligent Systems",
   },
+  {
+    id: "Track 05",
+    title: "Innovation, Entrepreneurship and Emerging Technologies",
+  },
+  {
+    id: "Track 06",
+    title: "Healthcare, Bioengineering and Sustainable Agriculture",
+  },
+  {
+    id: "Track 07",
+    title:
+      "Finance, Business Intelligence, Education and Digital Transformation",
+  },
 ];
 
 export const SPECIAL_SESSION_TOPICS = [

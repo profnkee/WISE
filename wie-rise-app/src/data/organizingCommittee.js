@@ -91,14 +91,14 @@ export const ORGANIZING_COMMITTEE = [
         photo: "/images/PG.jpeg",
       },
       {
-        name: "Prof. Winnie Ye",
-        affiliation: "Carleton University, Canada",
-        photo: "/images/winnie-ye.jpg",
-      },
-      {
         name: "Prof. Preeti Bajaj",
         affiliation: "VC, Galgotias University, India",
         photo: "/images/preeti-bajaj.jpg",
+      },
+      {
+        name: "Prof. Winnie Ye",
+        affiliation: "Carleton University, Canada",
+        photo: "/images/winnie-ye.jpg",
       },
     ],
   },
@@ -125,11 +125,11 @@ export const ORGANIZING_COMMITTEE = [
   {
     role: "Chairperson",
     members: [
-      {
-        name: "Prof. Satish Kumar",
-        affiliation: "Dean R&C, NIT Jamshedpur, India",
-        photo: "/images/satish kumar.jpeg",
-      },
+      // {
+      //   name: "Prof. Satish Kumar",
+      //   affiliation: "Dean R&C, NIT Jamshedpur, India",
+      //   photo: "/images/satish kumar.jpeg",
+      // },
       {
         name: "Prof. Sanjay",
         affiliation: "NIT Jamshedpur, India",
@@ -140,11 +140,11 @@ export const ORGANIZING_COMMITTEE = [
         affiliation: "NIT Jamshedpur, India",
         photo: "/images/saroj.jpg",
       },
-      {
-        name: "Dr. Rashmi Sinha",
-        affiliation: "NIT Jamshedpur, India",
-        photo: "/images/rsinha.png",
-      },
+      // {
+      //   name: "Dr. Rashmi Sinha",
+      //   affiliation: "NIT Jamshedpur, India",
+      //   photo: "/images/rsinha.png",
+      // },
     ],
   },
   {
@@ -459,11 +459,11 @@ export const ORGANIZING_COMMITTEE = [
         affiliation: "B.K. Birla Institute of Engineering & Technology, Pilani",
         photo: "/images/anupama-sharma.jpg",
       },
-      {
-        name: "Dr. Rajesh Singh Shekhawat",
-        affiliation: "B.K. Birla Institute of Engineering & Technology, Pilani",
-        photo: "/images/rajesh-singh-shekhawat.jpg",
-      },
+      // {
+      //   name: "Dr. Rajesh Singh Shekhawat",
+      //   affiliation: "B.K. Birla Institute of Engineering & Technology, Pilani",
+      //   photo: "/images/rajesh-singh-shekhawat.jpg",
+      // },
     ],
   },
   {

@@ -65,6 +65,11 @@ export default function Registration() {
               </tbody>
             </table>
           </div>
+          <p className="mt-4 text-sm text-slate-600">
+            <span className="font-semibold text-navy-950">Note:</span> The registration fee mentioned above is
+            exclusive of applicable taxes. 18% GST will be charged additionally on the applicable registration fee,
+            as per prevailing government regulations.
+          </p>
         </div>
 
         <div className="mt-16">

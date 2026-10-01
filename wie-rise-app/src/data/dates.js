@@ -1,8 +1,8 @@
 export const IMPORTANT_DATES = [
-  { milestone: "Paper Submission Open", date: "August 25, 2026" },
+  { milestone: "Paper Submission Open", date: "August 10, 2026" },
   { milestone: "Paper Submission Closes", date: "December 15, 2026" },
-  { milestone: "Paper Acceptance Notification", date: "February 15, 2027" },
-  { milestone: "Early Bird Registration Opens", date: "February 15, 2027" },
+  { milestone: "Paper Acceptance Notification", date: "February 10, 2027" },
+  { milestone: "Early Bird Registration Opens", date: "February 10, 2027" },
   { milestone: "Early Bird Registration Closes", date: "February 28, 2027" },
   { milestone: "Standard Registration Opens", date: "March 1, 2027" },
   { milestone: "Last Date of Camera Ready", date: "February 28, 2027" },
@@ -101,48 +101,41 @@ export const AWARDS = [
   },
 ];
 
+export const REGISTRATION_DEADLINES = {
+  earlyBird: "Up to February 20, 2027",
+  standard: "After February 20, 2027",
+};
+
 export const REGISTRATION_FEES = [
   {
-    category: "Non-IEEE Member",
-    inVirtual: "₹8,000",
-    foreignVirtual: "$330",
-    inPhysical: "₹9,000",
-    foreignPhysical: "$380",
+    category: "Non-IEEE Member (Academia/Industry)",
+    earlyBird: { inVirtual: "₹8,000", inPhysical: "₹9,000", foreignVirtual: "$330", foreignPhysical: "$380" },
+    standard: { inVirtual: "₹8,500", inPhysical: "₹9,500", foreignVirtual: "$380", foreignPhysical: "$430" },
   },
   {
-    category: "IEEE Member",
-    inVirtual: "₹6,500",
-    foreignVirtual: "$280",
-    inPhysical: "₹7,500",
-    foreignPhysical: "$330",
+    category: "IEEE Member (Academia/Industry)",
+    earlyBird: { inVirtual: "₹6,500", inPhysical: "₹7,500", foreignVirtual: "$280", foreignPhysical: "$330" },
+    standard: { inVirtual: "₹7,000", inPhysical: "₹8,000", foreignVirtual: "$330", foreignPhysical: "$380" },
   },
   {
-    category: "Student Non-IEEE Member",
-    inVirtual: "₹6,000",
-    foreignVirtual: "$270",
-    inPhysical: "₹7,000",
-    foreignPhysical: "$320",
+    category: "Non-IEEE Member (Student)",
+    earlyBird: { inVirtual: "₹6,000", inPhysical: "₹7,000", foreignVirtual: "$270", foreignPhysical: "$320" },
+    standard: { inVirtual: "₹6,500", inPhysical: "₹7,500", foreignVirtual: "$320", foreignPhysical: "$370" },
   },
   {
-    category: "IEEE Student Member",
-    inVirtual: "₹5,000",
-    foreignVirtual: "$220",
-    inPhysical: "₹6,000",
-    foreignPhysical: "$270",
+    category: "IEEE Member (Student)",
+    earlyBird: { inVirtual: "₹5,000", inPhysical: "₹6,000", foreignVirtual: "$220", foreignPhysical: "$270" },
+    standard: { inVirtual: "₹5,500", inPhysical: "₹6,500", foreignVirtual: "$270", foreignPhysical: "$320" },
   },
   {
     category: "Student Attendee (Non-Author)",
-    inVirtual: "₹2,500",
-    foreignVirtual: "$120",
-    inPhysical: "₹3,500",
-    foreignPhysical: "$170",
+    earlyBird: { inVirtual: "₹2,500", inPhysical: "₹3,500", foreignVirtual: "$120", foreignPhysical: "$170" },
+    standard: { inVirtual: "₹3,000", inPhysical: "₹4,000", foreignVirtual: "$170", foreignPhysical: "$220" },
   },
   {
     category: "Professional Attendee (Non-Author)",
-    inVirtual: "₹3,000",
-    foreignVirtual: "$150",
-    inPhysical: "₹4,000",
-    foreignPhysical: "$210",
+    earlyBird: { inVirtual: "₹3,000", inPhysical: "₹4,000", foreignVirtual: "$150", foreignPhysical: "$210" },
+    standard: { inVirtual: "₹3,500", inPhysical: "₹4,500", foreignVirtual: "$180", foreignPhysical: "$260" },
   },
 ];
 

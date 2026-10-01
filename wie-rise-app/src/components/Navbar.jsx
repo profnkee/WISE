@@ -6,7 +6,7 @@ function DesktopItem({ item }) {
   if (item.children) {
     return (
       <li className="group relative">
-        <button className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-semibold text-slate-100/90 transition hover:bg-white/10 hover:text-white">
+        <button className="flex items-center gap-1 px-2.5 py-1.5 text-[15px] text-white transition hover:text-sky-400">
           {item.label}
           <svg
             className="h-3.5 w-3.5 opacity-70 transition group-hover:rotate-180"
@@ -20,16 +20,16 @@ function DesktopItem({ item }) {
             />
           </svg>
         </button>
-        <ul className="invisible absolute left-0 top-full z-30 min-w-[240px] translate-y-1 rounded-xl bg-white p-2 opacity-0 shadow-xl ring-1 ring-black/5 transition-all duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+        <ul className="invisible absolute left-0 top-full z-30 min-w-[250px] translate-y-1 border-t-2 border-sky-500 bg-white py-1 opacity-0 shadow-lg transition-all duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
           {item.children.map((child) => (
             <li key={child.to}>
               <NavLink
                 to={child.to}
                 className={({ isActive }) =>
-                  `block rounded-lg px-3 py-2 text-sm font-medium transition ${
+                  `block px-4 py-2 text-sm transition ${
                     isActive
-                      ? "bg-navy-900 text-white"
-                      : "text-slate-700 hover:bg-slate-100"
+                      ? "bg-navy-950 text-white"
+                      : "text-slate-700 hover:bg-navy-950 hover:text-white"
                   }`
                 }
               >
@@ -48,10 +48,8 @@ function DesktopItem({ item }) {
         to={item.to}
         end={item.to === "/"}
         className={({ isActive }) =>
-          `block rounded-md px-3 py-2 text-sm font-semibold transition ${
-            isActive
-              ? "bg-white/15 text-white"
-              : "text-slate-100/90 hover:bg-white/10 hover:text-white"
+          `block px-2.5 py-1.5 text-[15px] transition ${
+            isActive ? "text-sky-400" : "text-white hover:text-sky-400"
           }`
         }
       >
@@ -69,7 +67,7 @@ function MobileItem({ item, onNavigate }) {
       <li>
         <button
           onClick={() => setOpen((o) => !o)}
-          className="flex w-full items-center justify-between rounded-md px-3 py-2.5 text-left text-sm font-semibold text-slate-100 hover:bg-white/10"
+          className="flex w-full items-center justify-between border-b border-white/10 px-3 py-2.5 text-left text-[15px] text-white hover:text-sky-400"
         >
           {item.label}
           <svg
@@ -112,7 +110,7 @@ function MobileItem({ item, onNavigate }) {
         to={item.to}
         end={item.to === "/"}
         className={({ isActive }) =>
-          `block rounded-md px-3 py-2.5 text-sm font-semibold ${isActive ? "bg-white/15 text-white" : "text-slate-100 hover:bg-white/10"}`
+          `block border-b border-white/10 px-3 py-2.5 text-[15px] ${isActive ? "text-sky-400" : "text-white hover:text-sky-400"}`
         }
       >
         {item.label}
@@ -138,26 +136,29 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
-        scrolled
-          ? "border-white/10 bg-navy-900/95 py-1.5 shadow-lg shadow-black/20 backdrop-blur"
-          : "border-transparent bg-gradient-to-r from-navy-950 via-navy-900 to-navy-800 py-3"
+      className={`sticky top-0 z-50 bg-navy-950 py-2 transition-shadow duration-300 ${
+        scrolled ? "shadow-lg shadow-black/30" : ""
       }`}
     >
-      <div className="mx-auto flex max-w-8xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <NavLink to="/" className="flex items-center gap-2 shrink-0">
+      <div className="flex items-center justify-between gap-6 px-4 sm:px-6 lg:px-5">
+        <NavLink to="/" className="flex shrink-0 items-center gap-2.5">
           <img
-            src="/assets/nitlogosc.png"
+            src="/assets/National_Institute_of_Technology,_Jamshedpur_Logo.png"
             alt="NIT Jamshedpur"
-            className="h-10 w-auto rounded-lg"
+            className="h-14 w-auto brightness-0 invert"
           />
-          <span className="hidden font-display text-lg tracking-wide text-white sm:block">
-            {SITE.shortName}
+          <span className="leading-none text-white">
+            <span className="block font-display text-[22px] font-bold tracking-tight">
+              {SITE.shortName}
+            </span>
+            <span className="mt-1 block text-[13px] text-white/90">
+              NIT Jamshedpur
+            </span>
           </span>
         </NavLink>
 
         <nav className="hidden lg:block">
-          <ul className="flex items-center gap-0.5">
+          <ul className="flex max-w-4xl flex-wrap items-center justify-end">
             {NAV_LINKS.map((item) => (
               <DesktopItem key={item.label} item={item} />
             ))}
@@ -194,8 +195,8 @@ export default function Navbar() {
       </div>
 
       {mobileOpen && (
-        <nav className="mx-4 mt-3 rounded-xl bg-navy-900/98 p-2 shadow-2xl lg:hidden">
-          <ul className="flex flex-col gap-0.5">
+        <nav className="mt-2 border-t border-white/10 bg-navy-950 px-4 pb-3 lg:hidden">
+          <ul className="flex flex-col">
             {NAV_LINKS.map((item) => (
               <MobileItem
                 key={item.label}

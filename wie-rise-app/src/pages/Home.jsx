@@ -1,37 +1,11 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import Banner from "../components/Banner";
+import Ticker from "../components/Ticker";
 import Container from "../components/Container";
 import SectionHeading from "../components/SectionHeading";
 import Countdown from "../components/Countdown";
 import { SITE } from "../data/site";
 import { TRACKS, IMPORTANT_DATES } from "../data/dates";
-
-const COLORS = [
-  {
-    grad: "from-cyan-500 to-cyan-600",
-    soft: "bg-cyan-50 text-cyan-600",
-    text: "text-cyan-600",
-    text400: "text-cyan-400",
-  },
-  {
-    grad: "from-violet-500 to-purple-600",
-    soft: "bg-violet-50 text-violet-600",
-    text: "text-violet-600",
-    text400: "text-violet-400",
-  },
-  {
-    grad: "from-amber-400 to-orange-500",
-    soft: "bg-amber-50 text-amber-600",
-    text: "text-amber-600",
-    text400: "text-amber-400",
-  },
-  {
-    grad: "from-emerald-400 to-teal-500",
-    soft: "bg-emerald-50 text-emerald-600",
-    text: "text-emerald-600",
-    text400: "text-emerald-400",
-  },
-];
 
 const QUICK_FACTS = [
   {
@@ -206,220 +180,237 @@ const HIGHLIGHTS = [
   },
 ];
 
+const QUICK_LINKS = [
+  { label: "Call for Papers", to: "/call-for-papers" },
+  { label: "Important Dates", to: "/important-dates" },
+  { label: "Registration", to: "/registration" },
+  { label: "Paper Submission Guidelines", to: "/manuscript-submission" },
+  { label: "Organizing Committee", to: "/organizing-committee" },
+  { label: "Speakers", to: "/speakers" },
+  { label: "Venue", to: "/venue" },
+];
+
+const WEBSITES = [
+  {
+    label: "NIT Jamshedpur Website",
+    href: "https://www.nitjsr.ac.in",
+    logo: "/assets/NITJSRNEWLOG.png",
+    alt: "NIT Jamshedpur",
+  },
+  {
+    label: "IEEE Kolkata Section Website",
+    href: "https://ewh.ieee.org/r10/calcutta/",
+    logo: "/assets/IEEEKSpng.png",
+    alt: "IEEE Kolkata Section",
+  },
+];
+
+function SideBox({ title, children }) {
+  return (
+    <div className="rounded border border-slate-300 bg-[#f5f5f5] px-3 py-4">
+      <h3 className="text-center text-[22px] font-bold text-navy-800">
+        {title}
+      </h3>
+      <div className="mt-3">{children}</div>
+    </div>
+  );
+}
+
 export default function Home() {
-  const [videoFailed, setVideoFailed] = useState(false);
-  const upcomingDates = IMPORTANT_DATES.slice(0, 5);
+  const announcements = IMPORTANT_DATES.slice(1, 3);
 
   return (
     <div>
-      {/* Hero */}
-      <section className="relative flex min-h-screen items-center overflow-hidden bg-navy-950 pt-24 text-white">
-        {!videoFailed && (
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            onError={() => setVideoFailed(true)}
-            className="absolute inset-0 h-full w-full object-cover"
-          >
-            <source
-              src="https://res.cloudinary.com/dzcwojp3z/video/upload/v1757583769/campusTour_1_xsdxap.mp4"
-              type="video/mp4"
+      <Banner tall />
+
+      {/* Countdown band — styled like DELCON's keynote speaker band */}
+      <section className="relative overflow-hidden text-white">
+        <img
+          src="/assets/NIT-NIGHT.jpeg"
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover blur-[2px]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-950/85 to-navy-950/55" />
+
+        <div className="relative mx-auto grid max-w-[1300px] items-center gap-10 px-6 py-16 lg:grid-cols-[340px_1fr] lg:gap-20 lg:px-20">
+          <div className="mx-auto w-full max-w-[340px] border-[10px] border-[#f5b82e] bg-white p-6">
+            <img
+              src="/assets/nitlogosc.png"
+              alt="WIE-RISE"
+              className="mx-auto w-full"
             />
-          </video>
-        )}
-        {videoFailed && (
-          <img
-            src="/assets/nit-jamshedpur-placement (1).jpg"
-            alt=""
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        )}
-        {/* Keep text legible on the left without dimming the image itself */}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-950/60 to-navy-950/10 sm:from-navy-950/95 sm:via-navy-950/55 sm:to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-navy-950 to-transparent" />
-        <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-blue-600/20 blur-3xl" />
-        <div className="pointer-events-none absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-sky-500/10 blur-3xl" />
-
-        <Container className="relative py-20">
-          <p className="font-display text-lg font-bold uppercase tracking-[0.2em] text-white sm:text-xl">
-            {SITE.institute}
-          </p>
-          <p className="mt-2 text-sm font-semibold uppercase tracking-[0.25em] text-sky-400">
-            {SITE.departments}
-          </p>
-          <h1 className="mt-4 max-w-4xl font-display text-3xl leading-tight tracking-wide sm:text-5xl lg:text-6xl">
-            1st IEEE Conference on WIE-RISE
-          </h1>
-          <p className="mt-3 max-w-2xl text-lg text-slate-200/90 sm:text-xl">
-            Revolutionizing Innovation in Smart Engineering
-          </p>
-
-          <div className="mt-6 flex flex-wrap items-center gap-3 text-slate-200">
-            <svg
-              className="h-5 w-5 text-sky-400"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M8 7V3m8 4V3M3 11h18M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z"
-              />
-            </svg>
-            <span className="font-semibold">{SITE.dates}</span>
-            <span className="text-slate-400">•</span>
-            <span>{SITE.venueShort}</span>
           </div>
 
-          <div className="mt-10 flex flex-wrap items-center gap-3">
-            <a
-              href="#"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-navy-700 to-blue-600 px-6 py-3 text-sm font-semibold shadow-lg shadow-blue-900/30 transition hover:brightness-110"
-            >
-              Download Schedule
-              {/* <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 5l7 7-7 7M5 12h15" />
-              </svg> */}
-            </a>
-            <Link
-              to="/call-for-papers"
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-            >
-              Submit a Paper
-            </Link>
-          </div>
-          <div className="mt-10 text-center">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-slate-400">
+          <div>
+            <span className="inline-block rounded-full bg-[#f5b82e] px-7 py-1.5 font-display text-sm font-medium uppercase tracking-wide text-navy-950">
               Countdown to the Conference
+            </span>
+            <h2 className="mt-5 font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-[58px]">
+              {SITE.shortName}
+            </h2>
+            <p className="mt-1 font-display text-lg text-[#f5c242] sm:text-2xl">
+              Revolutionizing Innovation in Smart Engineering
             </p>
-            <div className="flex justify-center">
+            <div className="mt-4 h-[3px] w-24 bg-[#f5b82e]" />
+
+            <div className="mt-6">
               <Countdown target={SITE.targetDate} />
             </div>
-          </div>
-        </Container>
-      </section>
 
-      {/* Quick facts strip — overlaps hero/next section boundary */}
-      <div className="relative z-10 -mt-10 px-4 sm:-mt-12 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-5xl grid-cols-2 divide-y divide-slate-100 rounded-2xl bg-white shadow-xl ring-1 ring-slate-900/5 sm:grid-cols-4 sm:divide-x sm:divide-y-0">
-          {QUICK_FACTS.map((fact, i) => (
-            <div key={fact.label} className="flex items-center gap-3 px-5 py-5">
-              <div
-                className={`grid h-10 w-10 shrink-0 place-items-center rounded-full ${COLORS[i % COLORS.length].soft}`}
-              >
-                <svg
-                  className="h-5 w-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                >
-                  {fact.icon}
-                </svg>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-wide text-slate-400">
-                  {fact.label}
-                </p>
-                <p className="text-sm font-semibold text-navy-950">
-                  {fact.value}
-                </p>
-              </div>
+            <div className="mt-8 border-t border-white/70 pt-5">
+              <p className="font-display text-xl font-medium sm:text-2xl">
+                1st IEEE Conference on {SITE.shortName}
+              </p>
+              <p className="mt-1 font-display text-white/85">
+                {SITE.departments}
+              </p>
+              <p className="mt-3 font-display font-medium text-[#f5c242]">
+                {SITE.dates}&nbsp; | &nbsp;{SITE.venueShort}
+              </p>
             </div>
-          ))}
-        </div>
-      </div>
 
-      {/* Marquee */}
-      <div className="mt-14 overflow-hidden border-y border-navy-900/10 bg-navy-900 py-2.5 text-sm text-slate-100">
-        <div className="animate-marquee whitespace-nowrap">
-          {Array.from({ length: 4 }).map((_, i) => (
-            <span key={i} className="mx-8 inline-flex items-center gap-8">
-              WIE-RISE will be organized at NIT Jamshedpur, Jharkhand, India,
-              during April 01–03, 2027.
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href="#"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded bg-cta px-5 py-2.5 text-sm text-white transition hover:brightness-110"
+              >
+                Download Schedule
+              </a>
               <Link
                 to="/call-for-papers"
-                className="font-semibold text-sky-400 hover:underline"
+                className="rounded border border-white/70 px-5 py-2.5 text-sm text-white transition hover:bg-white hover:text-navy-950"
               >
-                Call for Papers →
+                Submit a Paper
               </Link>
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* About */}
-      <section className="relative overflow-hidden py-20">
-        <div className="pointer-events-none absolute -left-32 top-10 h-80 w-80 rounded-full bg-blue-200/40 blur-3xl" />
-        <div className="pointer-events-none absolute -right-24 top-1/2 h-96 w-96 rounded-full bg-violet-200/30 blur-3xl" />
-        <div className="pointer-events-none absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-amber-200/30 blur-3xl" />
-        <Container className="relative">
-          <SectionHeading
-            eyebrow="Introduction"
-            title="About WIE-RISE 2027"
-            center
-          />
-          <div className="mt-12 space-y-8">
-            {ABOUT_ITEMS.map((item, i) => {
-              const c = COLORS[i % COLORS.length];
-              const imageFirst = i % 2 === 0;
-              return (
-                <div
-                  key={item.label}
-                  className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm ring-1 ring-black/5"
-                >
-                  <div className={`h-1.5 bg-gradient-to-r ${c.grad}`} />
-                  <div className="grid items-center gap-8 p-6 sm:p-8 lg:grid-cols-2">
-                    <img
-                      src={item.image}
-                      alt={item.alt}
-                      className={`aspect-[4/3] w-full rounded-2xl object-cover shadow-md ${
-                        imageFirst ? "lg:order-1" : "lg:order-2"
-                      }`}
-                    />
-                    <div className={imageFirst ? "lg:order-2" : "lg:order-1"}>
-                      <span
-                        className={`inline-block rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest ${c.soft}`}
-                      >
-                        {item.label}
-                      </span>
-                      <p className="mt-4 text-justify leading-relaxed text-slate-600">
-                        {item.text}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+            </div>
           </div>
-        </Container>
+        </div>
       </section>
 
+      <div className="bg-page pt-12">
+        <Ticker />
+
+        {/* Announcement box */}
+        <div className="mx-auto mt-3 max-w-[1200px] px-4">
+          <div className="rounded-lg border border-slate-300 bg-white px-6 py-6 text-center shadow-sm">
+            {announcements.map((d) => (
+              <p
+                key={d.milestone}
+                className="text-lg font-bold text-navy-900 sm:text-[22px] sm:leading-9"
+              >
+                {d.milestone} :&nbsp; {d.date}
+              </p>
+            ))}
+          </div>
+        </div>
+
+        {/* About + sidebar */}
+        <section className="mx-auto max-w-[1220px] px-4 pt-8 pb-12">
+          <div className="grid gap-3 lg:grid-cols-[2fr_1fr]">
+            <div>
+              <div className="text-center">
+                <h2 className="title-pill text-lg sm:text-[22px]">
+                  About {SITE.shortName}
+                </h2>
+              </div>
+              {ABOUT_ITEMS.map((item) => (
+                <div
+                  key={item.label}
+                  className="mt-5 rounded-lg border border-slate-300 bg-white px-5 py-6 sm:px-6"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    className="mb-5 aspect-[21/9] w-full rounded object-cover"
+                  />
+                  <p className="text-[15px] leading-relaxed text-slate-700 sm:text-justify">
+                    {item.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <aside className="space-y-4 lg:mt-[72px] lg:max-w-[300px]">
+              <SideBox title="Quick Links">
+                <ul className="space-y-2">
+                  {QUICK_LINKS.map((l) => (
+                    <li key={l.to}>
+                      <Link to={l.to} className="text-link hover:underline">
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </SideBox>
+
+              <SideBox title="At a Glance">
+                <ul className="space-y-3">
+                  {QUICK_FACTS.map((fact) => (
+                    <li key={fact.label} className="flex items-start gap-3">
+                      <svg
+                        className="mt-0.5 h-5 w-5 shrink-0 text-navy-800"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                      >
+                        {fact.icon}
+                      </svg>
+                      <div>
+                        <p className="text-xs uppercase tracking-wide text-slate-500">
+                          {fact.label}
+                        </p>
+                        <p className="text-sm font-bold text-navy-800">
+                          {fact.value}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </SideBox>
+
+              <SideBox title="In Association With">
+                <div className="bg-white p-4">
+                  <img
+                    src="/assets/IEEEKSpng.png"
+                    alt="IEEE Kolkata Section"
+                    className="mx-auto h-20 w-auto"
+                  />
+                </div>
+              </SideBox>
+            </aside>
+          </div>
+
+          <div className="mx-auto mt-6 flex max-w-[400px] items-stretch bg-white shadow-sm lg:mx-0 lg:ml-[calc((66.66%-400px)/2)]">
+            <div className="flex w-28 shrink-0 flex-col justify-center bg-[#e87722] px-3 py-3 text-white">
+              <span className="text-xl font-bold leading-none">IEEE</span>
+              <span className="text-xl italic leading-tight">Xplore®</span>
+              <span className="text-[10px] italic">Digital Library</span>
+            </div>
+            <p className="px-3 py-2 text-[13px] font-bold leading-snug text-[#d6204e]">
+              Accepted and presented papers will be submitted for possible
+              inclusion in IEEE Xplore®, subject to IEEE quality and compliance
+              requirements.
+            </p>
+          </div>
+        </section>
+      </div>
+
       {/* Why Attend */}
-      <section className="bg-slate-50 py-20">
+      <section className="bg-white py-16">
         <Container>
-          <SectionHeading
-            eyebrow="Why Attend"
-            title="What Makes WIE-RISE 2027"
-            center
-          />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {HIGHLIGHTS.map((h, i) => (
+          <SectionHeading title={`Why Attend ${SITE.shortName}`} center />
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {HIGHLIGHTS.map((h) => (
               <div
                 key={h.title}
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                className="rounded-lg border border-slate-200 bg-white p-6 text-center shadow-[0_2px_12px_rgba(0,0,0,0.08)]"
               >
-                <div
-                  className={`grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br text-white ${COLORS[i % COLORS.length].grad}`}
-                >
+                <div className="mx-auto grid h-16 w-16 place-items-center rounded-full border-4 border-[#f5d000] bg-navy-950 text-white">
                   <svg
-                    className="h-6 w-6"
+                    className="h-7 w-7"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -428,7 +419,7 @@ export default function Home() {
                     {h.icon}
                   </svg>
                 </div>
-                <h3 className="mt-4 font-display text-lg tracking-wide text-navy-950">
+                <h3 className="mt-4 text-lg font-bold text-navy-800">
                   {h.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">
@@ -437,7 +428,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <p className="mt-6 text-center text-xs text-slate-400">
+          <p className="mt-6 text-center text-xs text-slate-500">
             *Subject to compliance with IEEE quality standards and presentation
             at the conference.
           </p>
@@ -445,126 +436,88 @@ export default function Home() {
       </section>
 
       {/* Tracks */}
-      <section className="py-20">
+      <section className="bg-page py-16">
         <Container>
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <SectionHeading eyebrow="Scope" title="Explore the Tracks" />
-            <Link
-              to="/call-for-papers"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-navy-700 hover:underline"
-            >
-              Full Call for Papers →
-            </Link>
-          </div>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2">
+          <SectionHeading title="Conference Tracks" center />
+          <div className="mx-auto mt-10 max-w-5xl overflow-hidden rounded-lg border border-slate-300 bg-white">
             {TRACKS.map((t, i) => (
               <div
                 key={t.id}
-                className="group relative overflow-hidden rounded-2xl border border-slate-200 p-6 pt-7 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+                className={`flex flex-col gap-1 px-5 py-4 sm:flex-row sm:items-center sm:gap-6 ${
+                  i % 2 ? "bg-[#f5f7fb]" : "bg-white"
+                } ${i ? "border-t border-slate-200" : ""}`}
               >
-                <div
-                  className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${COLORS[i % COLORS.length].grad}`}
-                />
-                <span
-                  className={`inline-block rounded-full px-2.5 py-1 text-xs font-bold uppercase tracking-widest ${COLORS[i % COLORS.length].soft}`}
-                >
+                <span className="w-24 shrink-0 font-bold text-navy-800">
                   {t.id}
                 </span>
-                <h3 className="mt-3 font-display text-lg tracking-wide text-navy-950">
-                  {t.title}
-                </h3>
+                <span className="text-[15px] text-slate-800">{t.title}</span>
               </div>
             ))}
           </div>
-        </Container>
-      </section>
-
-      {/* Key Dates teaser */}
-      <section className="bg-navy-950 py-20 text-white">
-        <Container>
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <SectionHeading eyebrow="Timeline" title="Key Dates" />
-            <Link
-              to="/important-dates"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-sky-400 hover:underline"
-            >
-              View All Dates →
-            </Link>
-          </div>
-
-          <div className="mt-10 grid gap-4 sm:grid-cols-5">
-            {upcomingDates.map((d, i) => (
-              <div
-                key={d.milestone}
-                className="rounded-xl border border-white/10 bg-white/5 p-5"
-              >
-                <span
-                  className={`font-display text-2xl ${COLORS[i % COLORS.length].text400}`}
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="mt-3 text-sm font-semibold text-white">
-                  {d.milestone}
-                </p>
-                <p className="mt-1 text-xs text-slate-300">{d.date}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Sponsors */}
-      <section className="bg-gradient-to-br from-amber-50 via-orange-50/60 to-slate-50 py-20">
-        <Container>
-          <SectionHeading eyebrow="Support" title="Organised By" center />
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-12">
-            <img
-              src="/assets/NITB&WLogo.png"
-              alt="NIT Jamshedpur"
-              className="h-16 object-contain"
-            />
-            <img
-              src="/assets/nitlogosc.png"
-              alt="Organizer"
-              className="h-16 object-contain rounded-lg"
-            />
-          </div>
-        </Container>
-      </section>
-
-      {/* Final CTA */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-950 to-navy-800 py-20 text-white">
-        <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-sky-500/20 blur-3xl" />
-        <Container className="relative text-center">
-          <h2 className="font-display text-2xl tracking-wide sm:text-3xl">
-            Ready to be part of WIE-RISE 2027?
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-slate-200/90">
-            Submit your research, join the conversation, and connect with the
-            smart engineering community at NIT Jamshedpur this April.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <div className="mt-8 text-center">
             <Link
               to="/call-for-papers"
-              className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-navy-950 transition hover:bg-slate-100"
+              className="inline-block rounded bg-cta px-5 py-2.5 text-sm text-white transition hover:brightness-110"
             >
-              Submit Your Paper
-            </Link>
-            <Link
-              to="/registration"
-              className="rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-            >
-              Register Now
-            </Link>
-            <Link
-              to="/contact"
-              className="rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-            >
-              Contact Us
+              Full Call for Papers
             </Link>
           </div>
         </Container>
       </section>
+
+      {/* Key Dates */}
+      <section className="bg-white py-16">
+        <Container>
+          <SectionHeading title="Important Dates" center />
+          <div className="mx-auto mt-10 max-w-3xl overflow-hidden rounded-lg border border-slate-300">
+            <table className="w-full text-left text-[15px]">
+              <thead className="bg-navy-800 text-white">
+                <tr>
+                  <th className="px-5 py-3 font-bold">Event</th>
+                  <th className="px-5 py-3 font-bold">Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {IMPORTANT_DATES.map((d, i) => (
+                  <tr
+                    key={d.milestone}
+                    className={i % 2 ? "bg-[#f5f7fb]" : "bg-white"}
+                  >
+                    <td className="border-t border-slate-200 px-5 py-3 text-slate-800">
+                      {d.milestone}
+                    </td>
+                    <td className="border-t border-slate-200 px-5 py-3 font-bold text-navy-900">
+                      {d.date}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Container>
+      </section>
+
+      {/* External websites — alternating bands with red buttons */}
+      {WEBSITES.map((w, i) => (
+        <section
+          key={w.href}
+          className={`py-14 text-center ${i % 2 ? "bg-white" : "bg-page"}`}
+        >
+          <img
+            src={w.logo}
+            alt={w.alt}
+            className="mx-auto h-20 w-auto max-w-[90%] object-contain"
+          />
+          <a
+            href={w.href}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-8 inline-block rounded bg-cta px-5 py-2.5 text-[15px] text-white transition hover:brightness-110"
+          >
+            {w.label}
+          </a>
+        </section>
+      ))}
     </div>
   );
 }

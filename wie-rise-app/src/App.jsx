@@ -7,6 +7,7 @@ import GeneralChair from './pages/GeneralChair'
 import OrganizingCommittee from './pages/OrganizingCommittee'
 import CallForPapers from './pages/CallForPapers'
 import SpecialSessions from './pages/SpecialSessions'
+import SpecialSessionPapers from './pages/SpecialSessionPapers'
 import ImportantDates from './pages/ImportantDates'
 import ManuscriptSubmission from './pages/ManuscriptSubmission'
 import ConferenceProgram from './pages/ConferenceProgram'
@@ -34,6 +35,7 @@ function App() {
           <Route path="technical-program-committee" element={<Navigate to="/organizing-committee?tab=technical-program" replace />} />
           <Route path="call-for-papers" element={<CallForPapers />} />
           <Route path="special-sessions" element={<SpecialSessions />} />
+          <Route path="special-session-papers" element={<SpecialSessionPapers />} />
           <Route path="important-dates" element={<ImportantDates />} />
           <Route path="manuscript-submission" element={<ManuscriptSubmission />} />
           <Route path="conference-program" element={<ConferenceProgram />} />

@@ -183,3 +183,41 @@ export const FAQS = [
     a: "You can reach the organizing team at wierise@nitjsr.ac.in or krnishant125@gmail.com.",
   },
 ];
+
+export const SPECIAL_SESSION_PAPERS = [
+  {
+    label: "Special Session 1",
+    title:
+      "Emerging Technologies in Renewable Energy, Power Electronics and Intelligent Electric Mobility (ETREPE-IEM)",
+    pdf: "https://drive.google.com/file/d/1dziFMOZtsvAWlWVnJLA8CfXYxuTFGiuU/view",
+    faculty: [
+      { name: "Dr. Anamika Das", affiliation: "R. V. S. College of Engg and Technology, Jamshedpur", email: "u.zenith@gmail.com" },
+      { name: "Dr. Saibal Manna", affiliation: "ABES Engineering College, Ghaziabad", email: "saibal.manna@abes.ac.in" },
+      { name: "Dr. Bhupender Sharma", affiliation: "ABES Engineering College, Ghaziabad", email: "bhupender.sharma@abes.ac.in" },
+      { name: "Dr. Vivek Saxena", affiliation: "ABES Engineering College, Ghaziabad", email: "vivek.saxena@abes.ac.in" },
+    ],
+  },
+  {
+    label: "Special Session 2",
+    title:
+      "Renewable Energy Integration, Sustainability, and Optimization for Smart Grid Systems",
+    pdf: "https://drive.google.com/file/d/1BbZa4Gj8Nl9x0WamTUMrZ0QBDIhk7N2x/view",
+    faculty: [
+      { name: "Dr. Samita Rani Pani", affiliation: "KIIT Deemed to be University, Bhubaneswar, Odisha", email: "samita.panifel@kiit.ac.in" },
+      { name: "Dr. Manoj Kumar Kar", affiliation: "Tolani Maritime Institute, Pune", email: "manojkar132@gmail.com" },
+      { name: "Dr. Pallav Kumar Bera", affiliation: "Western Kentucky University, KY, USA", email: "pallav.bera@wku.edu" },
+      { name: "Dr. Pratap Chandra Pradhan", affiliation: "DRIEMS University, Odisha", email: "pratap_pin@yahoo.com" },
+    ],
+  },
+  {
+    label: "Special Session 3",
+    title:
+      "AI-Driven Energy Storage and Electric Mobility Solutions for Resilient Renewable Power Markets",
+    pdf: "https://drive.google.com/file/d/1iOoor5AJzLEVFuVFxQIXwRzWEXHFGq3D/view",
+    faculty: [
+      { name: "Dr. Debani Prasad Mishra", affiliation: "IIIT Bhubaneswar", email: "debani@iiit-bh.ac.in" },
+      { name: "Dr. Jayanta Kumar Sahu", affiliation: "Vignan's Institute of Information Technology, Visakhapatnam", email: "jayanta@vignaniit.edu.in" },
+      { name: "Dr. Surender Reddy Salkuti", affiliation: "Woosong University, Daejeon, South Korea", email: "surender@wsu.ac.kr" },
+    ],
+  },
+];

@@ -30,6 +30,7 @@ export const NAV_LINKS = [
     children: [
       { label: "Call for Papers", to: "/call-for-papers" },
       { label: "Call for Special Session", to: "/special-sessions" },
+      { label: "Special Sessions", to: "/special-session-papers" },
       { label: "Important Dates", to: "/important-dates" },
       { label: "Paper Submission Guidelines", to: "/manuscript-submission" },
       { label: "Conference Program", to: "/conference-program" },

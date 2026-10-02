@@ -191,7 +191,7 @@ export const ORGANIZING_COMMITTEE = [
         photo: "/images/_DSC1301-removebg-preview.png",
       },
       {
-        name: "Dr. Sudhanshu Tiwari",
+        name: "Dr. Shubhrangshu Tiwari",
         affiliation: "NIT Jamshedpur, India",
         photo: "/images/s tiwari.jpeg",
       },

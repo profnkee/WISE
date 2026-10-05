@@ -20,11 +20,11 @@ export const ORGANIZING_COMMITTEE = [
         affiliation: "Group Vice-Chancellor, BITS Pilani",
         photo: "/images/v-ramgopal-rao.jpg",
       },
-      // {
-      //   name: "Prof. Sukumar Mishra",
-      //   affiliation: "Director, IIT (ISM) Dhanbad, India",
-      //   photo: "/images/sukumar-mishra.jpg",
-      // },
+      {
+        name: "Prof. Sukumar Mishra",
+        affiliation: "Director, IIT (ISM) Dhanbad",
+        photo: "/images/sukumar-mishra-director.jpg",
+      },
       // {
       //   name: "Prof. N. P. Padhy",
       //   affiliation: "Director, MNIT Jaipur, India",
@@ -191,7 +191,7 @@ export const ORGANIZING_COMMITTEE = [
         photo: "/images/_DSC1301-removebg-preview.png",
       },
       {
-        name: "Dr. Shubhrangshu Tiwari",
+        name: "DDr. Shubhranshu Kumar Tiwary",
         affiliation: "NIT Jamshedpur, India",
         photo: "/images/s tiwari.jpeg",
       },

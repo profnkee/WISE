@@ -36,11 +36,11 @@ const COMMITTEE_TABS = [
   },
   { slug: "wie", label: "WIE", roles: ["WIE Chairs", "WIE Committee"] },
   { slug: "advisory", label: "Advisory Committee", Panel: AdvisoryCommittee },
-  {
-    slug: "technical-program",
-    label: "Technical Program Committee",
-    Panel: TechnicalProgramCommittee,
-  },
+  // {
+  //   slug: "technical-program",
+  //   label: "Technical Program Committee",
+  //   Panel: TechnicalProgramCommittee,
+  // },
 ];
 
 function initials(name) {
@@ -56,7 +56,7 @@ function initials(name) {
 
 function MemberCard({ member }) {
   return (
-    <div className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:shadow-md">
+    <div className="flex h-full items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:shadow-md">
       {member.photo ? (
         <img
           src={encodeURI(member.photo)}
@@ -195,13 +195,15 @@ export default function OrganizingCommittee() {
           {Panel && <Panel />}
           {groups.map((group) => (
             <section key={group.role}>
-              <SectionHeading title={group.role} />
-              <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              <SectionHeading title={group.role} center />
+              <div className="mt-8 flex flex-wrap justify-center gap-5">
                 {group.members.map((member) => (
-                  <MemberCard
+                  <div
                     key={`${group.role}-${member.name}`}
-                    member={member}
-                  />
+                    className="w-full md:w-[calc(50%-0.625rem)] xl:w-[calc(33.333%-0.834rem)]"
+                  >
+                    <MemberCard member={member} />
+                  </div>
                 ))}
               </div>
             </section>

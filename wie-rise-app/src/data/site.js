@@ -23,8 +23,8 @@ export const SITE = {
 export const NAV_LINKS = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
-  { label: "General Chair", to: "/general-chair" },
   { label: "Committee", to: "/organizing-committee" },
+  { label: "General Chair", to: "/general-chair" },
   {
     label: "Authors",
     children: [

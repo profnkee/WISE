@@ -213,7 +213,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative flex min-h-screen items-center overflow-hidden bg-navy-950 pt-24 text-white">
+      <section className="relative flex min-h-screen items-center overflow-hidden bg-slate-100 pt-24 text-navy-950">
         {!videoFailed && (
           <video
             autoPlay
@@ -236,29 +236,28 @@ export default function Home() {
             className="absolute inset-0 h-full w-full object-cover"
           />
         )}
-        {/* Keep text legible on the left without dimming the image itself */}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-950/60 to-navy-950/10 sm:from-navy-950/95 sm:via-navy-950/55 sm:to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-navy-950 to-transparent" />
-        <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-blue-600/20 blur-3xl" />
-        <div className="pointer-events-none absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-sky-500/10 blur-3xl" />
+        {/* Bright daylight wash on the left keeps text legible without darkening the campus */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/65 to-white/15 sm:from-white/90 sm:via-white/55 sm:to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-white to-transparent" />
+        <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-sky-200/40 blur-3xl" />
 
         <Container className="relative py-20">
-          <p className="font-display text-lg font-bold uppercase tracking-[0.2em] text-white sm:text-xl">
+          <p className="font-display text-lg font-bold uppercase tracking-[0.2em] text-navy-950 sm:text-xl">
             {SITE.institute}
           </p>
-          <p className="mt-2 text-sm font-semibold uppercase tracking-[0.25em] text-sky-400">
+          <p className="mt-2 text-sm font-bold uppercase tracking-[0.25em] text-navy-800">
             {SITE.departments}
           </p>
           <h1 className="mt-4 max-w-4xl font-display text-3xl leading-tight tracking-wide sm:text-5xl lg:text-6xl">
             1st IEEE Conference on WIE-RISE
           </h1>
-          <p className="mt-3 max-w-2xl text-lg text-slate-200/90 sm:text-xl">
+          <p className="mt-3 max-w-2xl text-lg font-medium text-slate-700 sm:text-xl">
             Revolutionizing Innovation in Smart Engineering
           </p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-3 text-slate-200">
+          <div className="mt-6 flex flex-wrap items-center gap-3 text-slate-800">
             <svg
-              className="h-5 w-5 text-sky-400"
+              className="h-5 w-5 text-navy-700"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -271,7 +270,7 @@ export default function Home() {
               />
             </svg>
             <span className="font-semibold">{SITE.dates}</span>
-            <span className="text-slate-400">•</span>
+            <span className="text-slate-500">•</span>
             <span>{SITE.venueShort}</span>
           </div>
 
@@ -280,7 +279,7 @@ export default function Home() {
               href="#"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-navy-700 to-blue-600 px-6 py-3 text-sm font-semibold shadow-lg shadow-blue-900/30 transition hover:brightness-110"
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-navy-700 to-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-navy-900/20 transition hover:brightness-110"
             >
               Download Schedule
               {/* <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -289,17 +288,19 @@ export default function Home() {
             </a>
             <Link
               to="/call-for-papers"
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+              className="inline-flex items-center gap-2 rounded-full border border-navy-950/30 bg-white/60 px-6 py-3 text-sm font-semibold text-navy-950 transition hover:bg-white"
             >
               Submit a Paper
             </Link>
           </div>
           <div className="mt-10 text-center">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-slate-400">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-slate-600">
               Countdown to the Conference
             </p>
             <div className="flex justify-center">
-              <Countdown target={SITE.targetDate} />
+              <div className="rounded-2xl bg-navy-950/85 shadow-xl">
+                <Countdown target={SITE.targetDate} />
+              </div>
             </div>
           </div>
         </Container>
